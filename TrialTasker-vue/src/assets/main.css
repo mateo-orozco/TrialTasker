@@ -1,10 +1,166 @@
 /* pallet color */
 :root {
-    --my-background: #edecec;
-    --my-shadow: #333;
-    --my-text-dark: #664200;
-    --my-text-ligth: #fff2bf;
+    --background: #edecec;
+    --brown: #664200;
+    --beige: #fff2bf;
     --my-hover-dark: #473800;
     --my-hover-ligth:#e8e8e8 ;
-  }
+    --white: #fff;
+}
+
+/* reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* body */
+
+body {
+    background-color: var(--background);
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+/* entry */
+
+.entry {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    min-height: 100vh;
+    background-image: url('@/assets/img/bg-entry.svg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 40px;
+}
+
+.card__entry {
+    
+    display: grid;
+    place-items: center;
+    width: 90%;
+    max-width: 500px;
+    padding: 40px;
+    background-color: var(--white);
+    border-radius: 45px;
+}
+
+.card__entry .entry__logo {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+}
+
+.card__entry .entry__logo svg {
+    width: 100%;
+}
+.card__entry .entry__logo svg g {
+    fill: #664200;
+}
+.card__entry a {
+  color: var(--brown);
+  font-size: 14px;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+.card__entry .text__entry {
+  text-align: center;
+  font-size: 0.9em;
+  margin-bottom: 20px;
+}
+
+.card__entry h3 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--brown);
+}
+.card__entry h2 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--brown);
+}
+
+/* movile */
+@media screen and (max-width: 768px) {
+    .card__entry {
+        padding: 20px;
+    }
+}
+.form-group {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+}
+
+.form-group label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+
+form {
+    width: 100%;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    outline: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-bottom: 10px;
+}
+
+
   
+.form-entry .form-group input{
+    border: none;
+    background-color: var(--background);
+    padding: 20px;
+    border-radius: 15px;
+    color: var(--brown);
+
+}
+.form-entry .form-group input::placeholder{
+  color: var(--brown);
+}
+
+.form-entry .btn {
+    background-color: var(--brown);
+    color: var(--white);
+    padding: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.login .form-group:first-child input {
+    border-radius: 15px 15px 0 0;
+    margin-bottom: 0;
+}
+
+.login .form-group:nth-child(2) input{
+    border-radius: 0 0 15px 15px;
+}
+
