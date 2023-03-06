@@ -1,16 +1,20 @@
 <template>
-    <form  @submit.prevent="authStore.handleForgotPassword(form)">
-        <div class="form-group">
-            <label for="email">Correo</label>
-            <input type="email" class="form-control" id="email" v-model="form.email" placeholder="Digite su correo">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </form>
+    <Entry>
+        <p class="text__entry">¿Olvidaste tu contraseña?</p>
+        <p class="text__entry">No hay problema. Simplemente háganos saber su dirección de correo electrónico y le enviaremos un enlace de restablecimiento de contraseña que le permitirá elegir una nueva.</p>
+        <form class="form-entry"  @submit.prevent="authStore.handleForgotPassword(form)">
+            <div class="form-group">
+                <input type="email" class="form-control" id="email" v-model="form.email" placeholder="Correo Electronico">
+            </div>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+    </Entry>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore} from '@/stores/authStore'
+import Entry from '@/components/Entry.vue'
 
 const authStore = useAuthStore();
 

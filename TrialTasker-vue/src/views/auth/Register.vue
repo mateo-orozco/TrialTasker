@@ -1,22 +1,28 @@
 <template>
-    <form @submit.prevent="authStore.handleRegister(form)">
-        <h1>Registro</h1>
-        <label for="name">Nombre</label>
-        <input type="text" id="name" placeholder="Nombre" v-model="form.name">
-        <label for="email">Correo</label>
-        <input type="email" id="email" placeholder="Correo" v-model="form.email">
-        <label for="password">Contraseña</label>
-        <input type="password" id="password" placeholder="Contraseña" v-model="form.password">
-        <label for="password_confirmation">Confirmar Contraseña</label>
-        <input type="password" id="password_confirmation" placeholder="Confirmar Contraseña" v-model="form.password_confirmation">
-        <button type="submit">Registrar</button>
-    </form>
-  
+    <Entry>
+        <h2>Registro</h2>
+        <form class="form-entry" @submit.prevent="authStore.handleRegister(form)">
+            <div class="form-group">
+                <input type="text" id="name" placeholder="Nombre" v-model="form.name">
+            </div>
+            <div class="form-group">
+                <input type="email" id="email" placeholder="Correo Electronico" v-model="form.email">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" placeholder="Contraseña" v-model="form.password">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password_confirmation" placeholder="Confirmar Contraseña" v-model="form.password_confirmation">
+            </div>
+            <button class="btn" type="submit">Registrar</button>
+        </form>
+    </Entry>
 </template>
 
 <script setup>
 import { ref } from 'vue'
 import { useAuthStore} from '@/stores/authStore'
+import Entry from '@/components/Entry.vue'
 
 const authStore = useAuthStore();
 
