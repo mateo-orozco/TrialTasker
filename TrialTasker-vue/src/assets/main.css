@@ -1,0 +1,10 @@
+/* pallet color */
+:root {
+    --my-background: #edecec;
+    --my-shadow: #333;
+    --my-text-dark: #664200;
+    --my-text-ligth: #fff2bf;
+    --my-hover-dark: #473800;
+    --my-hover-ligth:#e8e8e8 ;
+  }
+  
