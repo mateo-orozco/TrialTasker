@@ -164,3 +164,53 @@ form {
     border-radius: 0 0 15px 15px;
 }
 
+/*Layout*/
+
+.main{
+    display: flex;
+}
+
+.main .asidebar{
+    width: 300px;
+    background-color: var(--brown);
+    height: 100vh;
+}
+
+.asidebar .top svg g{
+    fill: var(--beige);
+}
+
+
+.asidebar .half .start #imageStart{
+    margin-top: 15%;
+    width: 50px;
+    height: 30px;
+    fill: var(--beige);
+}
+
+.asidebar .half .start{
+    background-color: var(--brown);
+    color: var(--beige);
+    border: none;
+    width: 100%;
+    font-size: 30px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.asidebar .half .cases #imageCases{
+    margin-top: 8%;
+    width: 50px;
+    height: 30px;
+    fill: var(--beige);
+}
+
+.asidebar .half .cases{
+    background-color: var(--brown);
+    color: var(--beige);
+    border: none;
+    width: 100%;
+    font-size: 30px;
+    border-radius: 10px;
+    text-align: left;
+}
