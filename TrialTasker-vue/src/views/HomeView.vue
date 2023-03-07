@@ -6,13 +6,19 @@
         <LOGO />
       </div>
       <div class="half">
-        <button class="start"><svg class="icon icon-home" id="imageStart">
+        <div class="start">
+          <RouterLink :to="{ name: 'ForgotPassword' }">
+          <svg class="icon icon-home" id="imageStart">
             <use xlink:href="#icon-home">
               <symbol id="icon-home" viewBox="0 0 32 32">
                 <path d="M32 18.451l-16-12.42-16 12.42v-5.064l16-12.42 16 12.42zM28 18v12h-8v-8h-8v8h-8v-12l12-9z"></path>
               </symbol>
             </use>
-          </svg>Inicio</button>
+          </svg>Inicio
+        </RouterLink>
+        </div>
+        
+
         <button class="cases"><svg class="icon icon-travel-case" id="imageCases">
             <use xlink:href="#icon-travel-case">
               <symbol id="icon-travel-case" viewBox="0 0 20 20">
