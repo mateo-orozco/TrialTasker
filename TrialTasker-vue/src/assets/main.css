@@ -182,14 +182,14 @@ form {
 .asidebar .half {
   text-align: center;
   padding-top: 20px;
-  /* height: 50%; */
+  border: solid 1px;
+  height: 80%;
 }
 
 /* image button */
 .asidebar .half .start #imageStart,
 .asidebar .half .cases #imageCases,
 .asidebar .half .finance #imagenFinance {
-  /* margin-top: 20px; */
   width: 50px;
   height: 30px;
   fill: var(--beige);
@@ -210,7 +210,7 @@ form {
 .asidebar .half .cases a,
 .asidebar .half .finance a {
   display: block;
-  padding: 5px ;
+  padding: 5px;
   background-color: var(--brown);
   color: var(--beige);
   text-decoration: none;
@@ -251,7 +251,6 @@ form {
 }
 
 .asidebar .lower {
-  margin-top: 65%;
   border-top: solid var(--background) 1px;
   text-align: center;
 }

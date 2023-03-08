@@ -33,7 +33,7 @@
             </svg>Casos Activos
           </RouterLink>
         </div>
-        
+
         <div class="cases">
           <!-- Boton de Casos Inactivos -->
           <RouterLink :to="{ name: 'ForgotPassword' }">
