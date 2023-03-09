@@ -11,11 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('files', function (Blueprint $table) {
+        Schema::create('cases', function (Blueprint $table) {
             $table->id();
-            $table->string("file_name");
-            $table->text("file_url");
-            $table->foreignID("file_stage")->constrained("stages")->onUpdate("cascade")->onDelete("cascade");
+            $table->string('case_name');
+            $table->string('case_radicate');
+            $table->string('case_status');
+            $table->foreignId('case_user_id')->constrained('users');
+            $table->foreignId('case_person_id')->constrained('persons');
             $table->timestamps();
         });
     }
@@ -25,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('files');
+        Schema::dropIfExists('cases');
     }
 };
