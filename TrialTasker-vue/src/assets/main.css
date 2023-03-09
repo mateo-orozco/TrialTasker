@@ -169,6 +169,8 @@ form {
   width: 300px;
   background-color: var(--brown);
   height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .asidebar .top svg g {
@@ -180,10 +182,11 @@ form {
 }
 
 .asidebar .half {
+  height: 90%;
+  background-color: var(--brown);
   text-align: center;
-  padding-top: 20px;
-  border: solid 1px;
-  height: 80%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* image button */
@@ -200,16 +203,14 @@ form {
 .asidebar .half .start,
 .asidebar .half .cases,
 .asidebar .half .finance {
-  margin: auto;
-  margin-top: 20px;
-  width: 90%;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 /* routerlinks buttons */
 .asidebar .half .start a,
 .asidebar .half .cases a,
 .asidebar .half .finance a {
-  display: block;
   padding: 5px;
   background-color: var(--brown);
   color: var(--beige);
@@ -217,6 +218,8 @@ form {
   font-size: 20px;
   border-radius: 10px;
   text-align: left;
+  display: flex;
+  align-items: center;
 }
 
 /* hover buttons */
@@ -246,7 +249,6 @@ form {
   border: none;
   width: 100%;
   font-size: 20px;
-  border-radius: 10px;
   text-align: left;
 }
 

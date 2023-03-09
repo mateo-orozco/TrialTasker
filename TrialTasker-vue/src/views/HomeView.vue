@@ -63,7 +63,6 @@
             </svg>Finanzas
           </RouterLink>
         </div>
-
       </div>
       <div class="lower">
         <button class="profile">
