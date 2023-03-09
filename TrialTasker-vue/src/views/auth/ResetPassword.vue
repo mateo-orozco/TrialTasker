@@ -5,6 +5,9 @@
             <div class="form-group">
                 <input type="password" id="password" placeholder="Ingrese la nueva contraseña" v-model="form.password">
             </div>
+            <div v-if="authStore.errors.password">
+                    <p class="error">{{ authStore.errors.password[0] }}</p>
+                </div>
             <div class="form-group">
                 <input type="password" id="confirmationPassword" placeholder="Confirme su contraseña" v-model="form.password_confirmation">
             </div>

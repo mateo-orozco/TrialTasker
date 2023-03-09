@@ -6,6 +6,9 @@
             <div class="form-group">
                 <input type="email" class="form-control" id="email" v-model="form.email" placeholder="Correo Electronico">
             </div>
+            <div v-if="authStore.errors.email">
+                    <p class="error">{{ authStore.errors.email[0] }}</p>
+            </div>
             <button type="submit" class="btn">Enviar</button>
         </form>
     </Entry>
