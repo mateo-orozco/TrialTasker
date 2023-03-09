@@ -237,10 +237,100 @@ form {
 }
 
 /* porfile zone */
-.asidebar .lower .profile #imagenProfile {
+.asidebar .lower ul li #imagenProfile {
   width: 50px;
   height: 30px;
   fill: var(--beige);
+}
+
+/* menu */
+.asidebar .lower ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.asidebar .lower ul li ul li {
+  background-color: var(--beige);
+}
+
+.asidebar .lower {
+  border-radius: 10px;
+}
+
+.asidebar .lower ul a {
+  display: block;
+  color: var(--beige);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.asidebar .lower ul li ul li a {
+  display: block;
+  color: var(--brown);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 10px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.asidebar .lower ul li {
+  position: relative;
+  float: left;
+  margin: 0;
+  padding: 0;
+}
+
+/* Desplegar contenido de la lista */
+.asidebar .lower ul ul {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 70%;
+  background-color: var(--my-hover-dark);
+  padding: 0;
+}
+
+.asidebar .lower ul ul li {
+  float: none;
+  width: 250px;
+}
+
+.asidebar .lower ul ul a {
+  line-height: 120%;
+  padding: 10px 15px;
+  font-size: 15px;
+}
+
+.asidebar .lower ul li:hover > ul {
+  display: block;
+}
+
+.asidebar .lower ul li ul li a:hover {
+  background-color: var(--my-hover-dark);
+  color: var(--beige);
+}
+
+.asidebar .lower ul li ul li a:hover #imageConf,
+.asidebar .lower ul li ul li a:hover #imageUser,
+.asidebar .lower ul li ul li a:hover #imageExit {
+  fill: var(--beige);
+}
+
+/* Disenno menu */
+
+.asidebar .lower .menu ul li ul li #imageConf,
+.asidebar .lower .menu ul li ul li #imageUser,
+.asidebar .lower .menu ul li ul li #imageExit {
+  width: 50px;
+  height: 30px;
+  fill: var(--brown);
 }
 
 .asidebar .lower .profile {
