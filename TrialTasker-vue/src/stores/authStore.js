@@ -24,13 +24,14 @@ export const useAuthStore = defineStore("auth", {
         },
         async getUser() {
             await this.getToken();
-            const response = await axios.get("/api/userlogin")
+            const response = await axios.get("/api/user");
             this.authUser = response.data;
         },
         async handleLogin(credentials) {
             
             this.authStatus = null;
             this.authErrors = [];
+            this.authMessage = null;
             await this.getToken();
             try{
                 await axios.post('/login', {
@@ -46,10 +47,12 @@ export const useAuthStore = defineStore("auth", {
                 }
             }
         },
+        /* Register */
         async handleRegister(credentials) {
             await this.getToken();
             this.authErrors = [];
             this.authStatus = null;
+            this.authMessage = null;
             try{
                 await axios.post('/register', {
                     name: credentials.name,
