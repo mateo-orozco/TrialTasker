@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use App\Models\Caso;
 
 class User extends Authenticatable
 {
@@ -44,4 +46,9 @@ class User extends Authenticatable
     protected $casts = [
         'usu_email_verified_at' => 'datetime',
     ];
+
+    public function cases(): HasMany
+    {
+        return $this->hasMany(Caso::class);
+    }
 }
