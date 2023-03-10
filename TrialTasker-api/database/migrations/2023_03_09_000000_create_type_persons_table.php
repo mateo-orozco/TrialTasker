@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('stages', function (Blueprint $table) {
+        Schema::create('type_persons', function (Blueprint $table) {
             $table->id();
-            $table->string("sta_name");
-            $table->text("sta_notes");
-            // // $table->foreignID("sta_type_stage")->constrained("type_stages")->onUpdate("cascade")->onDelete("cascade"); 
+            $table->string('type_per_name');
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('stages');
+        Schema::dropIfExists('type_persons');
     }
 };

@@ -26,6 +26,7 @@ return new class extends Migration
             $table->string('per_radicated');
             $table->string('per_authority');
             $table->string('per_number');
+            $table->foreignId('per_type_person')->constrained('type_persons');
             $table->timestamps();
         });
     }

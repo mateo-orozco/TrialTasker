@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string("file_name");
             $table->text("file_url");
-            // $table->foreignId('stage_id')->constrained('stages');
+            $table->foreignId('stage_id')->constrained('stages');
             $table->timestamps();
         });
     }
