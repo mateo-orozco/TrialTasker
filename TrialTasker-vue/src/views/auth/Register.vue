@@ -9,11 +9,30 @@
                 </div>
             </div>
             <div class="form-group">
+                <input type="text" id="lastname" placeholder="Apellido" v-model="form.lastname">
+                <div v-if="authStore.errors.lastname">
+                    <p class="error">{{ authStore.errors.lastname[0] }}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="address" placeholder="Direccion" v-model="form.address">
+                <div v-if="authStore.errors.address">
+                    <p class="error">{{ authStore.errors.address[0] }}</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="text" id="phone" placeholder="Telefono" v-model="form.phone">
+                <div v-if="authStore.errors.phone">
+                    <p class="error">{{ authStore.errors.phone[0] }}</p>
+                </div>
+            </div>
+            <div class="form-group">
                 <input type="email" id="email" placeholder="Correo Electronico" v-model="form.email">
                 <div v-if="authStore.errors.email">
                     <p class="error">{{ authStore.errors.email[0] }}</p>
                 </div>
             </div>
+            
             <div class="form-group">
                 <input type="password" id="password" placeholder="Contraseña" v-model="form.password">
                 <div v-if="authStore.errors.password">
@@ -40,6 +59,9 @@ const form = ref({
     email: '',
     password: '',
     password_confirmation: '',
+    lastname: '',
+    address: '',
+    phone: '',
 });
 
 </script>
