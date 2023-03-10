@@ -7,6 +7,9 @@
             <div class="form-group">
                 <input type="password" id="password" v-model="form.password" placeholder="Contraseña">
             </div>
+            <div v-if="authStore.message">
+                <p class="error">{{ authStore.message }}</p>
+            </div>
             <button type="submit" class="btn">Iniciar sesión</button>
         </form>
         <RouterLink :to="{ name: 'ForgotPassword' }">¿Olvidaste tu contraseña?</RouterLink>
