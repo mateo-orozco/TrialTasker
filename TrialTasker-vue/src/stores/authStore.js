@@ -59,6 +59,9 @@ export const useAuthStore = defineStore("auth", {
                     email: credentials.email,
                     password: credentials.password,
                     password_confirmation: credentials.password_confirmation,
+                    lastname: credentials.lastname,
+                    phone: credentials.phone,
+                    address: credentials.address,
                 });
                 router.push({ name: 'Home' });
             }

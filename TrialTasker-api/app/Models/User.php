@@ -20,12 +20,12 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'usu_name',
-        'usu_lastname',
-        'usu_phone',
-        'usu_address',
-        'usu_email',
-        'usu_password',
+        'name',
+        'lastname',
+        'phone',
+        'address',
+        'email',
+        'password',
     ];
 
     /**
@@ -34,7 +34,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $hidden = [
-        'usu_password',
+        'password',
         'remember_token',
     ];
 
@@ -44,7 +44,7 @@ class User extends Authenticatable
      * @var array<string, string>
      */
     protected $casts = [
-        'usu_email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime',
     ];
 
     public function cases(): HasMany
