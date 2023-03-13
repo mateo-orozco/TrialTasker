@@ -74,6 +74,7 @@ export const useAuthStore = defineStore("auth", {
                 phone: credentials.phone,
                 address: credentials.address,
             }).then(response => {
+                console.log("fsdfdfds");
                 router.push({ name: 'VerifyEmail' });
             }).catch(error => {
                 if(error.response.status === 422) {

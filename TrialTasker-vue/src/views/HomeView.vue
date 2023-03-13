@@ -1,5 +1,7 @@
 <template>
   <div class="main">
+    <h1>Inicio</h1>
+
     <!-- <div class="asidebar">
       <div class="top">
         <LOGO />
@@ -128,8 +130,6 @@
         <Button text:="prueba" />
       </main>
     </div> -->
-
-    asdasdasdasdsda
   </div>
 </template>
 <script setup>
