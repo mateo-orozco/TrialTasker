@@ -26,4 +26,5 @@ const form = ref({
   email: '',
   password: ''
 });
+
 </script>

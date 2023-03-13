@@ -18,5 +18,10 @@ export default [
         path: "/password-reset/:token",
         name: "ResetPassword",
         component: () => import('@/views/auth/ResetPassword.vue')
-    }
+    },
+    {
+        path: '/verify-email/',
+        name: 'VerifyEmail',
+        component: () => import('@/views/auth/VerifyEmail.vue')
+    },
 ]
