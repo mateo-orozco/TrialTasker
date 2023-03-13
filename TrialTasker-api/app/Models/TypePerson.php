@@ -13,6 +13,10 @@ class TypePerson extends Model
 
     protected $fillable = [
         'type_person_name',
-        
     ];
+
+    public function persons()
+    {
+        return $this->hasMany(Person::class);
+    }
 }

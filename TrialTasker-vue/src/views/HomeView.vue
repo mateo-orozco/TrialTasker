@@ -1,12 +1,11 @@
 <template>
   <div class="main">
-    <div class="asidebar">
+    <!-- <div class="asidebar">
       <div class="top">
         <LOGO />
       </div>
       <div class="half">
         <div class="start">
-          <!-- Boton de Inicio -->
           <RouterLink :to="{ name: 'ForgotPassword' }">
             <svg class="icon icon-home" id="imageStart">
               <use xlink:href="#icon-home">
@@ -20,7 +19,6 @@
         </div>
 
         <div class="cases">
-          <!-- Boton de Casos Activos -->
           <RouterLink :to="{ name: 'ForgotPassword' }">
             <svg class="icon icon-travel-case" id="imageCases">
               <use xlink:href="#icon-travel-case">
@@ -35,7 +33,6 @@
         </div>
 
         <div class="cases">
-          <!-- Boton de Casos Inactivos -->
           <RouterLink :to="{ name: 'ForgotPassword' }">
             <svg class="icon icon-travel-case" id="imageCases">
               <use xlink:href="#icon-travel-case">
@@ -50,7 +47,6 @@
         </div>
 
         <div class="finance">
-          <!-- Boton de Finanzas -->
           <RouterLink :to="{ name: 'ForgotPassword' }">
             <svg class="icon icon-clipboard" id="imagenFinance">
               <use xlink:href="#icon-clipboard">
@@ -64,7 +60,6 @@
           </RouterLink>
         </div>
       </div>
-      <!-- Boton del usuario -->
       <div class="lower">
         <nav class="menu">
           <ul>
@@ -130,13 +125,17 @@
       <main>
         <h1>Home</h1>
         <button @click="authStore.handleLogout">Salir</button>
+        <Button text:="prueba" />
       </main>
-    </div>
+    </div> -->
+
+    asdasdasdasdsda
   </div>
 </template>
 <script setup>
 import { useAuthStore } from "@/stores/authStore";
 import LOGO from "@/components/logo/Logo.vue";
+import Button from "../components/buttons/Button.vue";
 
 const authStore = useAuthStore();
 </script>
