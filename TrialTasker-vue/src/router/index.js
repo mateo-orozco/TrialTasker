@@ -39,8 +39,6 @@ router.beforeEach((to, from, next) => {
         }else{
           next({ name: 'Home' })
         }
-      }else if (response.data.email_verified_at === null && to.name !== 'VerifyEmail') {
-        next({ name: 'VerifyEmail' })
       } else if (to.name === 'VerifyEmail') {
         if (response.data.is_admin) {
           next({ name: 'Dashboard' })

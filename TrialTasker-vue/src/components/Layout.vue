@@ -33,10 +33,10 @@ main {
 .container {
     flex: 1;
     background-color: var(--white);
-    margin: 0 0  0 250px;
 }
 .container-padding {
     padding: 1.5rem;
+    margin: 0 0  0 250px;
 }
 
 
