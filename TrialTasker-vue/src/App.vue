@@ -1,11 +1,13 @@
+<template>
+  <Layout>
+    <RouterView />
+  </Layout>
+</template>
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
+import Layout from './components/Layout.vue';
+
 
 </script>
-
-<template>
-  <RouterView />
-</template>
 
 <style scoped>
 
