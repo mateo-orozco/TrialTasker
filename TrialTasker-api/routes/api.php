@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\TypePersonController;
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,7 +20,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
+//typePerson
 Route::group([
     'prefix' => 'type-persons',
     'controller' => TypePersonController::class,
@@ -30,4 +31,15 @@ Route::group([
     Route::get('/{id}', 'show');
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
+});
+
+// users
+route::group([
+    'prefix'=> 'user',
+    'controller'=> UserController::class,
+],function(){
+    Route::get('/', 'index');
+    Route::post('/store', 'store');
+    Route::put('/update/{id}', 'update');
+    Route::delete('/destroy/{id}', 'destroy');
 });
