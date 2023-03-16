@@ -13,7 +13,7 @@
             {{ item[key.key] }}
             </td>
             <td class="table__content__data">
-                <router-link :to=" { name: 'TypePersonDashboardUpdate', params: { id: item.id } } ">Editar</router-link>
+                <router-link :to=" { name: edit, params: { id: item.id } } ">Editar</router-link>
                 <button @click="props.delete(item.id)">Eliminar</button>
             </td>
         </tr>
@@ -36,6 +36,10 @@ const props = defineProps({
     },
     delete: {
         type: Function,
+        required: true,
+    },
+    edit: {
+        type: Text,
         required: true,
     },
 });

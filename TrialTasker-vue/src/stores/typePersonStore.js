@@ -21,6 +21,7 @@ export const useTypePersonStore = defineStore('typePersons', {
             await axios.get('/api/type-persons')
             .then(response => {
                 this.typePersonsStore = response.data;
+                this.errorsStore = [];
             });
         },
         /* get typePersons page */

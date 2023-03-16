@@ -1,5 +1,6 @@
 import { defineStore } from "pinia";
 import axios from "axios";
+import router from "../router";
 
 export const useUserStore = defineStore('users', {
     state: () => ({
@@ -41,9 +42,12 @@ export const useUserStore = defineStore('users', {
             await axios.post('/api/users', user)
             .then(response => {
                 this.messagesStore = response.data;
+                this.getUsers();
+                router.push({ name: 'UserDashboard' });
+                
             })
             .catch(error => {
-                this.errorsStore = error.response.data;
+                this.errorsStore = error.response.data.errors
             });
         },
         /* update user */
@@ -51,9 +55,11 @@ export const useUserStore = defineStore('users', {
             await axios.put('/api/users/' + user.id, user)
             .then(response => {
                 this.messagesStore = response.data;
+                this.getUsers();
+                router.push({ name: 'UserDashboard' });
             })
             .catch(error => {
-                this.errorsStore = error.response.data;
+                this.errorsStore = error.response.data.errors;
             });
         },
         /* delete user */
@@ -61,6 +67,7 @@ export const useUserStore = defineStore('users', {
             await axios.delete('/api/users/' + id)
             .then(response => {
                 this.messagesStore = response.data;
+                this.getUsers();
             });
         },
     },

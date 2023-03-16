@@ -1,6 +1,6 @@
 <template>
     <HeaderTableVue title="Usuarios" to="UserDashboardCreate"/>
-    <TableDashboard :thead ="thead" :data="users.users.data" v-if="users.users.data" :delete="users.deleteUser"/>
+    <TableDashboard :thead ="thead" :data="users.users.data" v-if="users.users.data" :delete="users.deleteUser" edit="UserDashboardUpdate"/>
     <Pagination :last_page="users.users.last_page" :current_page="users.users.current_page" :links="users.users.links" :funtion_page="users.getUsersPage" v-if="users.users.links"/>
 </template>
 
@@ -30,6 +30,10 @@ const thead = [
             name: 'Telefono',
             key: 'phone',
         },
+        {
+            name: 'Es administrador',
+            key: 'is_admin',
+        }
     ]
 onMounted(() => {
     users.getUsers();
