@@ -20,7 +20,23 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return response()->json( $request->user() );
+        // si el usuario selecciona recordar sesión, no expirará el token de autenticación 
+        // si no, expirará en 60 minutos
+        
+        if($request->remember_me) {
+            $token = $request->user()->createToken('auth_token')->plainTextToken;
+            // crea la cookie con el token de autenticación
+            $cookie = cookie('auth_token', $token, 60 * 24 * 7, null,null,null,false); // 7 días
+
+        } else {
+            $token = $request->user()->createToken('auth_token', ['expires_at' => now()->addMinutes(60)])->plainTextToken;
+            // crea la cookie con el token de autenticación
+            $cookie = cookie('auth_token', $token, 60, null,null,null,false); // 60 minutos
+        }
+
+        return response()->json( [
+            'user' => auth()->user()
+        ])->withCookie($cookie);
     }
 
     /**
@@ -34,6 +50,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return response()->noContent();
+        // elimina la cookie con el token de autenticación
+        $cookie = cookie('auth_token', '', -1);
+
+        return response()->noContent()->withCookie($cookie);
     }
 }
