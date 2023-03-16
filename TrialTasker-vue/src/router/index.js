@@ -11,7 +11,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      redirect: "Login",
+      redirect: "LandingPage",
     },
     {
       path: "/home",
@@ -19,9 +19,9 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/dashboard",
-      name: "Dashboard",
-      component: () => import("../views/DashboardView.vue"),
+      path: "/landingpage",
+      name: "LandingPage",
+      component: () => import("../views/LandingPage.vue"),
     },
     {
       children: [...auth, ...typePerson, ...userRouter],
@@ -69,7 +69,8 @@ router.beforeEach((to, from, next) => {
       to.name === "Login" ||
       to.name === "Register" ||
       to.name === "ForgotPassword" ||
-      to.name === "ResetPassword"
+      to.name === "ResetPassword" ||
+      to.name === "LandingPage"
     ) {
       next();
     } else {

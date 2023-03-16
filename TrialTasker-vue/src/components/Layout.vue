@@ -1,9 +1,11 @@
 <template>
     <main>
-        <div class="sidebar" v-if="$route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail'" >
+        <div class="sidebar"
+            v-if="$route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail' && $route.name != 'LandingPage'">
             <Sidebar />
         </div>
-        <div class="container" :class="{ 'container-padding': $route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail' }">
+        <div class="container"
+            :class="{ 'container-padding': $route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail' }">
             <slot></slot>
         </div>
     </main>
@@ -34,11 +36,9 @@ main {
     flex: 1;
     background-color: var(--white);
 }
+
 .container-padding {
     padding: 1.5rem;
-    margin: 0 0  0 250px;
+    margin: 0 0 0 250px;
 }
-
-
-
 </style>

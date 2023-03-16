@@ -1,6 +1,6 @@
 <template>
     <div class="navbar">
-        <Logo />>
+        <Logo />
     </div>
 </template>
 
@@ -8,4 +8,8 @@
 import Logo from '../components/logo/Logo.vue';
 </script>
 
-<style scoped></style>
+<style scoped>
+.navbar {
+    width: 50px;
+}
+</style>
