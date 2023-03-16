@@ -20,6 +20,7 @@ class TypePersonSeeder extends Seeder
             [
                 'type_person_name' => 'Juez',
             ],
+            
         ];
 
         foreach ($typePersons as $typePerson) {

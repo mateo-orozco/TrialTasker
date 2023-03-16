@@ -35,7 +35,13 @@ import { useUserStore } from '../../stores/userStore';
 const users = useUserStore();
 
 const form = ref({
-    name: ''
+    name: '',
+    lastname: '',
+    email: '',
+    phone: '',
+    address: '',
+    password: '',
+    password_confirmation: ''
 });
 
 </script>

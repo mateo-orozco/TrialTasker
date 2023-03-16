@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
 class UserController extends Controller
@@ -16,6 +17,15 @@ class UserController extends Controller
     {
         $users = User::orderBy('id', 'desc')->paginate(10);
         return response()->json($users);
+    }
+
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id): JsonResponse
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user);
     }
 
 
@@ -40,8 +50,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'email' => $request->email,
-                'password' => $request->password,
-                'password_confirmation' => $request->password_confirmation,
+                'password' => Hash::make($request->password),
             ]);
             return response()->json(['message' => 'Usuario creado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -65,7 +74,7 @@ class UserController extends Controller
                 'phone' => ['required', 'string'],
                 'address' => ['required', 'string'],
                 'email' => ['required', 'string', 'email',  Rule::unique('users')->ignore($user->id)],
-                'password' => ['required', 'string'],
+                'password' => [ 'confirmed'],
             ]);
 
             User::find($id)->update([
@@ -74,7 +83,7 @@ class UserController extends Controller
                 'phone' => $request->phone,
                 'address' => $request->address,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => Hash::make($request->password),
             ]);
 
             return response()->json(['message' => 'Usuario actualizado correctamente'], 201);
