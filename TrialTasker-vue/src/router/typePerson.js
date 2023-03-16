@@ -2,7 +2,7 @@ export default [
     {
         path: '/dashboard/type-persons',
         name: 'TypePersonDashboard',
-        component: () => import('@/views/typePerson/ListDashboard.vue')
+        component: () => import('@/views/typePerson/IndexDashboard.vue')
     },
     {
         path: '/dashboard/type-persons/create',
