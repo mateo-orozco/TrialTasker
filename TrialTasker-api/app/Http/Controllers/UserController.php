@@ -31,7 +31,7 @@ class UserController extends Controller
                 'phone' => ['required', 'string'],
                 'address' => ['required', 'string'],
                 'email' => ['required', 'string', 'email', 'unique:users'],
-                'password' => ['required', 'string'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
 
             $user = User::create([
@@ -41,12 +41,11 @@ class UserController extends Controller
                 'address' => $request->address,
                 'email' => $request->email,
                 'password' => $request->password,
+                'password_confirmation' => $request->password_confirmation,
             ]);
             return response()->json(['message' => 'Usuario creado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                $e->errors()
-            ], 400);
+            return response()->json(["errors" => $e->errors()], 400);
         }
     }
 
@@ -80,9 +79,7 @@ class UserController extends Controller
 
             return response()->json(['message' => 'Usuario actualizado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                $e->errors()
-            ], 400);
+            return response()->json(["errors" => $e->errors()], 400);
         }
     }
 

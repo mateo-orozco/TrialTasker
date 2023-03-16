@@ -30,6 +30,10 @@ const thead = [
             name: 'Telefono',
             key: 'phone',
         },
+        {
+            name: 'Es administrador',
+            key: 'is_admin',
+        }
     ]
 onMounted(() => {
     users.getUsers();

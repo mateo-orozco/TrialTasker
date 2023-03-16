@@ -2,7 +2,7 @@
     <div class="container-form">
         <form action="" class="form" @submit.prevent="this.create(form)">
             <slot></slot>
-            <Button type="submit" text="Crear" />
+            <Button type="submit" :text="buttonText" />
         </form>
     </div>
 </template>
@@ -13,8 +13,13 @@ const props = defineProps({
     create: {
         type: Function,
         required: true
-    }, form: {
+    }, 
+    form: {
         type: Object,
+        required: true
+    },
+    buttonText: {
+        type: String,
         required: true
     }
 })
@@ -22,19 +27,27 @@ const props = defineProps({
 console.log(props)
 </script>
 <style scoped>
+
 .container-form {
-    width: 100%;
-    display: flex;
+    margin-top: 20px;
+}
+.form {
+    display: grid;
     justify-content: center;
+    align-items: center;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
+    margin: 0 auto;
 }
 
-.form {
-    width: 80%;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    display: grid;
-    gap: 20px;
-    justify-content: center;
-    grid-template-columns: 1fr 1fr;
+
+.form .btn {
+    justify-self: center;
+    max-width: 400px;
+    grid-column: span 2;
 }
+
+
+
+
 </style>
