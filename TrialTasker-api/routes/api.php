@@ -35,7 +35,7 @@ Route::group([
 
 // users
 route::group([
-    'prefix'=> 'user',
+    'prefix'=> 'users',
     'controller'=> UserController::class,
 ],function(){
     Route::get('/', 'index');
