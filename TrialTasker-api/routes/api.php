@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TypePersonController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -42,4 +43,12 @@ route::group([
     Route::post('/store', 'store');
     Route::put('/update/{id}', 'update');
     Route::delete('/destroy/{id}', 'destroy');
+});
+
+// person
+route::group([
+    'prefix'=>'person',
+    'controller' => PersonController::class,
+],function(){
+    Route::post('/store', 'store');
 });

@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
             'is_admin' => true,
         ]);
         User::factory(10)->create();
-        TypePerson::factory(10)->create();
+        // TypePerson::factory(10)->create();
 
         $this->call([
             TypePersonSeeder::class,

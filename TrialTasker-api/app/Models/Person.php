@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     use HasFactory;
+    protected $table = 'persons';
 
     protected $fillable = [
         'per_name',
@@ -22,7 +23,12 @@ class Person extends Model
         'per_radicated',
         'per_authority',
         'per_number',
+        'per_type_person',
     ];
 
-    
+    public function type_person(){
+        return $this->belongsTo(TypePerson::class);
+    }
+
+
 }
