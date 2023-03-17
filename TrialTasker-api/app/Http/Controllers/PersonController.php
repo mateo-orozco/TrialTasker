@@ -17,7 +17,12 @@ class PersonController extends Controller
         $persons = Person::Orderby('id', 'desc')->paginate(10);
         $persons->load('per_type_person');
         return response()->json($persons, 200);
-
+    }
+    
+    public function all(): JsonResponse
+    {
+        $persons = Person::Orderby('id', 'desc');
+        return response()->json($persons, 200);
     }
 
     /**
@@ -27,35 +32,35 @@ class PersonController extends Controller
     {
         try {
             $request->validate([
-                'per_name'=>['required','string'], 
-                'per_lastname'=>['string'],
-                'per_email'=>['string'],
-                'per_phone'=>['string'],
-                'per_address'=>['string'],
-                'per_nit'=>['string'],
-                'per_issue_nit'=>['string'],
-                'per_num_ministry'=>['string'],
-                'per_num_dispaych'=>['string'],
-                'per_radicated'=>['string'],
-                'per_authority'=>['string'],
-                'per_number'=>['string'],
-                'per_type_person_id'=>['required','integer'],
+                'per_name' => ['required', 'string'],
+                'per_lastname' => ['string', 'nullable'],
+                'per_email' => ['string', 'nullable'],
+                'per_phone' => ['string', 'nullable'],
+                'per_address' => ['string', 'nullable'],
+                'per_nit' => ['string', 'nullable'],
+                'per_issue_nit' => ['string', 'nullable'],
+                'per_num_ministry' => ['string', 'nullable'],
+                'per_num_dispaych' => ['string', 'nullable'],
+                'per_radicated' => ['string', 'nullable'],
+                'per_authority' => ['string', 'nullable'],
+                'per_number' => ['string', 'nullable'],
+                'per_type_person_id' => ['required', 'integer'],
             ]);
 
             $person = Person::create([
-                'per_name'=> $request->per_name, 
-                'per_lastname'=> $request->per_lastname,
-                'per_email'=> $request->per_email,
-                'per_phone'=> $request->per_phone,
-                'per_address'=> $request->per_address,
-                'per_nit'=> $request->per_nit,
-                'per_issue_nit'=> $request->per_issue_nit,
-                'per_num_ministry'=> $request->per_num_ministry,
-                'per_num_dispaych'=> $request->per_num_dispaych,
-                'per_radicated'=> $request->per_radicated,
-                'per_authority'=> $request->per_authority,
-                'per_number'=> $request->per_number,
-                'per_type_person_id'=> $request->per_type_person,
+                'per_name' => $request->per_name,
+                'per_lastname' => $request->per_lastname,
+                'per_email' => $request->per_email,
+                'per_phone' => $request->per_phone,
+                'per_address' => $request->per_address,
+                'per_nit' => $request->per_nit,
+                'per_issue_nit' => $request->per_issue_nit,
+                'per_num_ministry' => $request->per_num_ministry,
+                'per_num_dispaych' => $request->per_num_dispaych,
+                'per_radicated' => $request->per_radicated,
+                'per_authority' => $request->per_authority,
+                'per_number' => $request->per_number,
+                'per_type_person_id' => $request->per_type_person_id,
             ]);
             return response()->json(['message' => 'Persona creada correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -82,19 +87,19 @@ class PersonController extends Controller
 
         try {
             $request->validate([
-                'per_name'=>['required','string'], 
-                'per_lastname'=>['string'],
-                'per_email'=>['string'],
-                'per_phone'=>['string'],
-                'per_address'=>['string'],
-                'per_nit'=>['string'],
-                'per_issue_nit'=>['string'],
-                'per_num_ministry'=>['string'],
-                'per_num_dispaych'=>['string'],
-                'per_radicated'=>['string'],
-                'per_authority'=>['string'],
-                'per_number'=>['string'],
-                'per_type_person_id'=>['required','integer'],
+                'per_name' => ['required', 'string'],
+                'per_lastname' => ['string', 'nullable'],
+                'per_email' => ['string', 'nullable'],
+                'per_phone' => ['string', 'nullable'],
+                'per_address' => ['string', 'nullable'],
+                'per_nit' => ['string', 'nullable'],
+                'per_issue_nit' => ['string', 'nullable'],
+                'per_num_ministry' => ['string', 'nullable'],
+                'per_num_dispaych' => ['string', 'nullable'],
+                'per_radicated' => ['string', 'nullable'],
+                'per_authority' => ['string', 'nullable'],
+                'per_number' => ['string', 'nullable'],
+                'per_type_person_id' => ['required', 'integer'],
             ]);
 
             $person = Person::find($id);
@@ -116,7 +121,6 @@ class PersonController extends Controller
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 400);
         }
-
     }
 
     /**

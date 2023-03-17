@@ -14,7 +14,13 @@ class CasoController extends Controller
     {
         $cases = Caso::orderBy('id', 'desc')->paginate(10);
         // $cases->load('users','persons');
-        return response()->json($cases,200);
+        return response()->json($cases, 200);
+    }
+
+    public function all()
+    {
+        $cases = Caso::orderBy('id', 'desc');
+        return response()->json($cases, 200);
     }
 
     /**
@@ -35,16 +41,16 @@ class CasoController extends Controller
                 'case_name' => ['required', 'string'],
                 'case_radicate' => ['required', 'string'],
                 'case_status' => ['required', 'bool'],
-                'case_user_id'=>['required', 'integer'],
-                'case_person_id'=>['required', 'integer'],
+                'case_user_id' => ['required', 'integer'],
+                'case_person_id' => ['required', 'integer'],
             ]);
 
             $caso = Caso::create([
-                'case_name'=> $request->case_name,
-                'case_radicate'=> $request->case_radicate,
-                'case_status'=> $request->case_status,
-                'case_user_id'=> $request->case_user_id,
-                'case_person_id'=> $request->case_person_id,
+                'case_name' => $request->case_name,
+                'case_radicate' => $request->case_radicate,
+                'case_status' => $request->case_status,
+                'case_user_id' => $request->case_user_id,
+                'case_person_id' => $request->case_person_id,
             ]);
             return response()->json(['message' => 'Caso creado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -81,16 +87,16 @@ class CasoController extends Controller
                 'case_name' => ['required', 'string'],
                 'case_radicate' => ['required', 'string'],
                 'case_status' => ['required', 'bool'],
-                'case_user_id'=>['required', 'integer'],
-                'case_person_id'=>['required', 'integer'],
+                'case_user_id' => ['required', 'integer'],
+                'case_person_id' => ['required', 'integer'],
             ]);
 
             Caso::find($id)->update([
-                'case_name'=> $request->case_name,
-                'case_radicate'=> $request->case_radicate,
-                'case_status'=> $request->case_status,
-                'case_user_id'=> $request->case_user_id,
-                'case_person_id'=> $request->case_person_id,
+                'case_name' => $request->case_name,
+                'case_radicate' => $request->case_radicate,
+                'case_status' => $request->case_status,
+                'case_user_id' => $request->case_user_id,
+                'case_person_id' => $request->case_person_id,
             ]);
 
             return response()->json(['message' => 'Caso actualizado correctamente'], 201);

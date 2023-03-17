@@ -18,6 +18,12 @@ class UserController extends Controller
         $users = User::orderBy('id', 'desc')->paginate(10);
         return response()->json($users);
     }
+    
+    public function all(): JsonResponse
+    {
+        $users = User::orderBy('id', 'desc');
+        return response()->json($users);
+    }
 
     /**
      * Display the specified resource.
