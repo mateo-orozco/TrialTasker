@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory, useRouter } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import axios from 'axios'
-import auth from './auth'
-import typePerson from './typePerson'
-import userRouter from './user'
+import authRoutes from './auth'
+import typePersonRoutes from './typePerson'
+import userRoutes from './user'
+import personRoutes from './person'
+
 import Cookies from "js-cookie";
 
 const router = createRouter({
@@ -25,9 +27,10 @@ const router = createRouter({
     },
     {
       children: [
-        ...auth,
-        ...typePerson,
-        ...userRouter,
+        ...authRoutes,
+        ...typePersonRoutes,
+        ...userRoutes,
+        ...personRoutes
       ],
     },
   ]

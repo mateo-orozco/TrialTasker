@@ -21,20 +21,24 @@ const props = defineProps({
 
 </script>
 
-<style scoped>
+<style >
 .form-group {
-    max-width: 400px;
+    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .label {
     font-size: 1.2em;
 }
 
-.input {
+.form-group input {
     width: 100%;
     padding: 10px;
-    border-radius: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
 }
+
 </style>

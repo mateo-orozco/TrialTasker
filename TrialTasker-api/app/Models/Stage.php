@@ -14,4 +14,20 @@ class Stage extends Model
         'stage_notes',
         
     ];
+
+    public function typeStage(){
+        return $this->belongsTo(TypeStage::class);
+    }
+
+    public function files(){
+        return $this->hasMany(File::class);
+    }
+
+    public function cases(){
+        return $this->belongsTo(Caso::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

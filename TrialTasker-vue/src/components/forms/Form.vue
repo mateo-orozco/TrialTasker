@@ -1,10 +1,11 @@
 <template>
-    <div class="container-form">
+    
         <form action="" class="form" @submit.prevent="this.create(form)">
-            <slot></slot>
+            <div class="form-content">
+                <slot></slot>
+            </div>
             <Button type="submit" :text="buttonText" />
         </form>
-    </div>
 </template>
 
 <script setup>
@@ -24,27 +25,29 @@ const props = defineProps({
     }
 })
 
-console.log(props)
 </script>
 <style scoped>
-
-.container-form {
-    margin-top: 20px;
-}
 .form {
-    display: grid;
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 400px));
-    margin: 0 auto;
+    
+}
+.form-content{
+    width: 100%;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 350px));
+    gap: 20px;
 }
 
 
 .form .btn {
-    justify-self: center;
+    width: 100%;
     max-width: 400px;
-    grid-column: span 2;
 }
 
 
