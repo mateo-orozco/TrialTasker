@@ -28,6 +28,7 @@ Route::group([
     'middleware' => ['auth:sanctum', 'verified', 'authCookie']
 ], function () {
     Route::get('/', 'index');
+    Route::get('/all','all');
     Route::post('/', 'store');
     Route::get('/{id}', 'show');
     Route::put('/{id}', 'update');
@@ -54,4 +55,7 @@ route::group([
 ],function(){
     Route::get('/', 'index');
     Route::post('/', 'store');
+    Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
 });

@@ -27,17 +27,17 @@ class PersonController extends Controller
         try {
             $request->validate([
                 'per_name'=>['required','string'], 
-                'per_lastname'=>['string'],
-                'per_email'=>['string'],
-                'per_phone'=>['string'],
-                'per_address'=>['string'],
-                'per_nit'=>['string'],
-                'per_issue_nit'=>['string'],
-                'per_num_ministry'=>['string'],
-                'per_num_dispaych'=>['string'],
-                'per_radicated'=>['string'],
-                'per_authority'=>['string'],
-                'per_number'=>['string'],
+                'per_lastname'=>['string','nullable'],
+                'per_email'=>['string','nullable'],
+                'per_phone'=>['string','nullable'],
+                'per_address'=>['string','nullable'],
+                'per_nit'=>['string','nullable'],
+                'per_issue_nit'=>['string','nullable'],
+                'per_num_ministry'=>['string','nullable'],
+                'per_num_dispaych'=>['string','nullable'],
+                'per_radicated'=>['string','nullable'],
+                'per_authority'=>['string','nullable'],
+                'per_number'=>['string','nullable'],
                 'per_type_person_id'=>['required','integer'],
             ]);
 
@@ -54,7 +54,7 @@ class PersonController extends Controller
                 'per_radicated'=> $request->per_radicated,
                 'per_authority'=> $request->per_authority,
                 'per_number'=> $request->per_number,
-                'per_type_person_id'=> $request->per_type_person,
+                'per_type_person_id'=> $request->per_type_person_id,
             ]);
             return response()->json(['message' => 'Persona creada correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
@@ -82,17 +82,17 @@ class PersonController extends Controller
         try {
             $request->validate([
                 'per_name'=>['required','string'], 
-                'per_lastname'=>['string'],
-                'per_email'=>['string'],
-                'per_phone'=>['string'],
-                'per_address'=>['string'],
-                'per_nit'=>['string'],
-                'per_issue_nit'=>['string'],
-                'per_num_ministry'=>['string'],
-                'per_num_dispaych'=>['string'],
-                'per_radicated'=>['string'],
-                'per_authority'=>['string'],
-                'per_number'=>['string'],
+                'per_lastname'=>['string','nullable'],
+                'per_email'=>['string','nullable'],
+                'per_phone'=>['string','nullable'],
+                'per_address'=>['string','nullable'],
+                'per_nit'=>['string','nullable'],
+                'per_issue_nit'=>['string','nullable'],
+                'per_num_ministry'=>['string','nullable'],
+                'per_num_dispaych'=>['string','nullable'],
+                'per_radicated'=>['string','nullable'],
+                'per_authority'=>['string','nullable'],
+                'per_number'=>['string','nullable'],
                 'per_type_person_id'=>['required','integer'],
             ]);
 
