@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="sidebar"
-            v-if="$route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail' && $route.name != 'LandingPage'">
+            v-if="$route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail'">
             <Sidebar />
         </div>
         <div class="container"
@@ -50,17 +50,10 @@ main {
     padding: 1.5rem;
     margin: 0 0 0 250px;
 }
-<<<<<<< HEAD
-=======
 
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
     .container-padding {
         margin: 0;
     }
-}
-
-
-
->>>>>>> develop
-</style>
+}</style>
