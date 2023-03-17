@@ -10,12 +10,12 @@
       <tbody>
         <tr v-for="item in data" :key="item.id">
           <td class="table__content__data" v-for="key in thead" :key="key.key">
-            {{ item[key.key] }}
-            </td>
-            <td class="table__content__data">
-                <router-link :to=" { name: 'TypePersonDashboardUpdate', params: { id: item.id } } ">Editar</router-link>
+            <span v-if="!key.key_2">{{ item[key.key] }}</span><span v-else>{{ item[key.key][key.key_2] }}</span>
+           </td>
+          <td class="table__content__data">
+                <router-link :to=" { name: edit, params: { id: item.id } } ">Editar</router-link>
                 <button @click="props.delete(item.id)">Eliminar</button>
-            </td>
+          </td>
         </tr>
       </tbody>
     </table>
@@ -36,6 +36,10 @@ const props = defineProps({
     },
     delete: {
         type: Function,
+        required: true,
+    },
+    edit: {
+        type: Text,
         required: true,
     },
 });

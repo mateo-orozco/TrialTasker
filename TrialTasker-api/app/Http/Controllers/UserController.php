@@ -19,6 +19,15 @@ class UserController extends Controller
         return response()->json($users);
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id): JsonResponse
+    {
+        $user = User::findOrFail($id);
+        return response()->json($user);
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -32,7 +41,7 @@ class UserController extends Controller
                 'phone' => ['required', 'string'],
                 'address' => ['required', 'string'],
                 'email' => ['required', 'string', 'email', 'unique:users'],
-                'password' => ['required', 'string'],
+                'password' => ['required', 'string', 'min:8', 'confirmed'],
             ]);
 
             $user = User::create([
@@ -45,9 +54,7 @@ class UserController extends Controller
             ]);
             return response()->json(['message' => 'Usuario creado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                $e->errors()
-            ], 400);
+            return response()->json(["errors" => $e->errors()], 400);
         }
     }
 
@@ -67,7 +74,7 @@ class UserController extends Controller
                 'phone' => ['required', 'string'],
                 'address' => ['required', 'string'],
                 'email' => ['required', 'string', 'email',  Rule::unique('users')->ignore($user->id)],
-                'password' => ['required', 'string'],
+                'password' => [ 'confirmed'],
             ]);
 
             User::find($id)->update([
@@ -81,9 +88,7 @@ class UserController extends Controller
 
             return response()->json(['message' => 'Usuario actualizado correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            return response()->json([
-                $e->errors()
-            ], 400);
+            return response()->json(["errors" => $e->errors()], 400);
         }
     }
 

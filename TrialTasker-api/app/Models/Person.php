@@ -23,12 +23,18 @@ class Person extends Model
         'per_radicated',
         'per_authority',
         'per_number',
-        'per_type_person',
+        'per_type_person_id',
     ];
 
-    public function type_person(){
+    public function per_type_person(){
         return $this->belongsTo(TypePerson::class);
     }
 
+    public function users(){
+        return $this->hasMany(User::class);
+    }
 
+    public function cases(){
+        return $this->belongsToMany(Caso::class);
+    }
 }

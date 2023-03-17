@@ -4,9 +4,10 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
+use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\TypePerson;
-use Illuminate\Database\Seeder;
+use App\Models\Person;
 
 class DatabaseSeeder extends Seeder
 {
@@ -20,13 +21,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
             'is_admin' => true,
         ]);
-        User::factory(10)->create();
-        // TypePerson::factory(10)->create();
-
         $this->call([
             TypePersonSeeder::class,
         ]);
-
-
+        User::factory(10)->create();
+        TypePerson::factory(10)->create();
+        Person::factory(20)->create();
     }
 }

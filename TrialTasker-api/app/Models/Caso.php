@@ -16,4 +16,16 @@ class Caso extends Model
         'case_radicate',
         'case_status',
     ];
+
+    public function stages(){
+        return $this->hasMany(Stage::class);
+    }
+
+    public function typeStages(){
+        return $this->belongsToMany(TypeStage::class);
+    }
+
+    public function users(){
+        return $this->belongsToMany(User::class);
+    }
 }

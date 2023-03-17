@@ -32,6 +32,15 @@ main {
     grid-template-rows: max-content 1fr max-content;
 }
 
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+}
+
 .container {
     flex: 1;
     background-color: var(--white);
@@ -41,4 +50,17 @@ main {
     padding: 1.5rem;
     margin: 0 0 0 250px;
 }
+<<<<<<< HEAD
+=======
+
+/* Media query for mobile screens */
+@media screen and (max-width: 768px) {
+    .container-padding {
+        margin: 0;
+    }
+}
+
+
+
+>>>>>>> develop
 </style>

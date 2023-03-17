@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory, useRouter } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import axios from "axios";
-import auth from "./auth";
-import typePerson from "./typePerson";
-import userRouter from "./user";
+import authRoutes from "./auth";
+import typePersonRoutes from "./typePerson";
+import userRoutes from "./user";
+import personRoutes from "./person";
+
 import Cookies from "js-cookie";
 
 const router = createRouter({
@@ -11,7 +13,7 @@ const router = createRouter({
   routes: [
     {
       path: "/",
-      redirect: "LandingPage",
+      redirect: "Login",
     },
     {
       path: "/home",
@@ -19,12 +21,17 @@ const router = createRouter({
       component: HomeView,
     },
     {
-      path: "/landingpage",
-      name: "LandingPage",
-      component: () => import("../views/LandingPage.vue"),
+      path: "/dashboard",
+      name: "Dashboard",
+      component: () => import("../views/DashboardView.vue"),
     },
     {
-      children: [...auth, ...typePerson, ...userRouter],
+      children: [
+        ...authRoutes,
+        ...typePersonRoutes,
+        ...userRoutes,
+        ...personRoutes,
+      ],
     },
   ],
 });
@@ -69,8 +76,7 @@ router.beforeEach((to, from, next) => {
       to.name === "Login" ||
       to.name === "Register" ||
       to.name === "ForgotPassword" ||
-      to.name === "ResetPassword" ||
-      to.name === "LandingPage"
+      to.name === "ResetPassword"
     ) {
       next();
     } else {
