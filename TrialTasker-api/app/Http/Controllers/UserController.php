@@ -99,6 +99,5 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return response()->json(['message' => 'usuario  eliminado exitosamente'], 201);
-        //
     }
 }
