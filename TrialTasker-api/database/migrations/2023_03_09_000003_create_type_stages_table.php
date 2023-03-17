@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('type_stages', function (Blueprint $table) {
             $table->id();
-            $table->string('type_sta_name');
+            $table->string('type_stage_name')->unique();
             $table->timestamps();
         });
     }
