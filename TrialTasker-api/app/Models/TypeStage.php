@@ -13,7 +13,6 @@ class TypeStage extends Model
 
     protected $fillable = [
         'type_stage_name',
-        
     ];
 
     public function stages(){

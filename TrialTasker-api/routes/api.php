@@ -3,6 +3,7 @@
 use App\Http\Controllers\CasoController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\TypePersonController;
+use App\Http\Controllers\TypeStageController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,19 @@ route::group([
 route::group([
     'prefix'=>'cases',
     'controller' => CasoController::class,
+],function(){
+    Route::get('/', 'index');
+    Route::get('/all','all');
+    Route::post('/', 'store');
+    Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+});
+
+//type_stage
+route::group([
+    'prefix'=>'typeStage',
+    'controller' => TypeStageController::class,
 ],function(){
     Route::get('/', 'index');
     Route::get('/all','all');
