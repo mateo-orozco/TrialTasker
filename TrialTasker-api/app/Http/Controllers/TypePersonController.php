@@ -17,6 +17,16 @@ class TypePersonController extends Controller
         return response()->json($typePersons);
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+
+    public function all(): JsonResponse
+    {
+        $typePersons = TypePerson::all();
+        return response()->json($typePersons);
+    }
+
 
     /**
      * Store a newly created resource in storage.

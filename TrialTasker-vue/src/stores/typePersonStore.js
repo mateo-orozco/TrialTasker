@@ -4,19 +4,21 @@ import router from "../router";
 
 export const useTypePersonStore = defineStore('typePersons', {
     state: () => ({
+        typePersonsAllStore: [],
         typePersonsStore: [],
         typePersonStore: {},
         errorsStore: [],
         messagesStore: [],
     }),
     getters: {
+        typePersonsAll: (state) => state.typePersonsAllStore,
         typePersons: (state) => state.typePersonsStore,
         typePerson: (state) => state.typePersonStore,
         errors: (state) => state.errorsStore,
         messages: (state) => state.messagesStore,
     },
     actions: {
-        /* get all typePersons */
+        /* get all typePersons paginate  */
         async getTypePersons() {
             await axios.get('/api/type-persons')
             .then(response => {
@@ -24,6 +26,16 @@ export const useTypePersonStore = defineStore('typePersons', {
                 this.errorsStore = [];
             });
         },
+
+        /* get all typePersons */
+        async getTypePersonsAll() {
+            await axios.get('/api/type-persons/all')
+            .then(response => {
+                this.typePersonsAllStore = response.data;
+                this.errorsStore = [];
+            });
+        },
+
         /* get typePersons page */
         async getTypePersonsPage(page) {
             await axios.get(page)
