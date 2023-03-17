@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum', 'authCookie'])->get('/user', function (Request $request) {
     return $request->user();
 });
 
@@ -25,7 +25,7 @@ Route::middleware(['auth:sanctum'])->get('/user', function (Request $request) {
 Route::group([
     'prefix' => 'type-persons',
     'controller' => TypePersonController::class,
-    'middleware' => ['auth:sanctum', 'verified']
+    'middleware' => ['auth:sanctum', 'verified', 'authCookie']
 ], function () {
     Route::get('/', 'index');
     Route::post('/', 'store');
@@ -38,6 +38,7 @@ Route::group([
 route::group([
     'prefix'=> 'users',
     'controller'=> UserController::class,
+    'middleware' => ['auth:sanctum', 'verified', 'authCookie']
 ],function(){
     Route::get('/', 'index');
     Route::post('/', 'store');
@@ -48,12 +49,9 @@ route::group([
 
 // person
 route::group([
-    'prefix'=>'person',
+    'prefix'=>'persons',
     'controller' => PersonController::class,
 ],function(){
     Route::get('/', 'index');
     Route::post('/', 'store');
-    Route::get('/{id}', 'show');
-    Route::put('/{id}', 'update');
-    Route::delete('/{id}', 'destroy');
 });

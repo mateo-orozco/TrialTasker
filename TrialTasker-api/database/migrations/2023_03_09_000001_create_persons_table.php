@@ -25,7 +25,7 @@ return new class extends Migration
             $table->string('per_radicated')->nullable();
             $table->string('per_authority')->nullable();
             $table->string('per_number')->nullable();
-            $table->foreignId('per_type_person')->constrained('type_persons');
+            $table->foreignId('per_type_person_id')->constrained('type_persons');
             $table->timestamps();
         });
     }

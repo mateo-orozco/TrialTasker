@@ -74,19 +74,19 @@ body {
     padding: 20px;
   }
 }
-.form-group {
+.form-group-entry {
   display: flex;
   flex-direction: column;
   width: 100%;
   position: relative;
 }
 
-.form-group label {
+.form-group-entry label {
   font-size: 14px;
   margin-top: 5px;
 }
 
-.form-group input {
+.form-group-entry input {
   width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
@@ -96,7 +96,7 @@ body {
   margin-top: 20px;
 }
 
-form {
+.form-entry {
   width: 100%;
 }
 
@@ -112,14 +112,14 @@ form {
   margin-bottom: 10px;
 }
 
-.form-entry .form-group input {
+.form-entry .form-group-entry input {
   border: none;
   background-color: var(--background);
   padding: 20px;
   border-radius: 15px;
   color: var(--brown);
 }
-.form-entry .form-group input::placeholder {
+.form-entry .form-group-entry input::placeholder {
   color: var(--brown);
 }
 
@@ -134,12 +134,12 @@ form {
   font-weight: bold;
 }
 
-.login .form-group:first-child input {
+.login .form-group-entry:first-child input {
   border-radius: 15px 15px 0 0;
   margin-top: 0;
 }
 
-.login .form-group:nth-child(2) input {
+.login .form-group-entry:nth-child(2) input {
   border-radius: 0 0 15px 15px;
   margin-top: 0;
 }
