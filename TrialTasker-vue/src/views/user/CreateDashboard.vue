@@ -2,7 +2,7 @@
     <HeaderAccions title="Crear Usuario" to="UserDashboard" />
     <Form :create="users.createUser" :form="form" button-text="Crear">
         <FormGroup label="Nombre" :error="users.errors ? users.errors.name : []">
-            <input type="text" id="name" v-model="form.name">
+            <input class="input" type="text" id="name" v-model="form.name">
         </FormGroup>
         <FormGroup label="Apellidos" :error="users.errors ? users.errors.lastname : []">
             <input type="text" id="lastname" v-model="form.lastname">
@@ -20,7 +20,7 @@
             <input type="password" id="password" v-model="form.password">
         </FormGroup>
         <FormGroup label="Confirmacion de contraseña" :error="users.errors ? users.errors.password_confirmation : []">
-            <input type="password" id="address" v-model="form.password_confirmation">
+            <input type="password" id="password_confirmation" v-model="form.password_confirmation">
         </FormGroup>
     </Form>
 </template>
