@@ -5,45 +5,77 @@
                 <Logo fill="--brown" />
             </div>
             <div class="buttons">
-                <div class="buttonLogin">
-                    <RouterLink :to="{ name: 'Login' }" class="navButton">Login</RouterLink>
-                </div>
-                <div class="buttonRegister">
-                    <RouterLink :to="{ name: 'Register' }" class="navButton">Registrarse</RouterLink>
-                </div>
+
+                <RouterLink :to="{ name: 'Login' }" class="navButton">
+                    <div class="buttonLogin">Login
+                    </div>
+                </RouterLink>
+                <RouterLink :to="{ name: 'Register' }" class="navButton">
+                    <div class="buttonRegister">Registrarse</div>
+                </RouterLink>
             </div>
         </div>
         <div class="contenido">
-            <div class="part1">
-                <div class="image1">
-                    <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
-                </div>
-                <div class="texto1">
-                    <p id="textoPart1">Bienvenido a TrialTasker</p>
-                    <p id="textoPart2">la plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
-                        casos
-                        ordenadamente</p>
-                </div>
+
+            <div class="image1">
+                <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
+            </div>
+            <div class="texto1">
+                <p id="textoPart1">Bienvenido a TrialTasker</p>
+                <p id="textoPart2">la plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
+                    casos
+                    ordenadamente</p>
             </div>
         </div>
+
         <div class="contenido">
-            <div class="part1">
-                <div class="texto2">
-                    <p>Nuestra plataforma está diseñada específicamente para abogados y se adapta perfectamente a sus
-                        necesidades. Ya sea que esté buscando un sistema de gestión de casos, herramientas de colaboración
-                        en equipo o una forma de automatizar su facturación, estamos aquí para ayudarlo.</p>
-                </div>
-                <div class="image2">
-                    <img src="@/assets/img/abogados2.jpeg" alt="">
-                </div>
-                <div class="texto2">
-                    <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
-                        trabajo diario y aumentar la eficiencia. Nuestra plataforma ha sido diseñada específicamente para
-                        satisfacer las necesidades únicas de los abogados y proporcionar una solución integral para todas
-                        sus necesidades</p>
-                </div>
+
+            <div class="texto2">
+                <p>Nuestra plataforma está diseñada específicamente para abogados y se adapta perfectamente a sus
+                    necesidades. Ya sea que esté buscando un sistema de gestión de casos, herramientas de colaboración
+                    en equipo o una forma de automatizar su facturación, estamos aquí para ayudarlo.</p>
+            </div>
+            <div class="image2">
+                <img src="@/assets/img/abogados2.jpeg" alt="" class="imagen2">
+            </div>
+            <div class="texto2" style="margin-left: 30px;">
+                <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
+                    trabajo diario y aumentar la eficiencia. Nuestra plataforma ha sido diseñada específicamente para
+                    satisfacer las necesidades únicas de los abogados y proporcionar una solución integral para todas
+                    sus necesidades</p>
             </div>
         </div>
+
+        <div class="contenido">
+            <div class="image3">
+                <img src="@/assets/img/abogados3.jpg" alt="" class="imagen3">
+            </div>
+            <div class="texto3">
+                Además, nuestra plataforma es fácil de usar y está diseñada para proporcionar una experiencia de usuario
+                sin complicaciones.
+
+                Nos esforzamos por brindar un servicio de alta calidad y atención personalizada a cada uno de nuestros
+                clientes. Trabajamos en estrecha colaboración con usted para entender sus necesidades y objetivos
+                específicos
+
+                ¡Únase a nuestra plataforma hoy y descubra cómo podemos ayudarlo a simplificar su práctica legal y
+                mejorar la satisfacción del cliente!
+            </div>
+            <div class="image3">
+                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
+            </div>
+        </div>
+        <footer>
+            <div class="logo">
+                <Logo fill="--brown" />
+            </div>
+            <div class="informacion">
+                <p>asdlkjfhlaskdjfnlasdkfbhasldkjbflkas</p>
+            </div>
+            <div class="informacion">
+                <p>asdlkjfhlaskdjfnlasdkfbhasldkjbflkas2</p>
+            </div>
+        </footer>
     </div>
 </template>
 
@@ -66,8 +98,12 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 /* body */
+body {
+    background-color: var(--background);
+}
+
 .container {
-    background-color: rgba(255, 255, 255, 1);
+    width: 100vw;
 }
 
 /* navbar */
@@ -83,7 +119,8 @@ import Logo from '../components/logo/Logo.vue';
     margin-left: 5%;
 }
 
-/* navbar Buttons8 */
+
+/* navbar Buttons */
 .buttons {
     margin-left: 60%;
     margin-top: 25px;
@@ -95,11 +132,8 @@ import Logo from '../components/logo/Logo.vue';
     background-color: var(--brown);
     border-radius: 5px;
     text-align: center;
-}
-
-.navButton {
-    color: var(--beige);
-    text-decoration: none;
+    box-sizing: border-box;
+    padding: 10px;
 }
 
 .buttonRegister {
@@ -109,29 +143,57 @@ import Logo from '../components/logo/Logo.vue';
     border-radius: 5px;
     text-align: center;
     margin-top: 20px;
+    padding: 10px;
+}
+
+.navButton {
+    color: var(--beige);
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    font-size: 20px;
+}
+
+/* hover de los botones */
+.buttonLogin:hover {
+    background-color: var(--beige);
+}
+
+.buttonRegister:hover {
+    background-color: var(--beige);
+}
+
+.navButton:hover {
+    color: var(--brown);
 }
 
 /* Primera parte del contenido */
 .contenido {
-    border: solid 1px;
     margin-top: 150px;
     display: flex;
     justify-content: center;
+    border: solid 1px;
+    flex-wrap: wrap;
 }
 
 .part1 {
     display: flex;
-    width: 80%;
+    width: 100%;
 }
 
+.image1 {
+    width: 700px;
+}
+
+
 .imagen1 {
-    width: 500px;
+    width: 70%;
     margin-left: 200px;
 }
 
 .texto1 {
     margin-left: 200px;
-    width: 30%;
+    width: 500px;
 }
 
 #textoPart1 {
@@ -147,9 +209,49 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 .texto2 {
-    width: 33.3%;
-    margin-top: 150px;
+    width: 400px;
+    margin-top: 80px;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
+}
+
+.imagen2 {
+    width: 500px;
+}
+
+/* tercera parte del contenido */
+
+.imagen3 {
+    width: 500px;
+}
+
+.texto3 {
+    width: 33%;
+    margin-left: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: 20px;
+}
+
+.imagen4 {
+    width: 350px;
+    margin-left: 20px;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 50px;
+    background-color: var(--brown);
+}
+
+.logo {
+    width: 200px;
+}
+
+.informacion {
+    color: var(--beige);
 }
 </style>
