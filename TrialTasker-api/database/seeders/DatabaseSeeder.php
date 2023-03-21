@@ -9,6 +9,8 @@ use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\TypePerson;
 use App\Models\Person;
+use App\Models\Stage;
+use App\Models\TypeStage;
 
 class DatabaseSeeder extends Seeder
 {
@@ -29,5 +31,7 @@ class DatabaseSeeder extends Seeder
         TypePerson::factory(10)->create();
         Person::factory(20)->create();
         Caso::factory(10)->create();
+        TypeStage::factory(6)->create();
+        Stage::factory(10)->create();
     }
 }
