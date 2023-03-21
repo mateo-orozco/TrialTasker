@@ -12,6 +12,8 @@ class Stage extends Model
     protected $fillable = [
         'stage_name',
         'stage_notes',
+        'stage_case_id',
+        'stage_type_stage_id',
         
     ];
 

@@ -1,6 +1,12 @@
 <template>
   <HeaderAccions title="Crear Persona" to="PersonDashboard" />
     <Form :create="persons.createPerson" :form="form" button-text="Crear">
+        <FormGroup label="Tipo de persona" :error="persons.errors ? persons.errors.per_type_person_id : []">
+            <select class="select" id="per_type_person_id" v-model="form.per_type_person_id">
+                <option value="">Seleccione</option>
+                <option v-for="typePerson in typePersons.typePersonsAll" :key="typePerson.id" :value="typePerson.id">{{ typePerson.type_person_name }}</option>
+            </select>
+        </FormGroup>
         <FormGroup label="Nombre" :error="persons.errors ? persons.errors.per_name : []">
             <input class="input" type="text" id="per_name" v-model="form.per_name">
         </FormGroup>
@@ -37,18 +43,20 @@
         <FormGroup label="Numero" :error="persons.errors ? persons.errors.per_number : []">
             <input class="number" type="text" id="per_number" v-model="form.per_number">
         </FormGroup>
-        
     </Form>
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import HeaderAccions from '../../components/headers/HeaderAccions.vue';
 import Form from '../../components/forms/Form.vue';
 import FormGroup from '../../components/forms/FormGroup.vue';
 import { usePersonStore } from '../../stores/personStore';
+import { useTypePersonStore } from '../../stores/typePersonStore';
+
 
 const persons = usePersonStore();
+const typePersons = useTypePersonStore();
 
 const form = ref({
     per_name:'',
@@ -64,6 +72,10 @@ const form = ref({
     per_authority:'',
     per_number:'',
     per_type_person_id:'',
+});
+
+onMounted(() => {
+    typePersons.getTypePersonsAll();
 });
 
 </script>

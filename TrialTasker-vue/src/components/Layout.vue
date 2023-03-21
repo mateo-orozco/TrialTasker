@@ -19,6 +19,7 @@ import Sidebar from './Sidebar/Sidebar.vue';
 main {
     display: flex;
     height: 100vh;
+    background-color: var(--white);
 }
 
 .sidebar {
@@ -44,6 +45,7 @@ main {
 .container {
     flex: 1;
     background-color: var(--white);
+    
 }
 
 .container-padding {
