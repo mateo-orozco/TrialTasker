@@ -26,6 +26,16 @@ const router = createRouter({
       component: () => import("../views/LandingPage.vue"),
     },
     {
+      path: "/createcase",
+      name: "CreateCase",
+      component: () => import("../views/CreateCase.vue"),
+    },
+    {
+      path: "/activecase",
+      name: "ActiveCase",
+      component: () => import("../views/ActiveCases.vue"),
+    },
+    {
       children: [
         ...authRoutes,
         ...typePersonRoutes,
@@ -77,7 +87,8 @@ router.beforeEach((to, from, next) => {
       to.name === "Register" ||
       to.name === "ForgotPassword" ||
       to.name === "ResetPassword" ||
-      to.name === "LandingPage"
+      to.name === "LandingPage" ||
+      to.name === "CreateCase"
     ) {
       next();
     } else {
