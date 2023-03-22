@@ -29,7 +29,8 @@ class Stage extends Model
         return $this->belongsTo(Caso::class);
     }
 
-    public function users(){
-        return $this->belongsToMany(User::class);
+    public function personStage()
+    {
+        return $this->hasMany(PersonStage::class);
     }
 }
