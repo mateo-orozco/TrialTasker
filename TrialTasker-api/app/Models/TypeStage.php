@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TypeStage extends Model
 {
+    
     use HasFactory;
 
     protected $table ='type_stages';
