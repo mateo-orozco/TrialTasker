@@ -17,14 +17,14 @@
         </div>
         <div class="contenido">
 
-            <div class="image1">
-                <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
-            </div>
             <div class="texto1">
                 <p id="textoPart1">Bienvenido a TrialTasker</p>
                 <p id="textoPart2">la plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
                     casos
                     ordenadamente</p>
+            </div>
+            <div class="image1">
+                <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
             </div>
         </div>
 
@@ -38,7 +38,7 @@
             <div class="image2">
                 <img src="@/assets/img/abogados2.jpeg" alt="" class="imagen2">
             </div>
-            <div class="texto2" style="margin-left: 30px;">
+            <div class="texto2" >
                 <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
                     trabajo diario y aumentar la eficiencia. Nuestra plataforma ha sido diseñada específicamente para
                     satisfacer las necesidades únicas de los abogados y proporcionar una solución integral para todas
@@ -66,15 +66,22 @@
             </div>
         </div>
         <footer>
-            <div class="logo">
-                <Logo fill="--brown" />
+            <div class="foologo">
+                <Logo fill="--brown" class="logofoo" />
             </div>
-            <div class="informacion">
-                <p>asdlkjfhlaskdjfnlasdkfbhasldkjbflkas</p>
+
+            <div class="informacionfoo">
+                <div class="informacion">
+                    <h4>Contacto</h4>
+                    <p>Correo: trialtasker@gmail.com</p>
+                    <p>Telefono: 329234823</p>
+                </div>
+                <div class="informacion">
+                    <h4>Informacion</h4>
+                    <p>dfhgsdfhhhhhhhhhhdsfgdf</p>
+                </div>
             </div>
-            <div class="informacion">
-                <p>asdlkjfhlaskdjfnlasdkfbhasldkjbflkas2</p>
-            </div>
+
         </footer>
     </div>
 </template>
@@ -87,6 +94,7 @@ import Logo from '../components/logo/Logo.vue';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 /* variables */
+
 :root {
     --background: #edecec;
     --brown: #664200;
@@ -98,52 +106,55 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 /* body */
-body {
-    background-color: var(--background);
-}
+
 
 .container {
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
 
 /* navbar */
 .navbar {
-    width: 100%;
-    height: 150px;
+    width: 100vw;
+    height: 100px;
     display: flex;
-    margin-top: 5%;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px;
 }
 
 .navbarLogo {
-    width: 400px;
-    margin-left: 5%;
+    width: 300px;
 }
 
 
 /* navbar Buttons */
 .buttons {
-    margin-left: 60%;
-    margin-top: 25px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
 }
 
 .buttonLogin {
-    width: 250px;
+    width: 200px;
     height: 40px;
     background-color: var(--brown);
     border-radius: 5px;
     text-align: center;
-    box-sizing: border-box;
-    padding: 10px;
+    padding: 8px;
 }
 
 .buttonRegister {
-    width: 250px;
+    width: 200px;
     height: 40px;
     background-color: var(--brown);
     border-radius: 5px;
     text-align: center;
-    margin-top: 20px;
-    padding: 10px;
+    padding: 8px;
+
 }
 
 .navButton {
@@ -169,11 +180,13 @@ body {
 
 /* Primera parte del contenido */
 .contenido {
-    margin-top: 150px;
     display: flex;
     justify-content: center;
-    border: solid 1px;
+    align-items: center;
     flex-wrap: wrap;
+    gap: 30px;
+    padding: 5px;
+    text-align: center;
 }
 
 .part1 {
@@ -182,23 +195,24 @@ body {
 }
 
 .image1 {
-    width: 700px;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
 .imagen1 {
-    width: 70%;
-    margin-left: 200px;
+    width: 85%;
 }
 
 .texto1 {
-    margin-left: 200px;
-    width: 500px;
+    width: 45%;
 }
 
 #textoPart1 {
     font-weight: bold;
-    font-size: 80px;
+    font-size: 50px;
     font-family: 'Roboto Condensed', sans-serif;
 }
 
@@ -206,35 +220,42 @@ body {
 #textoPart2 {
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
+    
 }
 
 .texto2 {
-    width: 400px;
-    margin-top: 80px;
+    width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
+
 }
 
-.imagen2 {
-    width: 500px;
+.image2 {
+    width: 30%;
+
+}
+.imagen2{
+    width: 100%;
+
 }
 
 /* tercera parte del contenido */
 
 .imagen3 {
-    width: 500px;
+    width: 100%;
 }
 
+.image3{
+    width: 30%;
+}
 .texto3 {
-    width: 33%;
-    margin-left: 20px;
+    width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
 
-.imagen4 {
-    width: 350px;
-    margin-left: 20px;
+.imagen4{
+    width: 100%;
 }
 
 /* footer */
@@ -243,7 +264,7 @@ footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 50px;
+    flex-wrap: wrap;
     background-color: var(--brown);
 }
 
@@ -253,5 +274,67 @@ footer {
 
 .informacion {
     color: var(--beige);
+    padding: 0px 5px;
+}
+.foologo{
+        width: 30%;
+        text-align: center;
+    }
+    .logofoo{
+        width: 100%;
+    }
+    .informacionfoo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+    }
+@media screen and (max-width:768px) {
+    .image1{
+        width: 100%;
+
+    }
+    .texto1 {
+        width: 100%;
+    }
+    .texto2{
+        width: 100%;
+    }
+    .image2{
+        width: 85%;
+    }
+    .image3{
+        width: 85%;
+    }
+    .texto3{
+        width: 100%;
+    }
+    .buttonLogin {
+        width: 120px;
+    }
+    .buttonRegister {
+        width: 120px;
+    }
+    .navbarLogo {
+        width: 200px;
+    }
+    footer{
+        height: 200px;
+    }
+    .foologo{
+        width: 100%;
+        text-align: center;
+    }
+    .logofoo{
+        width: 50%;
+    }
+    .informacionfoo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+    }
+
 }
 </style>
