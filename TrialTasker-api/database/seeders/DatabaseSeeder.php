@@ -36,4 +36,5 @@ class DatabaseSeeder extends Seeder
         Stage::factory(10)->create();
         PersonStage::factory(10)->create();
     }
+    
 }
