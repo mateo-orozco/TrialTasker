@@ -12,6 +12,8 @@ class Stage extends Model
     protected $fillable = [
         'stage_name',
         'stage_notes',
+        'stage_case_id',
+        'stage_type_stage_id',
         
     ];
 
@@ -27,7 +29,8 @@ class Stage extends Model
         return $this->belongsTo(Caso::class);
     }
 
-    public function users(){
-        return $this->belongsToMany(User::class);
+    public function personStage()
+    {
+        return $this->hasMany(PersonStage::class);
     }
 }
