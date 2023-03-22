@@ -140,7 +140,7 @@ import Logo from '../components/logo/Logo.vue';
 
 .buttonLogin {
     width: 200px;
-    height: 40px;
+    height: 39px;
     background-color: var(--brown);
     border-radius: 5px;
     text-align: center;
@@ -149,7 +149,7 @@ import Logo from '../components/logo/Logo.vue';
 
 .buttonRegister {
     width: 200px;
-    height: 40px;
+    height: 39px;
     background-color: var(--brown);
     border-radius: 5px;
     text-align: center;
