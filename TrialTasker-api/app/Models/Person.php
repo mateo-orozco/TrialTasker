@@ -30,11 +30,14 @@ class Person extends Model
         return $this->belongsTo(TypePerson::class);
     }
 
-    public function users(){
-        return $this->hasMany(User::class);
-    }
 
     public function cases(){
         return $this->belongsToMany(Caso::class);
     }
+
+    public function personStage()
+    {
+        return $this->hasMany(PersonStage::class);
+    }
+
 }
