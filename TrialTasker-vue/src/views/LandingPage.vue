@@ -38,7 +38,7 @@
             <div class="image2">
                 <img src="@/assets/img/abogados2.jpeg" alt="" class="imagen2">
             </div>
-            <div class="texto2" >
+            <div class="texto2">
                 <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
                     trabajo diario y aumentar la eficiencia. Nuestra plataforma ha sido diseñada específicamente para
                     satisfacer las necesidades únicas de los abogados y proporcionar una solución integral para todas
@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
+                <img src="@/assets/img/abogados4-removebg-preview.png" alt="" class="imagen4">
             </div>
         </div>
         <footer>
@@ -113,6 +113,7 @@ import Logo from '../components/logo/Logo.vue';
     display: flex;
     flex-direction: column;
     gap: 30px;
+    background-color: var(--background);
 }
 
 /* navbar */
@@ -132,10 +133,10 @@ import Logo from '../components/logo/Logo.vue';
 
 /* navbar Buttons */
 .buttons {
-   display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .buttonLogin {
@@ -220,7 +221,7 @@ import Logo from '../components/logo/Logo.vue';
 #textoPart2 {
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
-    
+
 }
 
 .texto2 {
@@ -234,7 +235,8 @@ import Logo from '../components/logo/Logo.vue';
     width: 30%;
 
 }
-.imagen2{
+
+.imagen2 {
     width: 100%;
 
 }
@@ -245,16 +247,17 @@ import Logo from '../components/logo/Logo.vue';
     width: 100%;
 }
 
-.image3{
+.image3 {
     width: 30%;
 }
+
 .texto3 {
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
 
-.imagen4{
+.imagen4 {
     width: 100%;
 }
 
@@ -276,60 +279,76 @@ footer {
     color: var(--beige);
     padding: 0px 5px;
 }
-.foologo{
-        width: 30%;
-        text-align: center;
-    }
-    .logofoo{
-        width: 100%;
-    }
-    .informacionfoo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 10px;
-        gap: 10px;
-    }
+
+.foologo {
+    width: 30%;
+    text-align: center;
+}
+
+.logofoo {
+    width: 100%;
+}
+
+.informacionfoo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    gap: 10px;
+}
+
 @media screen and (max-width:768px) {
-    .image1{
+    .image1 {
         width: 100%;
 
     }
+
     .texto1 {
         width: 100%;
     }
-    .texto2{
+
+    .texto2 {
         width: 100%;
     }
-    .image2{
+
+    .image2 {
         width: 85%;
     }
-    .image3{
+
+    .image3 {
         width: 85%;
     }
-    .texto3{
+
+    .texto3 {
         width: 100%;
     }
+
     .buttonLogin {
         width: 120px;
     }
+
     .buttonRegister {
         width: 120px;
     }
+
     .navbarLogo {
         width: 200px;
     }
-    footer{
+
+    footer {
         height: 200px;
     }
-    .foologo{
+
+    .foologo {
         width: 100%;
         text-align: center;
     }
-    .logofoo{
+
+    .logofoo {
         width: 50%;
     }
-    .informacionfoo{
+
+    .informacionfoo {
         display: flex;
         align-items: center;
         justify-content: center;
