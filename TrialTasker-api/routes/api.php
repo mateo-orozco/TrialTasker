@@ -21,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// ------------------------dashboard------------------------
+
+
 Route::middleware(['auth:sanctum', 'authCookie'])->get('/user', function (Request $request) {
     return $request->user();
 });
@@ -117,3 +120,9 @@ route::group([
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
+
+
+// ------------------------user------------------------
+
+Route::get('userCases/{id}',[UserController::class, 'userCases']);
+Route::get('userCases/stage/${id}',[StageController::class, '']);

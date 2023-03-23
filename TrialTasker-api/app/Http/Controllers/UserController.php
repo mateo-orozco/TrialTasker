@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Caso;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -106,4 +107,21 @@ class UserController extends Controller
         User::find($id)->delete();
         return response()->json(['message' => 'usuario  eliminado exitosamente'], 201);
     }
+
+
+
+    // consultas de usuario logueado
+
+    // user cases
+    public function userCases(string $id):JsonResponse
+    {
+        $casos = Caso::where('case_user_id', $id)->get();
+        return response()->json($casos, 200);
+    }
+
+    // info cases
+    // public function infoCases(string $id):JsonResponse
+    // {
+    //     $infocaso
+    // }
 }
