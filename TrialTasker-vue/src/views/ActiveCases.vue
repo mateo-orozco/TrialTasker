@@ -1,7 +1,7 @@
 <template>
     <main>
         <div class="navbar">
-                <input class="search" type="search" placeholder="Buscar">
+            <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
@@ -38,13 +38,13 @@
 </template>
 
 <script setup>
-document.addEventListener("keyup", e=>{
-    if (e.target.matches(".search")){
-        if (e.key ==="Escape")e.target.value = ""
-          document.querySelectorAll(".caso").forEach(caso=>{
-              caso.textContent.toLowerCase().includes(e.target.value.toLowerCase())
-                ?caso.classList.remove("filtro")
-                :caso.classList.add("filtro")
+document.addEventListener("keyup", e => {
+    if (e.target.matches(".search")) {
+        if (e.key === "Escape") e.target.value = ""
+        document.querySelectorAll(".caso").forEach(caso => {
+            caso.textContent.toLowerCase().includes(e.target.value.toLowerCase())
+                ? caso.classList.remove("filtro")
+                : caso.classList.add("filtro")
         })
     }
 })
@@ -62,19 +62,19 @@ document.addEventListener("keyup", e=>{
     --black: #000;
 }
 
-.filtro{
+.filtro {
     display: none;
 }
 
-.navbar{
+.navbar {
     width: 100%;
-    height: 50px; 
+    height: 50px;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
 
-.search{
+.search {
     width: 50vw;
     height: 30px;
     border: none;
@@ -107,7 +107,7 @@ main {
 /* estilos de la tabla */
 table {
     margin-top: 30px;
-    
+
 }
 
 /* estilos del thead */
@@ -127,6 +127,6 @@ td {
 
 tr {
     margin-top: 5vh;
-    
+
 }
 </style>
