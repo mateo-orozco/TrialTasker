@@ -1,10 +1,10 @@
-import { createRouter, createWebHistory, useRouter } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import axios from 'axios'
-import authRoutes from './auth'
-import typePersonRoutes from './typePerson'
-import userRoutes from './user'
-import personRoutes from './person'
+import { createRouter, createWebHistory, useRouter } from "vue-router";
+import HomeView from "../views/HomeView.vue";
+import axios from "axios";
+import authRoutes from "./auth";
+import typePersonRoutes from "./typePerson";
+import userRoutes from "./user";
+import personRoutes from "./person";
 
 import Cookies from "js-cookie";
 
@@ -12,70 +12,89 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: '/',
-      redirect: 'Login'
+      path: "/",
+      redirect: "LandingPage",
     },
     {
-      path: '/home',
-      name: 'Home',
-      component: HomeView
+      path: "/home",
+      name: "Home",
+      component: HomeView,
     },
     {
-      path: '/dashboard',
-      name: 'Dashboard',
-      component: () => import('../views/DashboardView.vue')
+      path: "/landingpage",
+      name: "LandingPage",
+      component: () => import("../views/LandingPage.vue"),
+    },
+    {
+      path: "/createcase",
+      name: "CreateCase",
+      component: () => import("../views/CreateCase.vue"),
+    },
+    {
+      path: "/activecase",
+      name: "ActiveCase",
+      component: () => import("../views/ActiveCases.vue"),
     },
     {
       children: [
         ...authRoutes,
         ...typePersonRoutes,
         ...userRoutes,
-        ...personRoutes
+        ...personRoutes,
       ],
     },
-  ]
+  ],
 });
 
 let user = [];
 
 router.beforeEach((to, from, next) => {
   const redirect = () => {
-    
-    if (from.name === 'Register' && to.name === 'VerifyEmail') {
-      next()
-    } else 
-    if (user.email_verified_at === null && to.name !== 'VerifyEmail') {
-      next({ name: 'VerifyEmail' })
-    } else
-    if (to.name === 'Login' || to.name === 'Register' || to.name === 'ForgotPassword' || to.name === 'ResetPassword' ) {
+    if (from.name === "Register" && to.name === "VerifyEmail") {
+      next();
+    } else if (user.email_verified_at === null && to.name !== "VerifyEmail") {
+      next({ name: "VerifyEmail" });
+    } else if (
+      to.name === "Login" ||
+      to.name === "Register" ||
+      to.name === "ForgotPassword" ||
+      to.name === "ResetPassword"
+    ) {
       if (user.is_admin) {
-        next({ name: 'Dashboard' })
+        next({ name: "Dashboard" });
       } else {
-        next({ name: 'Home' })
+        next({ name: "Home" });
       }
-    } else if (to.path.includes('/dashboard') && !user.is_admin) {
-      next({ name: 'Home' })
+    } else if (to.path.includes("/dashboard") && !user.is_admin) {
+      next({ name: "Home" });
     } else {
-      next()
+      next();
     }
-  }
+  };
   if (Cookies.get("auth_token")) {
     if (user.length === 0) {
-      axios.get('/api/user').then((response) => {
-        user =  response.data;
+      axios.get("/api/user").then((response) => {
+        user = response.data;
         redirect();
       });
-    }else{
+    } else {
       redirect();
     }
   } else {
     user = [];
-    if (to.name === 'Login' || to.name === 'Register' || to.name === 'ForgotPassword' || to.name === 'ResetPassword') {
-      next()
+    if (
+      to.name === "Login" ||
+      to.name === "Register" ||
+      to.name === "ForgotPassword" ||
+      to.name === "ResetPassword" ||
+      to.name === "LandingPage" ||
+      to.name === "CreateCase"
+    ) {
+      next();
     } else {
-      next({ name: 'Login' })
+      next({ name: "Login" });
     }
   }
 });
 
-export default router
+export default router;
