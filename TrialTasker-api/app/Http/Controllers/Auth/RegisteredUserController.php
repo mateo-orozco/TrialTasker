@@ -21,6 +21,7 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request): JsonResponse
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
@@ -47,6 +48,7 @@ class RegisteredUserController extends Controller
         $cookie = cookie('auth_token', $token, 60, null,null,null,false); // 60 minutos
 
         return response()->json( [
+            
             'user' => auth()->user()
         ])->withCookie($cookie);
 
