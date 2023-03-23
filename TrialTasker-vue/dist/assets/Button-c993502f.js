@@ -1,0 +1,1 @@
+import{_ as e,o as n,c as o,t as a}from"./index-d0fdf91d.js";const s=["type"],c={__name:"Button",props:{text:{type:String,default:"Enviar"},type:{type:String,default:"button"}},setup(t){return(p,r)=>(n(),o("button",{class:"btn",type:t.type},a(t.text),9,s))}},u=e(c,[["__scopeId","data-v-6dc5d6e5"]]);export{u as B};
