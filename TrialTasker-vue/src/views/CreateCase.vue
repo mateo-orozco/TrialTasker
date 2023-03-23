@@ -1,12 +1,33 @@
 <template>
     <main>
         <div class='title'>
-            <button class='atras'>Atras</button>
+            <RouterLink :to="{ name: 'ActiveCase' }" class='title'>
+                <button class='atras'>Atras</button>
+            </RouterLink>
             <h1>Crear Caso</h1>
             <div></div>
         </div>
         <section>
             <div class="izquierda">
+            <h2>Informacion del fiscal</h2>
+                <input type="text" placeholder="Nombre">
+                <input type="text" placeholder="Telefono">
+                <input type="number" placeholder="Numero de fiscal">
+                <input type="text" placeholder="Notas">
+                <input type="email" placeholder="Correo">
+                <input type="date" placeholder="fecha" class="fecha">
+
+                <h2>Informacion juez preliminar</h2>
+                <input type="number" placeholder="Numero de despacho">
+                <input type="number" placeholder="Numero de juez">
+                <input type="text" placeholder="Nombre">
+                <input type="email" placeholder="Correo">
+                <input type="text" placeholder="Direccion">
+                <input type="text" placeholder="Notas">
+                <input type="date" placeholder="fecha" class="fecha">
+                
+            </div>
+            <div class="derecha">
                 <div>
                     <label for="">Tipo de caso:</label>
                     <select name="" id="">
@@ -51,24 +72,6 @@
                     </select>
                 </div>
             </div>
-            <div class="derecha">
-                <h2>Informacion del fiscal</h2>
-                <input type="text" placeholder="Nombre">
-                <input type="text" placeholder="Telefono">
-                <input type="number" placeholder="Numero de fiscal">
-                <input type="text" placeholder="Notas">
-                <input type="email" placeholder="Correo">
-                <input type="date" placeholder="fecha" class="fecha">
-
-                <h2>Informacion juez preliminar</h2>
-                <input type="number" placeholder="Numero de despacho">
-                <input type="number" placeholder="Numero de juez">
-                <input type="text" placeholder="Nombre">
-                <input type="email" placeholder="Correo">
-                <input type="text" placeholder="Direccion">
-                <input type="text" placeholder="Notas">
-                <input type="date" placeholder="fecha" class="fecha">
-            </div>
         </section>
     </main>
 </template>
@@ -90,6 +93,7 @@
     background-color: #664200;
     color: white;
     border-radius: 8px;
+    text-decoration: none;
 }
 
 main {
@@ -105,20 +109,25 @@ main {
 
 section {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px;
 }
 
 .izquierda {
     display: flex;
     flex-direction: column;
-    gap: 5px;
-    width: 50%;
+    align-items: center;
+    gap: 10px;
+    width: 45%;
 }
 
 .derecha {
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    align-items: center;
+    gap: 10px;
 
 }
 
@@ -146,5 +155,13 @@ select {
     background-color: #664200;
     color: white;
     cursor: pointer;
+}
+@media screen and (max-width:768px) {
+    .izquierda {
+        width: 100%;
+    }
+    .derecha{
+        width: 100%;
+    }
 }
 </style>
