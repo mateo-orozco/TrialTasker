@@ -18,7 +18,7 @@
         <ButtonLink to="Home" text="Inicio">
             <IconHome :size="20" stroke-width="2.2" />
         </ButtonLink>
-        <ButtonLink to="ActiveCase" text="Casos activos"></ButtonLink>
+        <ButtonLink to="ActiveCase" text="Casos activos" id="ActiveCase"></ButtonLink>
     </div>
     <div class="user">
         <div class="user__name" v-if="auth.user">
@@ -41,6 +41,7 @@ const auth = useAuthStore();
 
 onMounted(() => {
     auth.getUser();
+    auth.getUserId();
 })
 
 </script>

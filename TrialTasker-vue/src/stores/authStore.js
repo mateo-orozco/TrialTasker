@@ -26,8 +26,22 @@ export const useAuthStore = defineStore("auth", {
         this.authUser = response.data;
       });
     },
+    // get user id
+    async getUserId() {
+      await axios.get("/api/user").then((response) => {
+        console.log("verificando informacion de usuario");
+        const active_user_id = response.data.id;
+        const ActiveCase = document.getElementById("ActiveCase");
+        ActiveCase.addEventListener("click", () => {
+          console.log(active_user_id);
+          localStorage.setItem("active_user_id", active_user_id);
+        });
+        this.authUser = response.data.id;
+      });
+    },
     /* Login */
     async handleLogin(credentials) {
+      console.log("--------------------login--------------------");
       this.authStatus = null;
       this.authErrors = [];
       this.authMessage = null;
