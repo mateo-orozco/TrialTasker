@@ -140,5 +140,4 @@ route::group([
 
 // ------------------------user------------------------
 
-Route::get('userCases/{id}',[UserController::class, 'userCases']);
-Route::get('userCases/stage/${id}',[StageController::class, '']);
+Route::get('/userCases',[CasoController::class, 'userCases']);
