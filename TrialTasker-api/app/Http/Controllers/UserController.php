@@ -6,6 +6,7 @@ use App\Models\Caso;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rule;
 
@@ -110,18 +111,6 @@ class UserController extends Controller
 
 
 
-    // consultas de usuario logueado
 
-    // user cases
-    public function userCases(string $id):JsonResponse
-    {
-        $casos = Caso::where('case_user_id', $id)->get();
-        return response()->json($casos, 200);
-    }
-
-    // info cases
-    // public function infoCases(string $id):JsonResponse
-    // {
-    //     $infocaso
-    // }
+   
 }

@@ -99,4 +99,12 @@ class StageController extends Controller
         Stage::find($id)->delete();
         return response()->json(['message' => 'Etapa eliminada exitosamente'], 201);
     }
+        // consultas de usuario logueado
+
+        public function stageCase(string $id): JsonResponse
+        {
+            $stageCase = Stage::where('stage_case_id', $id)->get();
+            // $stageCase->load('stage_type_stage','stage_case');
+            return response()->json($stageCase);
+        }
 }
