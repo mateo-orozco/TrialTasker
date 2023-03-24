@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4-removebg-preview.png" alt="" class="imagen4">
+                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
             </div>
         </div>
         <footer>
@@ -94,7 +94,6 @@ import Logo from '../components/logo/Logo.vue';
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
 
 /* variables */
-
 :root {
     --background: #edecec;
     --brown: #664200;
@@ -106,8 +105,6 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 /* body */
-
-
 .container {
     width: 100vw;
     display: flex;
@@ -129,7 +126,6 @@ import Logo from '../components/logo/Logo.vue';
 .navbarLogo {
     width: 300px;
 }
-
 
 /* navbar Buttons */
 .buttons {
@@ -155,7 +151,6 @@ import Logo from '../components/logo/Logo.vue';
     border-radius: 5px;
     text-align: center;
     padding: 8px;
-
 }
 
 .navButton {
@@ -202,7 +197,6 @@ import Logo from '../components/logo/Logo.vue';
     justify-content: center;
 }
 
-
 .imagen1 {
     width: 85%;
 }
@@ -228,21 +222,17 @@ import Logo from '../components/logo/Logo.vue';
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
-
 }
 
 .image2 {
     width: 30%;
-
 }
 
 .imagen2 {
     width: 100%;
-
 }
 
 /* tercera parte del contenido */
-
 .imagen3 {
     width: 100%;
 }
@@ -262,7 +252,6 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 /* footer */
-
 footer {
     display: flex;
     justify-content: space-around;
@@ -281,7 +270,7 @@ footer {
 }
 
 .foologo {
-    width: 30%;
+    width: 20%;
     text-align: center;
 }
 
@@ -300,7 +289,6 @@ footer {
 @media screen and (max-width:768px) {
     .image1 {
         width: 100%;
-
     }
 
     .texto1 {
@@ -354,6 +342,5 @@ footer {
         justify-content: center;
         padding: 10px;
     }
-
 }
 </style>

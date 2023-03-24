@@ -17,16 +17,16 @@ class Stage extends Model
         
     ];
 
-    public function typeStage(){
+    public function stage_type_stage(){
         return $this->belongsTo(TypeStage::class);
+    }
+    
+    public function stage_case(){
+        return $this->belongsTo(Caso::class);
     }
 
     public function files(){
         return $this->hasMany(File::class);
-    }
-
-    public function cases(){
-        return $this->belongsTo(Caso::class);
     }
 
     public function personStage()

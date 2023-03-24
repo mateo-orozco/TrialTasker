@@ -40,7 +40,6 @@
 <script setup>
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
-        if (e.key === "Escape") e.target.value = ""
         document.querySelectorAll(".caso").forEach(caso => {
             caso.textContent.toLowerCase().includes(e.target.value.toLowerCase())
                 ? caso.classList.remove("filtro")
@@ -61,11 +60,9 @@ document.addEventListener("keyup", e => {
     --white: #fff;
     --black: #000;
 }
-
 .filtro {
     display: none;
 }
-
 .navbar {
     width: 100%;
     height: 50px;
@@ -73,7 +70,6 @@ document.addEventListener("keyup", e => {
     justify-content: space-around;
     align-items: center;
 }
-
 .search {
     width: 50vw;
     height: 30px;
@@ -82,7 +78,6 @@ document.addEventListener("keyup", e => {
     padding-left: 10px;
     background-color: #e8e8e8;
 }
-
 /* main */
 main {
     height: 100vh;
@@ -90,7 +85,6 @@ main {
     border-radius: 12px;
     padding: 10px;
 }
-
 /* estilos boton de crear caso */
 .createButton {
     border: solid 1px;
@@ -103,13 +97,10 @@ main {
     background-color: var(--brown);
     color: var(--beige);
 }
-
 /* estilos de la tabla */
 table {
     margin-top: 30px;
-
 }
-
 /* estilos del thead */
 thead {
     width: 100%;
@@ -117,16 +108,13 @@ thead {
     background-color: var(--brown);
     color: var(--beige);
 }
-
 /* estilos del tbody */
 td {
     width: 35vh;
     text-align: center;
     border-radius: 5px;
 }
-
 tr {
     margin-top: 5vh;
-
 }
 </style>

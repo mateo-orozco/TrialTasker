@@ -1,7 +1,10 @@
 <template>
     <main>
-        <div class='title'>
-            <button class='atras'>Atras</button>
+        <div class='title'>     
+            <RouterLink :to="{ name: 'CasosActivos' }" class="title">
+                <button class='atras'>Atras</button>
+            </RouterLink>   
+            
             <h1>Crear Caso</h1>
             <div></div>
         </div>
@@ -28,7 +31,7 @@
                         <option value="">Condena</option>
                     </select>
                 </div>
-
+    
                 <h2>Datos del cliente</h2>
                 <input type="text" placeholder="Nombre">
                 <input type="text" placeholder="Cedula">
@@ -36,7 +39,7 @@
                 <input type="text" placeholder="Lugar de expedicion">
                 <input type="text" placeholder="Direccion">
                 <input type="email" placeholder="Correo">
-
+        
                 <h2>Datos contacto del cliente</h2>
                 <input type="text" placeholder="Nombre">
                 <input type="text" placeholder="Telefono">
@@ -59,7 +62,7 @@
                 <input type="text" placeholder="Notas">
                 <input type="email" placeholder="Correo">
                 <input type="date" placeholder="fecha" class="fecha">
-
+        
                 <h2>Informacion juez preliminar</h2>
                 <input type="number" placeholder="Numero de despacho">
                 <input type="number" placeholder="Numero de juez">
@@ -75,24 +78,22 @@
 
 <script setup>
 
+
 </script>
 
 <style scoped>
-* {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
 
-.title {
+
+
+.title{
     display: flex;
     justify-content: space-between;
     background-color: #664200;
     color: white;
     border-radius: 8px;
+    text-decoration: none;
 }
-
-main {
+main{
     color: #473800;
     background-image: url(https://img.freepik.com/vector-premium/conecta-lineas-puntos-conexion-internet-sentido-abstracto-ciencia_41981-1596.jpg);
     background-size: cover;
@@ -102,49 +103,46 @@ main {
     flex-direction: column;
     gap: 10px;
 }
-
-section {
+section{
     display: flex;
 }
 
-.izquierda {
+.izquierda{
     display: flex;
     flex-direction: column;
     gap: 5px;
     width: 50%;
 }
-
-.derecha {
+.derecha{
     width: 50%;
     display: flex;
     flex-direction: column;
     gap: 5px;
 
 }
-
-input {
+input{
     height: 30px;
     width: 80%;
     border-radius: 7px;
     border: none;
     cursor: pointer;
     padding-left: 10px;
-
-
+    
+    
 }
 
-select {
+select{
     border-radius: 5px;
     border: none;
     background-color: white;
 }
-
-.atras {
+.atras{
     border: none;
     border-radius: 5px;
     width: 50px;
     background-color: #664200;
-    color: white;
+    color: white; 
     cursor: pointer;
 }
+
 </style>

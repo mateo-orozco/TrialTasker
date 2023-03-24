@@ -14,12 +14,12 @@ class PersonStage extends Model
         'person_stage_stage_id',
     ];
 
-    public function stage()
+    public function person_stage_stage()
     {
-        return $this->hasMany(Stage::class);
+        return $this->belongsTo(Stage::class);
     }
-    public function person()
+    public function person_stage_person()
     {
-        return $this->hasMany(Person::class);
+        return $this->belongsTo(Person::class);
     }
 }

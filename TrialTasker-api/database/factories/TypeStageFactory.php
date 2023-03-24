@@ -18,7 +18,6 @@ class TypeStageFactory extends Factory
     {
         return [
             'type_stage_name'=> $this->faker->word(),
-            
         ];
     }
 }

@@ -14,13 +14,14 @@ class CasoController extends Controller
     public function index(): JsonResponse
     {
         $cases = Caso::orderBy('id', 'desc')->paginate(10);
-        $cases->load('users', 'persons');
+        $cases->load('case_user', 'case_person');
         return response()->json($cases, 200);
     }
 
     public function all(): JsonResponse
     {
         $cases = Caso::all();
+        $cases->load('case_user', 'case_person');
         return response()->json($cases, 200);
     }
 
@@ -65,6 +66,7 @@ class CasoController extends Controller
     public function show(string $id): JsonResponse
     {
         $cases = Caso::find($id);
+        $cases->load('case_user', 'case_person');
         return response()->json($cases);
     }
 

@@ -45,7 +45,7 @@ main {
 .container {
     flex: 1;
     background-color: var(--white);
-    
+
 }
 
 .container-padding {

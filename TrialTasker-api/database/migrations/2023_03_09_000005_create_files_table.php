@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('files', function (Blueprint $table) {
             $table->id();
-            $table->string("file_name");
-            $table->text("file_url");
-            $table->foreignId('stage_id')->constrained('stages');
+            $table->string('file_name');
+            $table->text('file_url');
+            $table->foreignId('file_stage_id')->constrained('stages');
             $table->timestamps();
         });
     }
