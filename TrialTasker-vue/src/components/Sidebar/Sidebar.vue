@@ -7,6 +7,7 @@
         <ButtonLink to="TypePersonDashboard" text="Tipo de personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
+        <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
     </div>
     <div class="user">
@@ -22,7 +23,7 @@ import Logo from '@/components/logo/Logo.vue';
 import { onMounted } from 'vue';
 import { useAuthStore} from '@/stores/authStore';
 import ButtonLink from '../buttons/ButtonLink.vue';
-import { IconHome, IconDashboard, IconLogout, IconUsers } from '@tabler/icons-vue';
+import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard } from '@tabler/icons-vue';
 
 const auth = useAuthStore();
 

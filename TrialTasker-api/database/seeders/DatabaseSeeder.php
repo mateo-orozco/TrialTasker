@@ -28,13 +28,13 @@ class DatabaseSeeder extends Seeder
         $this->call([
             TypePersonSeeder::class,
         ]);
-        User::factory(10)->create();
-        TypePerson::factory(10)->create();
+        User::factory(20)->create();
+        TypePerson::factory(20)->create();
         Person::factory(20)->create();
-        Caso::factory(10)->create();
-        TypeStage::factory(6)->create();
-        Stage::factory(10)->create();
-        PersonStage::factory(10)->create();
+        Caso::factory(20)->create();
+        TypeStage::factory(12)->create();
+        Stage::factory(20)->create();
+        PersonStage::factory(20)->create();
     }
     
 }

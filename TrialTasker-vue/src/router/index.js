@@ -5,6 +5,7 @@ import authRoutes from './auth'
 import typePersonRoutes from './typePerson'
 import userRoutes from './user'
 import personRoutes from './person'
+import caseRoutes from './case' 
 
 import Cookies from "js-cookie";
 
@@ -30,7 +31,8 @@ const router = createRouter({
         ...authRoutes,
         ...typePersonRoutes,
         ...userRoutes,
-        ...personRoutes
+        ...personRoutes,
+        ...caseRoutes
       ],
     },
   ]

@@ -21,7 +21,7 @@ class UserController extends Controller
     
     public function all(): JsonResponse
     {
-        $users = User::orderBy('id', 'desc');
+        $users = User::orderBy('id', 'desc')->get();
         return response()->json($users);
     }
 
