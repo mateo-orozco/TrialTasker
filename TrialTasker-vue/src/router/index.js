@@ -35,6 +35,31 @@ const router = createRouter({
       },
     },
     {
+      path: '/landingpage',
+      name: 'LandingPage',
+      component: () => import('../views/LandingPage.vue')
+    },
+    {
+      path: '/actualizarcaso',
+      name: 'ActualizarCaso',
+      component: () => import('../views/ActualizarCaso.vue')
+    },
+    {
+      path: '/actualizarcasorepresentante',
+      name: 'ActualizarCasoRepresentante',
+      component: () => import('../views/ActualizarCasoRepresentante.vue')
+    },
+    {
+      path: '/createcase',
+      name: 'CreateCase',
+      component: () => import('../views/CreateCase.vue')
+    },
+    {
+      path: '/casosactivos',
+      name: 'CasosActivos',
+      component: () => import('../views/CasosActivos.vue')
+    },
+    {
       children: [
         ...authRoutes,
         ...typePersonRoutes,
