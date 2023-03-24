@@ -21,12 +21,18 @@ const router = createRouter({
     {
       path: '/home',
       name: 'Home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Inicio',
+      },
     },
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: () => import('../views/DashboardView.vue')
+      component: () => import('../views/DashboardView.vue'),
+      meta: {
+        title: 'Dashboard',
+      },
     },
     {
       children: [

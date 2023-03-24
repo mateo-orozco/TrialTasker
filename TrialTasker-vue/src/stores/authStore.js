@@ -41,7 +41,7 @@ export const useAuthStore = defineStore("auth", {
                 password: credentials.password,
             })
             .then(response => {
-                this.authUser = response.data;
+                this.authUser = response.data.user;
                 if (this.authUser.is_admin) {
                     router.push({ name: 'Dashboard' });
                 }else{
