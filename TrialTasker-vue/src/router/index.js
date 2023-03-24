@@ -7,6 +7,7 @@ import userRoutes from './user'
 import personRoutes from './person'
 import caseRoutes from './case' 
 import typeStageRoutes from './typeStage'
+import stageRoutes from './stage'
 
 import Cookies from "js-cookie";
 
@@ -34,7 +35,8 @@ const router = createRouter({
         ...userRoutes,
         ...personRoutes,
         ...caseRoutes,
-        ...typeStageRoutes
+        ...typeStageRoutes,
+        ...stageRoutes
       ],
     },
   ]
@@ -43,8 +45,10 @@ const router = createRouter({
 let user = [];
 
 router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
   const redirect = () => {
-    
     if (from.name === 'Register' && to.name === 'VerifyEmail') {
       next()
     } else 
@@ -80,6 +84,8 @@ router.beforeEach((to, from, next) => {
       next({ name: 'Login' })
     }
   }
+
+  
 });
 
 export default router
