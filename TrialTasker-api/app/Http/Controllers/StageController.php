@@ -14,12 +14,14 @@ class StageController extends Controller
     public function index():JsonResponse
     {
         $stage = Stage::orderBy('id', 'desc')->paginate(10);
+        $stage->load('stage_type_stage','stage_case');
         return response()->json($stage);
     }
 
     public function all():JsonResponse
     {
         $stage = Stage::all();
+        $stage->load('stage_type_stage','stage_case');
         return response()->json($stage);
     }
 
@@ -43,7 +45,7 @@ class StageController extends Controller
                 'stage_case_id'=> $request->stage_case_id,
                 'stage_type_stage_id'=> $request->stage_type_stage_id,
             ]);
-            return response()->json(['message' => 'Etapa creado correctamente'], 201);
+            return response()->json(['message' => 'Etapa creada correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 400);
         }
@@ -55,6 +57,7 @@ class StageController extends Controller
     public function show(string $id): JsonResponse
     {
         $stage = Stage::findOrFail($id);
+        $stage->load('stage_type_stage','stage_case');
         return response()->json($stage);
     }
 

@@ -30,12 +30,12 @@ class Caso extends Model
     }
 
 
-    public function users()
+    public function case_user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public  function persons()
+    public  function case_person()
     {
      return $this->belongsTo(Person::class);
     }

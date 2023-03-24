@@ -13,9 +13,10 @@ class File extends Model
     protected $fillable = [
         'file_name',
         'file_url',
+        'file_stage_id',
     ];
 
-    public function stage(){
+    public function file_stage(){
         return $this->belongsTo(Stage::class);
     }
 }
