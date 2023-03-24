@@ -32,7 +32,7 @@ class Person extends Model
 
 
     public function cases(){
-        return $this->belongsToMany(Caso::class);
+        return $this->hasMany(Caso::class);
     }
 
     public function personStage()

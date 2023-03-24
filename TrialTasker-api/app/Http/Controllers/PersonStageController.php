@@ -14,12 +14,14 @@ class PersonStageController extends Controller
     public function index():JsonResponse
     {
         $personStage = PersonStage::orderBy('id', 'desc')->paginate(10);
+        $personStage->load('person_stage_stage','person_stage_person');
         return response()->json($personStage, 200);
     }
 
     public function all():JsonResponse
     {
         $personStage = PersonStage::all();
+        $personStage->load('person_stage_stage','person_stage_person');
         return response()->json($personStage, 200);
     }
 
@@ -58,6 +60,7 @@ class PersonStageController extends Controller
     public function show(string $id)
     {
         $personStage = PersonStage::find($id);
+        $personStage->load('person_stage_stage','person_stage_person');
         return response()->json($personStage);
     }
         

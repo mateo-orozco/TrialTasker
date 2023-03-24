@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CasoController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonStageController;
 use App\Http\Controllers\StageController;
@@ -95,6 +96,7 @@ route::group([
     Route::delete('/{id}', 'destroy');
 });
 
+
 //stages
 route::group([
     'prefix'=>'stages',
@@ -120,6 +122,20 @@ route::group([
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
+
+// files
+route::group([
+    'prefix'=>'files',
+    'controller' => FileController::class,
+],function(){
+    Route::get('/', 'index');
+    Route::get('/all','all');
+    Route::post('/', 'store');
+    Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+});
+
 
 
 // ------------------------user------------------------
