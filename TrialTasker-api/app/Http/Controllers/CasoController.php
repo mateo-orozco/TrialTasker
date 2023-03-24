@@ -116,4 +116,16 @@ class CasoController extends Controller
         Caso::find($id)->delete();
         return response()->json(['message' => 'Caso eliminado exitosamente'], 201);
     }
+
+    
+    // consultas de usuario logueado
+
+    // user cases
+    public function userCases():JsonResponse
+    {
+        $userId =auth()->user()->id;
+        $cases = Caso::where('case_user_id',$userId)->get();
+        $cases->load('case_user','case_person');
+        return response()->json($cases, 200);
+    }
 }

@@ -82,6 +82,23 @@ export const useCaseStore = defineStore('cases', {
                 this.errorsStore = error.response.data.errors
             });
         },
+
+        // view cases user
+        async casesUser(){
+            await axios.get('/api/userCases').then((response) => {
+                console.log(response.data);
+            }).catch(error => {
+                this.errorsStore = error.response.data.errors
+            });
+        },
+
+        async stageCase(id){
+            await axios.get('/api/stageCase/'+ id).then((response) => {
+                console.log(response.data);
+            }).catch(error => {
+                this.errorsStore = error.response.data.errors
+            });
+        }
     }
 });
 
