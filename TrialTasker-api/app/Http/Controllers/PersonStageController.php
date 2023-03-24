@@ -11,17 +11,17 @@ class PersonStageController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index():JsonResponse
+    public function index(): JsonResponse
     {
         $personStage = PersonStage::orderBy('id', 'desc')->paginate(10);
-        $personStage->load('person_stage_stage','person_stage_person');
+        $personStage->load('person_stage_stage', 'person_stage_person');
         return response()->json($personStage, 200);
     }
 
-    public function all():JsonResponse
+    public function all(): JsonResponse
     {
         $personStage = PersonStage::all();
-        $personStage->load('person_stage_stage','person_stage_person');
+        $personStage->load('person_stage_stage', 'person_stage_person');
         return response()->json($personStage, 200);
     }
 
@@ -36,12 +36,12 @@ class PersonStageController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request):JsonResponse
+    public function store(Request $request): JsonResponse
     {
         try {
             $request->validate([
-                'person_stage_person_id'=> ['required', 'integer'],
-                'person_stage_stage_id'=> ['required', 'integer'],
+                'person_stage_person_id' => ['required', 'integer'],
+                'person_stage_stage_id' => ['required', 'integer'],
             ]);
 
             $personStage = PersonStage::create([
@@ -60,10 +60,10 @@ class PersonStageController extends Controller
     public function show(string $id)
     {
         $personStage = PersonStage::find($id);
-        $personStage->load('person_stage_stage','person_stage_person');
+        $personStage->load('person_stage_stage', 'person_stage_person');
         return response()->json($personStage);
     }
-        
+
 
     /**
      * Show the form for editing the specified resource.
@@ -76,14 +76,14 @@ class PersonStageController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id):JsonResponse
+    public function update(Request $request, string $id): JsonResponse
     {
         try {
             $personStage = PersonStage::findOrFail($id);
 
             $request->validate([
-                'person_stage_person_id'=> ['required', 'integer'],
-                'person_stage_stage_id'=> ['required', 'integer'],
+                'person_stage_person_id' => ['required', 'integer'],
+                'person_stage_stage_id' => ['required', 'integer'],
             ]);
 
             PersonStage::find($id)->update([

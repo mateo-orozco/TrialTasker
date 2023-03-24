@@ -43,7 +43,9 @@ import { useCaseStore } from '@/stores/caseStore';
 const cases = useCaseStore(); 
 onMounted(() => {
     cases.casesUser();
+    cases.stageCase(1);
 });
+
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
