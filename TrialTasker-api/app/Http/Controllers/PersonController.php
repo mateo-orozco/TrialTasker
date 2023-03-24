@@ -21,7 +21,12 @@ class PersonController extends Controller
     
     public function all(): JsonResponse
     {
+<<<<<<< HEAD
         $persons = Person::all();
+=======
+        $persons = Person::Orderby('id', 'desc')->get();
+        $persons->load('per_type_person');
+>>>>>>> develop
         return response()->json($persons, 200);
     }
 

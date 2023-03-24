@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CasoController;
+use App\Http\Controllers\FileController;
 use App\Http\Controllers\PersonController;
 use App\Http\Controllers\PersonStageController;
 use App\Http\Controllers\StageController;
@@ -20,6 +21,9 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+// ------------------------dashboard------------------------
+
 
 Route::middleware(['auth:sanctum', 'authCookie'])->get('/user', function (Request $request) {
     return $request->user();
@@ -92,6 +96,7 @@ route::group([
     Route::delete('/{id}', 'destroy');
 });
 
+
 //stages
 route::group([
     'prefix'=>'stages',
@@ -117,3 +122,23 @@ route::group([
     Route::put('/{id}', 'update');
     Route::delete('/{id}', 'destroy');
 });
+
+// files
+route::group([
+    'prefix'=>'files',
+    'controller' => FileController::class,
+],function(){
+    Route::get('/', 'index');
+    Route::get('/all','all');
+    Route::post('/', 'store');
+    Route::get('/{id}', 'show');
+    Route::put('/{id}', 'update');
+    Route::delete('/{id}', 'destroy');
+});
+
+
+
+// ------------------------user------------------------
+
+Route::get('userCases/{id}',[UserController::class, 'userCases']);
+Route::get('userCases/stage/${id}',[StageController::class, '']);

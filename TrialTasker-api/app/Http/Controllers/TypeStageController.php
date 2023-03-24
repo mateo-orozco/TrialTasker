@@ -36,7 +36,7 @@ class TypeStageController extends Controller
             $typeStage = TypeStage::create([
                 'type_stage_name'=> $request->type_stage_name,
             ]);
-            return response()->json(['message' => 'Persona creada correctamente'], 201);
+            return response()->json(['message' => 'Tipo de etapa creada correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(['errors' => $e->errors()], 400);
         }
@@ -69,7 +69,7 @@ class TypeStageController extends Controller
                 'type_stage_name'=> $request->type_stage_name,
             ]);
 
-            return response()->json(['message' => 'Usuario actualizado correctamente'], 201);
+            return response()->json(['message' => 'Tipo de etapa actualizada correctamente'], 201);
         } catch (\Illuminate\Validation\ValidationException $e) {
             return response()->json(["errors" => $e->errors()], 400);
         }
@@ -81,6 +81,6 @@ class TypeStageController extends Controller
     public function destroy(string $id):JsonResponse
     {
         TypeStage::find($id)->delete();
-        return response()->json(['message' => 'typo de etapa eliminada exitosamente'], 201);
+        return response()->json(['message' => 'Tipo de etapa eliminada exitosamente'], 201);
     }
 }
