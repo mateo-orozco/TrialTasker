@@ -8,8 +8,8 @@
 import HeaderTableVue from '@/components/headers/HeaderTable.vue';
 import TableDashboard from '@/components/Tables/TableDashboard.vue';
 import Pagination from '@/components/Pagination.vue';
-import { useTypePersonStore } from '@/stores/typePersonStore';
 import { onMounted } from 'vue';
+import { useTypePersonStore } from '@/stores/typePersonStore';
 
 const typePersons = useTypePersonStore();
 

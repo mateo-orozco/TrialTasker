@@ -9,6 +9,7 @@
         <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin"> <IconGavel :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
+        <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
     </div>
     <div class="user">
