@@ -11,14 +11,14 @@ class CasoController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index():JsonResponse
+    public function index(): JsonResponse
     {
         $cases = Caso::orderBy('id', 'desc')->paginate(10);
-        $cases->load('users','persons');
+        $cases->load('users', 'persons');
         return response()->json($cases, 200);
     }
 
-    public function all():JsonResponse
+    public function all(): JsonResponse
     {
         $cases = Caso::all();
         return response()->json($cases, 200);
@@ -35,7 +35,7 @@ class CasoController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request):JsonResponse
+    public function store(Request $request): JsonResponse
     {
         try {
             $request->validate([
@@ -62,7 +62,7 @@ class CasoController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id):JsonResponse
+    public function show(string $id): JsonResponse
     {
         $cases = Caso::find($id);
         return response()->json($cases);
@@ -79,7 +79,7 @@ class CasoController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id):JsonResponse
+    public function update(Request $request, string $id): JsonResponse
     {
         try {
             $cases = Caso::findOrFail($id);
@@ -109,7 +109,7 @@ class CasoController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id):JsonResponse
+    public function destroy(string $id): JsonResponse
     {
         Caso::find($id)->delete();
         return response()->json(['message' => 'Caso eliminado exitosamente'], 201);
