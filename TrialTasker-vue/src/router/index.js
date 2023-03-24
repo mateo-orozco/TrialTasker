@@ -37,27 +37,42 @@ const router = createRouter({
     {
       path: '/landingpage',
       name: 'LandingPage',
-      component: () => import('../views/LandingPage.vue')
+      component: () => import('../views/LandingPage.vue'),
+      meta: {
+        title: 'Bienvenido',
+      },
     },
     {
       path: '/actualizarcaso',
       name: 'ActualizarCaso',
-      component: () => import('../views/ActualizarCaso.vue')
+      component: () => import('../views/ActualizarCaso.vue'),
+      meta: {
+        title: 'Actualizar Caso',
+      },
     },
     {
       path: '/actualizarcasorepresentante',
       name: 'ActualizarCasoRepresentante',
-      component: () => import('../views/ActualizarCasoRepresentante.vue')
+      component: () => import('../views/ActualizarCasoRepresentante.vue'),
+      meta: {
+        title: 'Actualizar Caso',
+      },
     },
     {
       path: '/createcase',
       name: 'CreateCase',
-      component: () => import('../views/CreateCase.vue')
+      component: () => import('../views/CreateCase.vue'),
+      meta: {
+        title: 'Crear Caso',
+      },
     },
     {
       path: '/casosactivos',
       name: 'CasosActivos',
-      component: () => import('../views/CasosActivos.vue')
+      component: () => import('../views/CasosActivos.vue'),
+      meta: {
+        title: 'Casos Activos',
+      },
     },
     {
       children: [
