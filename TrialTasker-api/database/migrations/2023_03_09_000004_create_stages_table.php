@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('stages', function (Blueprint $table) {
             $table->id();
             $table->string('stage_name');
-            $table->text('stage_notes');
+            $table->text('stage_notes')->nullable();
             $table->foreignId('stage_case_id')->constrained('cases');
             $table->foreignId('stage_type_stage_id')->constrained('type_stages');
             $table->timestamps();
