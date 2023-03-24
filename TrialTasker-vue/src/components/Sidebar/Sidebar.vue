@@ -8,6 +8,8 @@
         <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
+        <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
+
     </div>
     <div class="user">
         <div class="user__name" v-if="auth.user">
