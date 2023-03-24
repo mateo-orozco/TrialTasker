@@ -81,7 +81,7 @@ route::group([
 
 //type_stage
 route::group([
-    'prefix'=>'typeStage',
+    'prefix'=>'typeStages',
     'controller' => TypeStageController::class,
 ],function(){
     Route::get('/', 'index');

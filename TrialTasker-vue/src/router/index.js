@@ -6,6 +6,7 @@ import typePersonRoutes from './typePerson'
 import userRoutes from './user'
 import personRoutes from './person'
 import caseRoutes from './case' 
+import typeStageRoutes from './typeStage'
 
 import Cookies from "js-cookie";
 
@@ -32,7 +33,8 @@ const router = createRouter({
         ...typePersonRoutes,
         ...userRoutes,
         ...personRoutes,
-        ...caseRoutes
+        ...caseRoutes,
+        ...typeStageRoutes
       ],
     },
   ]
