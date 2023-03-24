@@ -6,7 +6,7 @@
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
         </div>
-        <table>
+        <!-- <table>
             <thead>
                 <td>Nombre del caso</td>
                 <td>Radicado del caso</td>
@@ -41,19 +41,43 @@
                     </td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+        <TableDashboard :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteTypeStage"
+            edit="TypeStageDashboardUpdate" />
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-const cases = useCaseStore(); 
+import TableDashboard from '@/components/Tables/TableDashboard.vue';
+
+const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
     cases.stageCase(1);
 });
 
+const thead = [
+    {
+        name: 'Nombre',
+        key: 'case_name'
+    },
+    {
+        name: 'Radicado',
+        key: 'case_radicate'
+    },
+    {
+        name: 'Personas Relacionadas',
+        key: 'case_person'
+    },
+    {
+        name: 'Usuarios Relacionadas',
+        key: 'case_user'
+    },
+]
+
+console.log(cases.casesUser())
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
