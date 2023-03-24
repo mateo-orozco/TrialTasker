@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
+                <img src="@/assets/img/abogados4-removebg-preview (1).png" alt="" class="imagen4">
             </div>
         </div>
         <footer>

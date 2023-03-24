@@ -75,6 +75,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/seemore",
+      name: "SeeMore",
+      component: () => import("../views/SeeMore.vue"),
+      meta: {
+        title: "Detalles del caso",
+      },
+    },
+    {
       children: [
         ...authRoutes,
         ...typePersonRoutes,
