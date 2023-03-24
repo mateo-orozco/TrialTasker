@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4-removebg-preview.png" alt="" class="imagen4">
+                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
             </div>
         </div>
         <footer>
@@ -92,6 +92,7 @@ import Logo from '../components/logo/Logo.vue';
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 /* variables */
 :root {
     --background: #edecec;
@@ -102,6 +103,7 @@ import Logo from '../components/logo/Logo.vue';
     --white: #fff;
     --black: #000;
 }
+
 /* body */
 .container {
     width: 100vw;
@@ -110,6 +112,7 @@ import Logo from '../components/logo/Logo.vue';
     gap: 30px;
     background-color: var(--background);
 }
+
 /* navbar */
 .navbar {
     width: 100vw;
@@ -119,9 +122,11 @@ import Logo from '../components/logo/Logo.vue';
     justify-content: space-between;
     padding: 30px;
 }
+
 .navbarLogo {
     width: 300px;
 }
+
 /* navbar Buttons */
 .buttons {
     display: flex;
@@ -129,6 +134,7 @@ import Logo from '../components/logo/Logo.vue';
     align-items: center;
     gap: 10px;
 }
+
 .buttonLogin {
     width: 200px;
     height: 39px;
@@ -137,6 +143,7 @@ import Logo from '../components/logo/Logo.vue';
     text-align: center;
     padding: 8px;
 }
+
 .buttonRegister {
     width: 200px;
     height: 39px;
@@ -145,6 +152,7 @@ import Logo from '../components/logo/Logo.vue';
     text-align: center;
     padding: 8px;
 }
+
 .navButton {
     color: var(--beige);
     text-decoration: none;
@@ -152,16 +160,20 @@ import Logo from '../components/logo/Logo.vue';
     height: 100%;
     font-size: 20px;
 }
+
 /* hover de los botones */
 .buttonLogin:hover {
     background-color: var(--beige);
 }
+
 .buttonRegister:hover {
     background-color: var(--beige);
 }
+
 .navButton:hover {
     color: var(--brown);
 }
+
 /* Primera parte del contenido */
 .contenido {
     display: flex;
@@ -172,58 +184,73 @@ import Logo from '../components/logo/Logo.vue';
     padding: 5px;
     text-align: center;
 }
+
 .part1 {
     display: flex;
     width: 100%;
 }
+
 .image1 {
     width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .imagen1 {
     width: 85%;
 }
+
 .texto1 {
     width: 45%;
 }
+
 #textoPart1 {
     font-weight: bold;
     font-size: 50px;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 /* segunda parte del contenido */
 #textoPart2 {
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
+
 }
+
 .texto2 {
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
+
 .image2 {
     width: 30%;
 }
+
 .imagen2 {
     width: 100%;
 }
+
 /* tercera parte del contenido */
 .imagen3 {
     width: 100%;
 }
+
 .image3 {
     width: 30%;
 }
+
 .texto3 {
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
+
 .imagen4 {
     width: 100%;
 }
+
 /* footer */
 footer {
     display: flex;
@@ -232,20 +259,25 @@ footer {
     flex-wrap: wrap;
     background-color: var(--brown);
 }
+
 .logo {
     width: 200px;
 }
+
 .informacion {
     color: var(--beige);
     padding: 0px 5px;
 }
+
 .foologo {
-    width: 30%;
+    width: 20%;
     text-align: center;
 }
+
 .logofoo {
     width: 100%;
 }
+
 .informacionfoo {
     display: flex;
     align-items: center;
@@ -253,44 +285,57 @@ footer {
     padding: 10px;
     gap: 10px;
 }
+
 @media screen and (max-width:768px) {
     .image1 {
         width: 100%;
     }
+
     .texto1 {
         width: 100%;
     }
+
     .texto2 {
         width: 100%;
     }
+
     .image2 {
         width: 85%;
     }
+
     .image3 {
         width: 85%;
     }
+
     .texto3 {
         width: 100%;
     }
+
     .buttonLogin {
         width: 120px;
     }
+
     .buttonRegister {
         width: 120px;
     }
+
     .navbarLogo {
         width: 200px;
     }
+
     footer {
         height: 200px;
     }
+
     .foologo {
         width: 100%;
         text-align: center;
     }
+
     .logofoo {
         width: 50%;
     }
+
     .informacionfoo {
         display: flex;
         align-items: center;
