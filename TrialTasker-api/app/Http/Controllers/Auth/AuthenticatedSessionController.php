@@ -24,7 +24,10 @@ class AuthenticatedSessionController extends Controller
         $token = $request->user()->createToken('auth_token', ['expires_at' => now()->addMinutes(60)])->plainTextToken;
         $cookie = cookie('auth_token', $token, 120, null,null,null,false); 
 
-        return response()->json(['message' => 'Login correcto'], 200)->withCookie($cookie);
+        return response()->json([
+            'user' => $request->user(),
+            'message' => 'Bienvenido',
+        ], 200)->withCookie($cookie);
     }
 
     /**

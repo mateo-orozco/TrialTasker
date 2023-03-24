@@ -5,6 +5,9 @@ import authRoutes from './auth'
 import typePersonRoutes from './typePerson'
 import userRoutes from './user'
 import personRoutes from './person'
+import caseRoutes from './case' 
+import typeStageRoutes from './typeStage'
+import stageRoutes from './stage'
 
 import Cookies from "js-cookie";
 
@@ -18,44 +21,68 @@ const router = createRouter({
     {
       path: '/home',
       name: 'Home',
-      component: HomeView
+      component: HomeView,
+      meta: {
+        title: 'Inicio',
+      },
     },
     {
       path: '/dashboard',
       name: 'Dashboard',
-      component: () => import('../views/DashboardView.vue')
+      component: () => import('../views/DashboardView.vue'),
+      meta: {
+        title: 'Dashboard',
+      },
     },
     {
       path: '/landingpage',
       name: 'LandingPage',
-      component: () => import('../views/LandingPage.vue')
+      component: () => import('../views/LandingPage.vue'),
+      meta: {
+        title: 'Bienvenido',
+      },
     },
     {
       path: '/actualizarcaso',
       name: 'ActualizarCaso',
-      component: () => import('../views/ActualizarCaso.vue')
+      component: () => import('../views/ActualizarCaso.vue'),
+      meta: {
+        title: 'Actualizar Caso',
+      },
     },
     {
       path: '/actualizarcasorepresentante',
       name: 'ActualizarCasoRepresentante',
-      component: () => import('../views/ActualizarCasoRepresentante.vue')
+      component: () => import('../views/ActualizarCasoRepresentante.vue'),
+      meta: {
+        title: 'Actualizar Caso',
+      },
     },
     {
       path: '/createcase',
       name: 'CreateCase',
-      component: () => import('../views/CreateCase.vue')
+      component: () => import('../views/CreateCase.vue'),
+      meta: {
+        title: 'Crear Caso',
+      },
     },
     {
       path: '/casosactivos',
       name: 'CasosActivos',
-      component: () => import('../views/CasosActivos.vue')
+      component: () => import('../views/CasosActivos.vue'),
+      meta: {
+        title: 'Casos Activos',
+      },
     },
     {
       children: [
         ...authRoutes,
         ...typePersonRoutes,
         ...userRoutes,
-        ...personRoutes
+        ...personRoutes,
+        ...caseRoutes,
+        ...typeStageRoutes,
+        ...stageRoutes
       ],
     },
   ]
@@ -64,8 +91,10 @@ const router = createRouter({
 let user = [];
 
 router.beforeEach((to, from, next) => {
+  if (to.meta.title) {
+    document.title = to.meta.title
+  }
   const redirect = () => {
-    
     if (from.name === 'Register' && to.name === 'VerifyEmail') {
       next()
     } else 
@@ -101,6 +130,8 @@ router.beforeEach((to, from, next) => {
       next({ name: 'Login' })
     }
   }
+
+  
 });
 
 export default router

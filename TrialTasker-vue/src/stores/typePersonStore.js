@@ -52,6 +52,8 @@ export const useTypePersonStore = defineStore('typePersons', {
         },
         /* create typePerson */
         async createTypePerson(typePerson) {
+            this.errorsStore = [];
+            this.messagesStore = [];
             await axios.post('/api/type-persons', typePerson)
             .then(response => {
                 this.messagesStore = response.data;
@@ -64,6 +66,8 @@ export const useTypePersonStore = defineStore('typePersons', {
         },
         /* update typePerson */
         async updateTypePerson(typePerson) {
+            this.errorsStore = [];
+            this.messagesStore = [];
             await axios.put('/api/type-persons/' + typePerson.id, typePerson)
             .then(response => {
                 this.messagesStore = response.data;
@@ -76,6 +80,8 @@ export const useTypePersonStore = defineStore('typePersons', {
         },
         /* delete typePerson */
         async deleteTypePerson(id) {
+            this.errorsStore = [];
+            this.messagesStore = [];
             await axios.delete('/api/type-persons/' + id)
             .then(response => {
                 this.messagesStore = response.data;

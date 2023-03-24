@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="form-group-entry">
-                <input type="email" id="email" placeholder="Correo Electronico" v-model="form.email" :class="{error_input:authStore.errors.email}">
+                <input type="text" id="email" placeholder="Correo Electronico" v-model="form.email" :class="{error_input:authStore.errors.email}">
                 <div v-if="authStore.errors.email">
                     <p class="error">{{ authStore.errors.email[0] }}</p>
                 </div>
