@@ -10,6 +10,7 @@
         <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin"> <IconGavel :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
+        <ButtonLink to="FileDashboard" text="Archivos" v-if="auth.user.is_admin"> <IconFileText :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
 
@@ -27,7 +28,7 @@ import Logo from '@/components/logo/Logo.vue';
 import { onMounted } from 'vue';
 import { useAuthStore} from '@/stores/authStore';
 import ButtonLink from '../buttons/ButtonLink.vue';
-import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard, IconGavel} from '@tabler/icons-vue';
+import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard, IconGavel, IconFileText} from '@tabler/icons-vue';
 
 const auth = useAuthStore();
 
