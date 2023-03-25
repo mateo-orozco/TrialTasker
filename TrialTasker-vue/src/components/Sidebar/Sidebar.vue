@@ -11,6 +11,7 @@
         <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="FileDashboard" text="Archivos" v-if="auth.user.is_admin"> <IconFileText :size="20" stroke-width="2.2" /> </ButtonLink>
+        <ButtonLink to="PersonStageDashboard" text="Personas en etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
         <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
 
@@ -51,7 +52,14 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    overflow: auto;
+    height: 100%;
+
 }
+.links::-webkit-scrollbar {
+    width: 0;
+}
+
 .user {
     width: 100%;
     border-top: 2px solid var(--white);
@@ -64,6 +72,8 @@ onMounted(() => {
     font-size: 1rem;
     padding: 0.5rem 1rem;
 }
+
+
 
 
 
