@@ -123,7 +123,7 @@ class CasoController extends Controller
     // user cases
     public function userCases():JsonResponse
     {
-        $userId =auth()->user()->id;
+        $userId = auth()->user()->id;
         $cases = Caso::where('case_user_id',$userId)->get();
         $cases->load('case_user','case_person');
         return response()->json($cases, 200);
