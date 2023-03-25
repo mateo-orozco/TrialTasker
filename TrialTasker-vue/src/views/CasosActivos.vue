@@ -43,7 +43,7 @@ import { useCaseStore } from '@/stores/caseStore';
 const cases = useCaseStore(); 
 onMounted(() => {
     cases.casesUser();
-    cases.stageCase(1);
+    cases.infoCase(9);
 });
 
 

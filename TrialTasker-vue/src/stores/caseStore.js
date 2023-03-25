@@ -86,14 +86,16 @@ export const useCaseStore = defineStore('cases', {
         // view cases user
         async casesUser(){
             await axios.get('/api/userCases').then((response) => {
+                console.log('----------------caseUser----------------');
                 console.log(response.data);
             }).catch(error => {
                 this.errorsStore = error.response.data.errors
             });
         },
 
-        async stageCase(id){
-            await axios.get('/api/stageCase/'+ id).then((response) => {
+        async infoCase(id){
+            await axios.get('/api/infoCase/'+ id).then((response) => {
+                console.log('----------------infoCase----------------');
                 console.log(response.data);
             }).catch(error => {
                 this.errorsStore = error.response.data.errors
