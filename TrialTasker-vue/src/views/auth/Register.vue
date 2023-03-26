@@ -82,6 +82,7 @@ const form = ref({
 <style scoped>
 .entryregister{
    opacity: 0.9999999;
+   height: auto;
 }
 
 input{
@@ -96,7 +97,7 @@ input{
     top: 0;
     left: 0;
     width: 100%;
-    height: 150vh;
+    height: 145vh;
     overflow: hidden;
     z-index: -1;
     background: rgb(79,93,96);

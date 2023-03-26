@@ -155,7 +155,7 @@ import Logo from '../components/logo/Logo.vue';
 }
 
 .navButton {
-    color: var(--beige);
+    color: var(--white);
     text-decoration: none;
     width: 100%;
     height: 100%;
@@ -164,15 +164,15 @@ import Logo from '../components/logo/Logo.vue';
 
 /* hover de los botones */
 .buttonLogin:hover {
-    background-color: var(--beige);
+    background-color: var(--white);
 }
 
 .buttonRegister:hover {
-    background-color: var(--beige);
+    background-color: var(--white);
 }
 
 .navButton:hover {
-    color: var(--brown);
+    color: var(--black);
 }
 
 /* Primera parte del contenido */
@@ -258,7 +258,8 @@ footer {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--brown);
+    background: rgb(79,93,96);
+    background: linear-gradient(90deg, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 21%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%); 
 }
 
 .logo {
@@ -266,7 +267,7 @@ footer {
 }
 
 .informacion {
-    color: var(--beige);
+    color: var(--white);
     padding: 0px 5px;
 }
 
