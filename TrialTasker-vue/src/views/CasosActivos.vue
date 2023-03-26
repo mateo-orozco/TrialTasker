@@ -17,16 +17,12 @@
             </thead>
             <tbody class="listacasos">
                 <tr class="caso">
-                    <td>Isom Trantow</td>
-                    <td>730404372</td>
+                    <td>mmmmm aaa</td>
+                    <td>81957816</td>
                     <td>Activo</td>
-                    <td>Miss Samara Upton</td>
-                    <td>Richard</td>
-                    <td>
-                        <RouterLink :to="{ name: 'SeeMore' }" class="buttonCreateCase">
-                            <div class="SeeMore">Ver mas</div>
-                        </RouterLink>
-                    </td>
+                    <td>Prof. Jedediah Bode I</td>
+                    <td>Austin</td>
+                    <td>Ver mas</td>
                 </tr>
                 <tr class="caso">
                     <td>Wilton Kilback</td>
@@ -34,16 +30,12 @@
                     <td>Activo</td>
                     <td>Prof. Jedediah Bode I</td>
                     <td>Austin</td>
-                    <td>
-                        <RouterLink :to="{ name: 'SeeMore' }" class="buttonCreateCase">
-                            <div class="SeeMore">Ver mas</div>
-                        </RouterLink>
-                    </td>
+                    <td>Ver mas</td>
                 </tr>
             </tbody>
         </table> -->
-        <TableDashboard :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteTypeStage"
-            edit="TypeStageDashboardUpdate" />
+        <TableDashboard :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase"
+            edit="CaseDashboardUpdate" />
     </main>
 </template>
 
@@ -61,23 +53,21 @@ onMounted(() => {
 const thead = [
     {
         name: 'Nombre',
-        key: 'case_name'
+        key: 'case_name',
     },
     {
         name: 'Radicado',
-        key: 'case_radicate'
+        key: 'case_radicate',
     },
     {
-        name: 'Personas Relacionadas',
-        key: 'case_person'
+        name: 'Cliente',
+        key: 'case_person_id',
     },
     {
-        name: 'Usuarios Relacionadas',
-        key: 'case_user'
+        name: 'Abogado',
+        key: 'case_user_id',
     },
 ]
-
-console.log(cases.casesUser())
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
@@ -145,7 +135,8 @@ main {
     color: var(--white);
 
 }
-.buttonCreateCase{
+
+.buttonCreateCase {
     text-decoration: none;
 
 }
