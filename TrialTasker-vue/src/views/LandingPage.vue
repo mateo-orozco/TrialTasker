@@ -19,12 +19,12 @@
 
             <div class="texto1">
                 <p id="textoPart1">Bienvenido a TrialTasker</p>
-                <p id="textoPart2">la plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
+                <p id="textoPart2">La plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
                     casos
                     ordenadamente</p>
             </div>
             <div class="image1">
-                <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
+                <img src="@/assets/img/broabogados.svg" alt="imagenAbogado1" class="imagen1">
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                     en equipo o una forma de automatizar su facturación, estamos aquí para ayudarlo.</p>
             </div>
             <div class="image2">
-                <img src="@/assets/img/abogados2.jpeg" alt="" class="imagen2">
+                <img src="@/assets/img/imgabogados1.svg" alt="" class="imagen2">
             </div>
             <div class="texto2">
                 <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
@@ -48,7 +48,7 @@
 
         <div class="contenido">
             <div class="image3">
-                <img src="@/assets/img/abogados3.jpg" alt="" class="imagen3">
+                <img src="@/assets/img/lawabogados.svg" alt="" class="imagen3">
             </div>
             <div class="texto3">
                 Además, nuestra plataforma es fácil de usar y está diseñada para proporcionar una experiencia de usuario
@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4.png" alt="" class="imagen4">
+                <img src="@/assets/img/privacyabogados.svg" alt="" class="imagen4">
             </div>
         </div>
         <footer>
