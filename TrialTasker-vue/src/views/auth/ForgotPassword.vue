@@ -55,7 +55,7 @@ const form = ref({
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 101vh;
     overflow: hidden;
     z-index: -1;
     background: rgb(79,93,96);
