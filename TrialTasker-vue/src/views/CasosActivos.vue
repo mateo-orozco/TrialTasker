@@ -55,7 +55,7 @@ import TableDashboard from '@/components/Tables/TableDashboard.vue';
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
-    cases.stageCase(1);
+    cases.infoCase(9);
 });
 
 const thead = [
