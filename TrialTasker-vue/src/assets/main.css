@@ -1,12 +1,13 @@
 /* pallet color */
 :root {
   --background: #edecec;
-  --brown: #664200;
+  --brown: #4f5d60;
   --beige: #fff2bf;
   --my-hover-dark: #473800;
   --my-hover-ligth: #e8e8e8;
   --white: #fff;
   --black: #000;
+  --verde: #4f5d60;
 }
 
 /* reset */

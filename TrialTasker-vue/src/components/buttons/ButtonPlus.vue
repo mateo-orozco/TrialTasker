@@ -16,7 +16,7 @@ defineProps({
 
 <style scoped>
 .button-plus {
-    background-color: var(--brown);
+    background-color: #4f5d60;
     border: none;
     border-radius: 0.5rem;
     width: 2.5rem;
