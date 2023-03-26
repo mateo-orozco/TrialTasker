@@ -1,4 +1,5 @@
 <template>
+    
     <div class="logo">
         <Logo :fill="'--white'"/>
     </div>
