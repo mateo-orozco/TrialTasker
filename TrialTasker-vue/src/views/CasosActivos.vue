@@ -69,6 +69,7 @@ document.addEventListener("keyup", e => {
     --my-hover-ligth: #e8e8e8;
     --white: #fff;
     --black: #000;
+
 }
 .filtro {
     display: none;
@@ -88,9 +89,10 @@ document.addEventListener("keyup", e => {
     padding-left: 10px;
     background-color: #e8e8e8;
 }
+
 /* main */
 main {
-    height: 100vh;
+    height: auto;
     box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.288);
     border-radius: 12px;
     padding: 10px;
@@ -103,9 +105,13 @@ main {
     height: 30px;
     text-align: center;
     border-radius: 5px;
+    background-color: var(--verde);
+    color: var(--white);
+
+}
+.buttonCreateCase{
     text-decoration: none;
-    background-color: var(--brown);
-    color: var(--beige);
+
 }
 /* estilos de la tabla */
 table {
@@ -115,8 +121,8 @@ table {
 thead {
     width: 100%;
     height: 5vh;
-    background-color: var(--brown);
-    color: var(--beige);
+    background-color: var(--verde);
+    color: var(--white);
 }
 /* estilos del tbody */
 td {

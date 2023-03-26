@@ -59,6 +59,7 @@ document.addEventListener("keyup", e => {
     --my-hover-ligth: #e8e8e8;
     --white: #fff;
     --black: #000;
+    --azul: #0600ff;
 }
 .filtro {
     display: none;

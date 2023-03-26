@@ -102,6 +102,7 @@ import Logo from '../components/logo/Logo.vue';
     --my-hover-ligth: #e8e8e8;
     --white: #fff;
     --black: #000;
+    --azul: #0600ff;
 }
 
 /* body */
