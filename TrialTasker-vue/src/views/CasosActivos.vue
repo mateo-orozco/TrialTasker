@@ -6,7 +6,7 @@
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
         </div>
-        <table>
+        <!-- <table>
             <thead>
                 <td>Nombre del caso</td>
                 <td>Radicado del caso</td>
@@ -33,19 +33,42 @@
                     <td>Ver mas</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+
+        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase" />
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-const cases = useCaseStore(); 
+import TableUser from '@/components/Tables/TableUsers.vue';
+
+const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
-    cases.infoCase(9);
+    cases.infoCase(2);
+    cases.getCases()
 });
 
+const thead = [
+    {
+        name: 'Nombre',
+        key: 'case_name',
+    },
+    {
+        name: 'Radicado',
+        key: 'case_radicate',
+    },
+    {
+        name: 'Cliente',
+        key: 'case_person_id',
+    },
+    {
+        name: 'Abogado',
+        key: 'case_user_id',
+    },
+]
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
@@ -71,9 +94,11 @@ document.addEventListener("keyup", e => {
     --black: #000;
 
 }
+
 .filtro {
     display: none;
 }
+
 .navbar {
     width: 100%;
     height: 50px;
@@ -81,6 +106,7 @@ document.addEventListener("keyup", e => {
     justify-content: space-around;
     align-items: center;
 }
+
 .search {
     width: 50vw;
     height: 30px;
@@ -97,6 +123,7 @@ main {
     border-radius: 12px;
     padding: 10px;
 }
+
 /* estilos boton de crear caso */
 .createButton {
     border: solid 1px;
@@ -109,14 +136,17 @@ main {
     color: var(--white);
 
 }
-.buttonCreateCase{
+
+.buttonCreateCase {
     text-decoration: none;
 
 }
+
 /* estilos de la tabla */
 table {
     margin-top: 30px;
 }
+
 /* estilos del thead */
 thead {
     width: 100%;
@@ -124,12 +154,14 @@ thead {
     background-color: var(--verde);
     color: var(--white);
 }
+
 /* estilos del tbody */
 td {
     width: 35vh;
     text-align: center;
     border-radius: 5px;
 }
+
 tr {
     margin-top: 5vh;
 }

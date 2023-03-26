@@ -22,7 +22,7 @@ export const useCaseStore = defineStore('cases', {
         async getCases() {
             await axios.get('/api/cases')
             .then(response => {
-                this.casesStore = response.data;
+                console.log(this.casesStore = response.data);
             });
         },
 
