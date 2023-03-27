@@ -19,12 +19,12 @@
 
             <div class="texto1">
                 <p id="textoPart1">Bienvenido a TrialTasker</p>
-                <p id="textoPart2">la plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
+                <p id="textoPart2">La plataforma dedicada unicamente a abogados donde podras llevar tu calendario y tus
                     casos
                     ordenadamente</p>
             </div>
             <div class="image1">
-                <img src="@/assets/img/abogados.jpeg" alt="imagenAbogado1" class="imagen1">
+                <img src="@/assets/img/broabogados.svg" alt="imagenAbogado1" class="imagen1">
             </div>
         </div>
 
@@ -36,7 +36,7 @@
                     en equipo o una forma de automatizar su facturación, estamos aquí para ayudarlo.</p>
             </div>
             <div class="image2">
-                <img src="@/assets/img/abogados2.jpeg" alt="" class="imagen2">
+                <img src="@/assets/img/imgabogados1.svg" alt="" class="imagen2">
             </div>
             <div class="texto2">
                 <p>Sabemos que como abogado, su tiempo es valioso y necesita herramientas efectivas para simplificar su
@@ -48,7 +48,7 @@
 
         <div class="contenido">
             <div class="image3">
-                <img src="@/assets/img/abogados3.jpg" alt="" class="imagen3">
+                <img src="@/assets/img/lawabogados.svg" alt="" class="imagen3">
             </div>
             <div class="texto3">
                 Además, nuestra plataforma es fácil de usar y está diseñada para proporcionar una experiencia de usuario
@@ -62,7 +62,7 @@
                 mejorar la satisfacción del cliente!
             </div>
             <div class="image3">
-                <img src="@/assets/img/abogados4-removebg-preview.png" alt="" class="imagen4">
+                <img src="@/assets/img/privacyabogados.svg" alt="" class="imagen4">
             </div>
         </div>
         <footer>
@@ -92,6 +92,7 @@ import Logo from '../components/logo/Logo.vue';
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap');
+
 /* variables */
 :root {
     --background: #edecec;
@@ -101,7 +102,9 @@ import Logo from '../components/logo/Logo.vue';
     --my-hover-ligth: #e8e8e8;
     --white: #fff;
     --black: #000;
+    --azul: #0600ff;
 }
+
 /* body */
 .container {
     width: 100vw;
@@ -110,6 +113,7 @@ import Logo from '../components/logo/Logo.vue';
     gap: 30px;
     background-color: var(--background);
 }
+
 /* navbar */
 .navbar {
     width: 100vw;
@@ -119,9 +123,11 @@ import Logo from '../components/logo/Logo.vue';
     justify-content: space-between;
     padding: 30px;
 }
+
 .navbarLogo {
     width: 300px;
 }
+
 /* navbar Buttons */
 .buttons {
     display: flex;
@@ -129,6 +135,7 @@ import Logo from '../components/logo/Logo.vue';
     align-items: center;
     gap: 10px;
 }
+
 .buttonLogin {
     width: 200px;
     height: 39px;
@@ -137,6 +144,7 @@ import Logo from '../components/logo/Logo.vue';
     text-align: center;
     padding: 8px;
 }
+
 .buttonRegister {
     width: 200px;
     height: 39px;
@@ -145,23 +153,28 @@ import Logo from '../components/logo/Logo.vue';
     text-align: center;
     padding: 8px;
 }
+
 .navButton {
-    color: var(--beige);
+    color: var(--white);
     text-decoration: none;
     width: 100%;
     height: 100%;
     font-size: 20px;
 }
+
 /* hover de los botones */
 .buttonLogin:hover {
-    background-color: var(--beige);
+    background-color: var(--white);
 }
+
 .buttonRegister:hover {
-    background-color: var(--beige);
+    background-color: var(--white);
 }
+
 .navButton:hover {
-    color: var(--brown);
+    color: var(--black);
 }
+
 /* Primera parte del contenido */
 .contenido {
     display: flex;
@@ -172,80 +185,101 @@ import Logo from '../components/logo/Logo.vue';
     padding: 5px;
     text-align: center;
 }
+
 .part1 {
     display: flex;
     width: 100%;
 }
+
 .image1 {
     width: 45%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
+
 .imagen1 {
     width: 85%;
 }
+
 .texto1 {
     width: 45%;
 }
+
 #textoPart1 {
     font-weight: bold;
     font-size: 50px;
     font-family: 'Roboto Condensed', sans-serif;
 }
+
 /* segunda parte del contenido */
 #textoPart2 {
     font-size: 25px;
     font-family: 'Roboto Condensed', sans-serif;
+
 }
+
 .texto2 {
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
+
 .image2 {
     width: 30%;
 }
+
 .imagen2 {
     width: 100%;
 }
+
 /* tercera parte del contenido */
 .imagen3 {
     width: 100%;
 }
+
 .image3 {
     width: 30%;
 }
+
 .texto3 {
     width: 30%;
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 20px;
 }
+
 .imagen4 {
     width: 100%;
 }
+
 /* footer */
 footer {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background-color: var(--brown);
+    background: rgb(79,93,96);
+    background: linear-gradient(90deg, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 21%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%); 
 }
+
 .logo {
     width: 200px;
 }
+
 .informacion {
-    color: var(--beige);
+    color: var(--white);
     padding: 0px 5px;
 }
+
 .foologo {
-    width: 30%;
+    width: 20%;
     text-align: center;
 }
+
 .logofoo {
     width: 100%;
 }
+
 .informacionfoo {
     display: flex;
     align-items: center;
@@ -253,44 +287,57 @@ footer {
     padding: 10px;
     gap: 10px;
 }
+
 @media screen and (max-width:768px) {
     .image1 {
         width: 100%;
     }
+
     .texto1 {
         width: 100%;
     }
+
     .texto2 {
         width: 100%;
     }
+
     .image2 {
         width: 85%;
     }
+
     .image3 {
         width: 85%;
     }
+
     .texto3 {
         width: 100%;
     }
+
     .buttonLogin {
         width: 120px;
     }
+
     .buttonRegister {
         width: 120px;
     }
+
     .navbarLogo {
         width: 200px;
     }
+
     footer {
         height: 200px;
     }
+
     .foologo {
         width: 100%;
         text-align: center;
     }
+
     .logofoo {
         width: 50%;
     }
+
     .informacionfoo {
         display: flex;
         align-items: center;

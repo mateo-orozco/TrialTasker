@@ -8,6 +8,8 @@ use App\Http\Controllers\StageController;
 use App\Http\Controllers\TypePersonController;
 use App\Http\Controllers\TypeStageController;
 use App\Http\Controllers\UserController;
+use App\Models\PersonStage;
+use App\Models\Stage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -140,5 +142,6 @@ route::group([
 
 // ------------------------user------------------------
 
-Route::get('userCases/{id}',[UserController::class, 'userCases']);
-Route::get('userCases/stage/${id}',[StageController::class, '']);
+// casos del usuario
+Route::get('/userCases',[CasoController::class, 'userCases']);
+Route::get('/infoCase/{id}',[StageController::class, 'infoCase']);

@@ -58,17 +58,17 @@ const props = defineProps({
 }
 
 .table__content thead {
-  background-color: var(--brown);
+  background-color: #4f5d60;
   color: white;
   text-align: center;
 }
 
 
 .table__content tbody tr:nth-child(odd) {
-    background-color: rgb(241, 222, 186);
+    background-color: var(--my-hover-ligth);
 }
 .table__content tbody tr:nth-child(even) {
-    background-color: rgb(255, 249, 231);
+    background-color: var(--white);
 }
 .table__content__header {
   padding: 0.4rem 0.8rem;
@@ -78,7 +78,7 @@ const props = defineProps({
     text-align: center;
 }
 .table__content__data button {
-  background-color: var(--brown);
+  background-color: #4f5d60;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -88,7 +88,7 @@ const props = defineProps({
 }
 .table__content__data a {
   text-decoration: none;
-  background-color: var(--brown);
+  background-color: #4f5d60;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
