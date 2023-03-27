@@ -17,26 +17,7 @@
         <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
 
     </div>
-    <div class="user">
-        <div class="user__name" v-if="auth.user">
-            <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
-
-    
-
-
-
-        <div class="links" v-if="auth.user">
-            <ButtonLink to="Dashboard" text="Dashboard" v-if="auth.user.is_admin"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="TypePersonDashboard" text="Tipo de personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin"> <IconGavel :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
-            <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
-
-        </div>
+   
         <div class="user">
             <div class="user__name" v-if="auth.user">
                 <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
