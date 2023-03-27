@@ -106,6 +106,9 @@ export const useCaseStore = defineStore("cases", {
             if (response.data[i].case_status == 1) {
               activos.push(response.data[i]);
             }
+            // Se convirtio el arreglo en un json pero trae todos los casos no unicamente los activos
+            var jsonActive = { ...activos };
+            console.log(jsonActive);
           }
           console.log(activos);
         })
