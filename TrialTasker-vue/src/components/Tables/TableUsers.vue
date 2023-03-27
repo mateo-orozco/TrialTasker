@@ -12,6 +12,9 @@
                     <td class="table__content__data" v-for="key in thead" :key="key.key">
                         <span v-if="!key.key_2">{{ item[key.key] }}</span><span v-else>{{ item[key.key][key.key_2] }}</span>
                     </td>
+                    <td class="table__content__data">
+                        <router-link :to="{ name: SeeMore, params: { id: item.id } }">Ver mas</router-link>
+                    </td>
                 </tr>
             </tbody>
         </table>

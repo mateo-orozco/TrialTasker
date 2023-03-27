@@ -48,7 +48,7 @@ const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
     cases.infoCase(1);
-    // cases.getCases()
+    cases.getCases()
 });
 
 const thead = [
