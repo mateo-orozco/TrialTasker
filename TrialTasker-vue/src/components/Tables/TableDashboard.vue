@@ -48,9 +48,9 @@ const props = defineProps({
 
 <style>
 .table {
-margin-top: 20px;
+  margin-top: 20px;
   width: 100%;
-  overflow-x: auto;
+  overflow: auto;
 }
 .table__content {
   width: 100%;

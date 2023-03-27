@@ -1,3 +1,4 @@
+
 import { createRouter, createWebHistory, useRouter } from "vue-router";
 import HomeView from "../views/HomeView.vue";
 import axios from "axios";
@@ -8,6 +9,9 @@ import personRoutes from "./person";
 import caseRoutes from "./case";
 import typeStageRoutes from "./typeStage";
 import stageRoutes from "./stage";
+import fileRoutes from './files';
+import personStageRoutes from './personStage';
+
 
 import Cookies from "js-cookie";
 
@@ -83,6 +87,9 @@ const router = createRouter({
         ...caseRoutes,
         ...typeStageRoutes,
         ...stageRoutes,
+        ...fileRoutes,
+        ...personStageRoutes
+
       ],
     },
   ],
