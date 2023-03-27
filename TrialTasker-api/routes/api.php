@@ -114,7 +114,7 @@ route::group([
 
 // personStage
 route::group([
-    'prefix'=>'personStage',
+    'prefix'=>'personStages',
     'controller' => PersonStageController::class,
 ],function(){
     Route::get('/', 'index');
