@@ -5,14 +5,20 @@
             <Sidebar />
         </div>
         <div class="container"
+
             :class="{ 'container-padding': $route.name != 'Login' && $route.name != 'Register' && $route.name != 'ForgotPassword' && $route.name != 'ResetPassword' && $route.name != 'VerifyEmail' && $route.name != 'LandingPage' }">
+            
+
             <slot></slot>
+
         </div>
     </main>
 </template>
 
 <script setup>
 import Sidebar from './Sidebar/Sidebar.vue';
+    
+
 </script>
 
 <style scoped>
@@ -21,6 +27,10 @@ main {
     height: 100vh;
     background-color: var(--white);
 }
+
+
+
+
 
 .sidebar {
     width: 250px;
@@ -38,10 +48,14 @@ main {
 /* Media query for mobile screens */
 @media screen and (max-width: 768px) {
     .sidebar {
+        left: -100%;
         width: 100%;
         height: 100%;
-        display: none;
+        display: block;
     }
+
+    
+
 }
 
 .container {
@@ -60,6 +74,7 @@ main {
         margin: 0;
     }
 }
+
 
 
 </style>
