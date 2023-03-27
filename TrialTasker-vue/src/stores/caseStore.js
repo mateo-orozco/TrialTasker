@@ -21,7 +21,7 @@ export const useCaseStore = defineStore("cases", {
     /* get all cases with paginate */
     async getCases() {
       await axios.get("/api/cases").then((response) => {
-        this.casesStore = response.data;
+        console.log((this.casesStore = response.data));
       });
     },
 
@@ -87,6 +87,7 @@ export const useCaseStore = defineStore("cases", {
       await axios
         .get("/api/userCases")
         .then((response) => {
+          console.log("----------------caseUser----------------");
           console.log(response.data);
         })
         .catch((error) => {
@@ -94,10 +95,11 @@ export const useCaseStore = defineStore("cases", {
         });
     },
 
-    async stageCase(id) {
+    async infoCase(id) {
       await axios
-        .get("/api/stageCase/" + id)
+        .get("/api/infoCase/" + id)
         .then((response) => {
+          console.log("----------------infoCase----------------");
           console.log(response.data);
         })
         .catch((error) => {

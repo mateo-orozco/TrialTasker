@@ -34,20 +34,21 @@
                 </tr>
             </tbody>
         </table> -->
-        <TableDashboard :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase"
-            edit="CaseDashboardUpdate" />
+
+        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase" />
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import TableDashboard from '@/components/Tables/TableDashboard.vue';
+import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
-    cases.stageCase(1);
+    cases.infoCase(1);
+    // cases.getCases()
 });
 
 const thead = [
