@@ -47,8 +47,13 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
     ];
 
-    public function cases(): HasMany
+    public function cases()
     {
         return $this->hasMany(Caso::class);
+    }
+
+    public function stages()
+    {
+        return $this->hasMany(Stage::class);
     }
 }

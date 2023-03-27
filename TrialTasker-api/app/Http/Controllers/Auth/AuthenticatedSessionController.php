@@ -19,8 +19,15 @@ class AuthenticatedSessionController extends Controller
         $request->authenticate();
 
         $request->session()->regenerate();
+        
+        
+        $token = $request->user()->createToken('auth_token', ['expires_at' => now()->addMinutes(60)])->plainTextToken;
+        $cookie = cookie('auth_token', $token, 120, null,null,null,false); 
 
-        return response()->json( $request->user() );
+        return response()->json([
+            'user' => $request->user(),
+            'message' => 'Bienvenido',
+        ], 200)->withCookie($cookie);
     }
 
     /**
@@ -34,6 +41,9 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return response()->noContent();
+        // elimina la cookie con el token de autenticación
+        $cookie = cookie('auth_token', '', -1);
+
+        return response()->noContent()->withCookie($cookie);
     }
 }

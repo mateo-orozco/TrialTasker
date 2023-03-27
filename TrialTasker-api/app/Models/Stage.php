@@ -12,6 +12,25 @@ class Stage extends Model
     protected $fillable = [
         'stage_name',
         'stage_notes',
+        'stage_case_id',
+        'stage_type_stage_id',
         
     ];
+
+    public function stage_type_stage(){
+        return $this->belongsTo(TypeStage::class);
+    }
+    
+    public function stage_case(){
+        return $this->belongsTo(Caso::class);
+    }
+
+    public function files(){
+        return $this->hasMany(File::class);
+    }
+
+    public function personStage()
+    {
+        return $this->hasMany(PersonStage::class);
+    }
 }

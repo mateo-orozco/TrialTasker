@@ -17,6 +17,16 @@ class TypePersonController extends Controller
         return response()->json($typePersons);
     }
 
+    /**
+     * Display a listing of the resource.
+     */
+
+    public function all(): JsonResponse
+    {
+        $typePersons = TypePerson::all();
+        return response()->json($typePersons);
+    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -31,7 +41,7 @@ class TypePersonController extends Controller
             $typePerson = TypePerson::create($request->all());
         } catch (\Illuminate\Validation\ValidationException $e) {
 
-            return response()->json($e->errors(), 422);
+            return response()->json(["errors" => $e->errors()], 422);
         }
         return response()->json($typePerson);
     }
@@ -57,13 +67,13 @@ class TypePersonController extends Controller
             $this->validate($request, $rules);
             $typePerson = TypePerson::findOrFail($id);
         } catch (\Illuminate\Validation\ValidationException $e) {
-            
+
             return response()->json($e->errors(), 422);
         }
         $typePerson->update($request->all());
         return response()->json($typePerson);
     }
-    
+
 
     /**
      * Remove the specified resource from storage.
