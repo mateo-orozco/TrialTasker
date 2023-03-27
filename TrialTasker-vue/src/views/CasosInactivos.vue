@@ -37,7 +37,7 @@
             </tbody>
         </table> -->
 
-        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" edit="PersonDashboardUpdate" />
+        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase" />
         <p class="informacion"></p>
     </main>
 </template>
@@ -51,12 +51,12 @@ const cases = useCaseStore();
 onMounted(() => {
     cases.casesUser();
     cases.infoCase();
-    cases.getCases();
+    cases.getCases()
 });
 
 const thead = [
     {
-        name: 'Nombre del caso',
+        name: 'Nombre',
         key: 'case_name',
     },
     {

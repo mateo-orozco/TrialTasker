@@ -21,7 +21,7 @@ export const useCaseStore = defineStore("cases", {
     /* get all cases with paginate */
     async getCases() {
       await axios.get("/api/cases").then((response) => {
-        console.log((this.casesStore = response.data));
+        this.casesStore = response.data;
       });
     },
 
@@ -89,6 +89,25 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           console.log("----------------caseUser----------------");
           console.log(response.data);
+
+          const inactivos = [];
+          const activos = [];
+
+          console.log("inactivos");
+          for (let i = 0; i < response.data.length; i++) {
+            if (response.data[i].case_status == 0) {
+              inactivos.push(response.data[i]);
+            }
+          }
+          console.log(inactivos);
+
+          console.log("activos");
+          for (let i = 0; i < response.data.length; i++) {
+            if (response.data[i].case_status == 1) {
+              activos.push(response.data[i]);
+            }
+          }
+          console.log(activos);
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;

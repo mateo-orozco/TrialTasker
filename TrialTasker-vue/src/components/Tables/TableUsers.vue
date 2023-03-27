@@ -13,7 +13,7 @@
                         <span v-if="!key.key_2">{{ item[key.key] }}</span><span v-else>{{ item[key.key][key.key_2] }}</span>
                     </td>
                     <td class="table__content__data">
-                        <router-link :to="{ name: SeeMore, params: { id: item.id } }">Ver mas</router-link>
+                        <router-link :to="{ name: edit, params: { id: item.id } }">Ver mas</router-link>
                     </td>
                 </tr>
             </tbody>
@@ -34,8 +34,9 @@ const props = defineProps({
         type: Array,
         required: true,
     },
-    SeeMore: {
+    edit: {
         type: Text,
+        required: true,
     },
 });
 </script>

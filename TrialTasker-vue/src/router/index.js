@@ -75,6 +75,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/casosinactivos",
+      name: "CasosInactivos",
+      component: () => import("../views/CasosInactivos.vue"),
+      meta: {
+        title: "Casos Inactivos",
+      },
+    },
+    {
       path: "/seemore",
       name: "SeeMore",
       component: () => import("../views/SeeMore.vue"),
