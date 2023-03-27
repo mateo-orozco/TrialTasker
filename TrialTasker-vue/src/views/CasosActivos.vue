@@ -6,6 +6,8 @@
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
         </div>
+        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate"/>
+    
         <table>
             <thead>
                 <td>Nombre del caso</td>
@@ -18,7 +20,7 @@
             <tbody class="listacasos">
                 <tr class="caso">
                     <td>mmmmm aaa</td>
-                    <td>81957816</td>
+                    <td>dfgds</td>
                     <td>Activo</td>
                     <td>Prof. Jedediah Bode I</td>
                     <td>Austin</td>
@@ -27,7 +29,7 @@
                 <tr class="caso">
                     <td>Wilton Kilback</td>
                     <td>1111</td>
-                    <td>Activo</td>
+                    <td>Inactivo</td>
                     <td>Prof. Jedediah Bode I</td>
                     <td>Austin</td>
                     <td>Ver mas</td>
@@ -47,9 +49,9 @@ onMounted(() => {
 });
 
 
+
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
-        if (e.key === "Escape") e.target.value = ""
         document.querySelectorAll(".caso").forEach(caso => {
             caso.textContent.toLowerCase().includes(e.target.value.toLowerCase())
                 ? caso.classList.remove("filtro")
@@ -57,6 +59,9 @@ document.addEventListener("keyup", e => {
         })
     }
 })
+
+
+
 </script>
 
 <style scoped>
