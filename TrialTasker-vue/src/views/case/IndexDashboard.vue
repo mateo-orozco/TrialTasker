@@ -23,11 +23,13 @@ const thead = [
     },
     {
         name: 'Cliente',
-        key: 'case_person_id',
+        key: 'case_person',
+        key_2: 'per_name',
     },
     {
         name: 'Abogado',
-        key: 'case_user_id',
+        key: 'case_user',
+        key_2: 'name',
     },
 ]
 onMounted(() => {

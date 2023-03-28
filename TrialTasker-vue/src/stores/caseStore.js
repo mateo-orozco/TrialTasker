@@ -6,6 +6,8 @@ export const useCaseStore = defineStore("cases", {
   state: () => ({
     casesAllStore: [],
     casesStore: [],
+    activeCases: [],
+    inactiveCases: [],
     caseStore: {},
     errorsStore: [],
     messagesStore: [],
@@ -83,34 +85,23 @@ export const useCaseStore = defineStore("cases", {
     },
 
     // view cases user
-    async casesUser() {
+    async casesActive() {
       await axios
-        .get("/api/userCases")
+        .get("/api/casesActive")
         .then((response) => {
-          console.log("----------------caseUser----------------");
-          console.log(response.data);
-
-          const inactivos = [];
-          const activos = [];
-
-          console.log("inactivos");
-          for (let i = 0; i < response.data.length; i++) {
-            if (response.data[i].case_status == 0) {
-              inactivos.push(response.data[i]);
-            }
-          }
-          console.log(inactivos);
-
-          console.log("activos");
-          for (let i = 0; i < response.data.length; i++) {
-            if (response.data[i].case_status == 1) {
-              activos.push(response.data[i]);
-            }
-            // Se convirtio el arreglo en un json pero trae todos los casos no unicamente los activos
-            var jsonActive = { ...activos };
-            console.log(jsonActive);
-          }
-          console.log(activos);
+          this.activeCases = response.data;
+          console.log(this.activeCases);
+        })
+        .catch((error) => {
+          this.errorsStore = error.response.data.errors;
+        });
+    },
+    async casesInactive() {
+      await axios
+        .get("/api/casesInactive")
+        .then((response) => {
+          this.inactiveCases = response.data;
+          console.log(this.inactiveCases);
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;

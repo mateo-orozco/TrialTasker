@@ -114,7 +114,7 @@ route::group([
 
 // personStage
 route::group([
-    'prefix'=>'personStage',
+    'prefix'=>'personStages',
     'controller' => PersonStageController::class,
 ],function(){
     Route::get('/', 'index');
@@ -143,5 +143,6 @@ route::group([
 // ------------------------user------------------------
 
 // casos del usuario
-Route::get('/userCases',[CasoController::class, 'userCases']);
-Route::get('/stageCase/{id}',[StageController::class, 'stageCase']);
+Route::get('/casesActive',[CasoController::class, 'casesActive']);
+Route::get('/casesInactive',[CasoController::class, 'casesInactive']);
+Route::get('/infoCase/{id}',[StageController::class, 'infoCase']);

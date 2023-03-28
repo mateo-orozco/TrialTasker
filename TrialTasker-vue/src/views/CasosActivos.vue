@@ -8,72 +8,43 @@
         </div>
         <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
-        <!-- <table>
+        <table>
             <thead>
-                <td>Nombre del caso</td>
-                <td>Radicado del caso</td>
-                <td>Estatus</td>
-                <td>Personas relacionadas</td>
-                <td>Usuarios relacionados</td>
-                <td>Acciones</td>
-            </thead>
-            <tbody class="listacasos">
-                <tr class="caso">
-                    <td>mmmmm aaa</td>
-                    <td>dfgds</td>
-                    <td>Activo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+                <tr>
+                    <td>Nombre del Cliente</td>
+                    <td>Radicado</td>
+                    <td>Estatus</td>
+                    <td>Nombre Persona Relacionada</td>
+                    <td>Apellido Persona Relacionada</td>
+                    <td>Acciones</td>
                 </tr>
-                <tr class="caso">
-                    <td>Wilton Kilback</td>
-                    <td>1111</td>
-                    <td>Inactivo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+            </thead>
+            <tbody>
+                <tr v-for="active in cases.activeCases" class="caso">
+                    <td>{{ active["case_name"] }}</td>
+                    <td>{{ active["case_radicate"] }}</td>
+                    <td>Activo</td>
+                    <td>{{ active["case_person"]["per_name"] }}</td>
+                    <td>{{ active["case_person"]["per_lastname"] }}</td>
+                    <td>
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
+                            <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                    </td>
                 </tr>
             </tbody>
-        </table> -->
-
-        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" edit="PersonDashboardUpdate" />
-        <p class="informacion"></p>
+        </table>
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
-    cases.casesUser();
-    cases.infoCase();
-    cases.getCases();
+    cases.casesActive();
 });
-
-const thead = [
-    {
-        name: 'Nombre del caso',
-        key: 'case_name',
-    },
-    {
-        name: 'Radicado',
-        key: 'case_radicate',
-    },
-    {
-        name: 'Cliente',
-        key: 'case_person_id',
-    },
-    {
-        name: 'Abogado',
-        key: 'case_user_id',
-    },
-]
-
-
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
         document.querySelectorAll(".caso").forEach(caso => {

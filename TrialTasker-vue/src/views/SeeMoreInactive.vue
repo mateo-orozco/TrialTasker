@@ -1,66 +1,58 @@
 <template>
     <h1>Detalles del caso</h1>
     <div class="container">
-        <RouterLink :to="{ name: 'CasosActivos' }" class="title">
+        <RouterLink :to="{ name: 'CasosInactivos' }" class="title">
             <button class='atras'>Atras</button>
         </RouterLink>
         <div class="contenido">
-            <div class="cliente">
+            <div class="cliente" v-for="inactives in cases.inactiveCases">
                 <h2 class="seccion">CLIENTE:</h2>
                 <h2 class="titulos">Name:</h2>
-                <p class="informacion">Isom Trantow</p>
+                <p class="informacion">{{ inactives["case_name"] }}</p>
                 <h2 class="titulos">Radicado:</h2>
-                <p class="informacion">730404372</p>
+                <p class="informacion">{{ inactives["case_radicate"] }}</p>
             </div>
-            <div class="usuario">
-                <h2 class="seccion">ABOGADO:</h2>
-                <h2 class="titulos">Name:</h2>
-                <p class="informacion">Miss Samara Upton</p>
-                <h2 class="titulos">Last Name:</h2>
-                <p class="informacion">Fay</p>
-                <h2 class="titulos">Phone:</h2>
-                <p class="informacion">(681) 852-0360</p>
-                <h2 class="titulos">Address:</h2>
-                <p class="informacion">5663 Jordi Forge
-                    Port Marysetown, OK 23814-0828</p>
-                <h2 class="titulos">Email:</h2>
-                <p class="informacion">eliezer69@example.com</p>
-            </div>
-            <div class="personas">
+            <div class="personas" v-for="inactives in cases.inactiveCases">
                 <h2 class="seccion">PERSONA RELACIONADA:</h2>
                 <h2 class="titulos">Name:</h2>
-                <p class="informacion">Richard</p>
+                <p class="informacion">{{ inactives["case_person"]["per_name"] }}</p>
                 <h2 class="titulos">Last Name:</h2>
-                <p class="informacion">Upton</p>
+                <p class="informacion">{{ inactives["case_person"]["per_lastname"] }}</p>
                 <h2 class="titulos">Phone:</h2>
-                <p class="informacion">+1.432.919.6939</p>
+                <p class="informacion">{{ inactives["case_person"]["per_phone"] }}</p>
                 <h2 class="titulos">Address:</h2>
-                <p class="informacion">8105 Crystel Pine Suite 128</p>
+                <p class="informacion">{{ inactives["case_person"]["per_address"] }}</p>
                 <h2 class="titulos">Email:</h2>
-                <p class="informacion">wyman.pinkie@example.org</p>
+                <p class="informacion">{{ inactives["case_person"]["per_email"] }}</p>
                 <h2 class="titulos">CC:</h2>
-                <p class="informacion">73213084</p>
+                <p class="informacion">{{ inactives["case_person"]["per_nit"] }}</p>
                 <h2 class="titulos">Issue:</h2>
-                <p class="informacion">85441745</p>
+                <p class="informacion">{{ inactives["case_person"]["per_issue_nit"] }}</p>
                 <h2 class="titulos">Number Ministry:</h2>
-                <p class="informacion">6859108</p>
+                <p class="informacion">{{ inactives["case_person"]["per_num_ministry"] }}</p>
                 <h2 class="titulos">Number Dispaych:</h2>
-                <p class="informacion">92175167</p>
+                <p class="informacion">{{ inactives["case_person"]["per_num_dispaych"] }}</p>
                 <h2 class="titulos">Radicate:</h2>
-                <p class="informacion">56494163</p>
+                <p class="informacion">{{ inactives["case_person"]["per_radicated"] }}</p>
                 <h2 class="titulos">Authority:</h2>
-                <p class="informacion">26818457</p>
+                <p class="informacion">{{ inactives["case_person"]["per_authority"] }}</p>
                 <h2 class="titulos">Number:</h2>
-                <p class="informacion">89246911</p>
+                <p class="informacion">{{ inactives["case_person"]["per_number"] }}</p>
                 <h2 class="titulos">Type Person:</h2>
-                <p class="informacion">Juez</p>
+                <p class="informacion">{{ inactives["case_person"]["per_type_person_id"] }}</p>
             </div>
         </div>
     </div>
 </template>
 
 <script setup>
+import { onMounted } from 'vue';
+import { useCaseStore } from '@/stores/caseStore';
 
+const cases = useCaseStore();
+onMounted(() => {
+    cases.casesInactive()
+});
 </script>
 
 <style scoped>

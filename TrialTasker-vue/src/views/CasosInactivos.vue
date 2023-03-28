@@ -8,37 +8,28 @@
         </div>
         <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
-        <!-- <table>
+        <table>
             <thead>
-                <td>Nombre del caso</td>
-                <td>Radicado del caso</td>
-                <td>Estatus</td>
-                <td>Personas relacionadas</td>
-                <td>Usuarios relacionados</td>
-                <td>Acciones</td>
-            </thead>
-            <tbody class="listacasos">
-                <tr class="caso">
-                    <td>mmmmm aaa</td>
-                    <td>dfgds</td>
-                    <td>Activo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+                <tr>
+                    <td>Nombre del caso</td>
+                    <td>Radicado</td>
+                    <td>Estatus</td>
+                    <td>Acciones</td>
                 </tr>
-                <tr class="caso">
-                    <td>Wilton Kilback</td>
-                    <td>1111</td>
+            </thead>
+            <tbody>
+                <tr v-for="active in cases.inactiveCases">
+                    <td>{{ active["case_name"] }}</td>
+                    <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+                    <td>
+                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
+                            <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                    </td>
                 </tr>
             </tbody>
-        </table> -->
-
-        <TableUser :thead="thead" :data="cases.cases.data" v-if="cases.cases.data" :delete="cases.deleteCase" />
-        <p class="informacion"></p>
+        </table>
     </main>
 </template>
 
@@ -49,9 +40,7 @@ import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
-    cases.casesUser();
-    cases.infoCase();
-    cases.getCases()
+    cases.casesInactive()
 });
 
 const thead = [

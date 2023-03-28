@@ -50,7 +50,7 @@ const props = defineProps({
 .table {
   margin-top: 20px;
   width: 100%;
-  overflow-x: auto;
+  overflow: auto;
 }
 
 .table__content {

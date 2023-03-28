@@ -38,7 +38,6 @@ const authStore = useAuthStore()
 </script>
 
 <style>
-<<<<<<< HEAD
 .entryVerify {
     opacity: 0.9999999;
 }
@@ -165,7 +164,4 @@ const authStore = useAuthStore()
     }
 
 }
-=======
-    
->>>>>>> develop
 </style>

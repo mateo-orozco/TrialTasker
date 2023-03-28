@@ -8,6 +8,8 @@ import personRoutes from "./person";
 import caseRoutes from "./case";
 import typeStageRoutes from "./typeStage";
 import stageRoutes from "./stage";
+import fileRoutes from "./files";
+import personStageRoutes from "./personStage";
 
 import Cookies from "js-cookie";
 
@@ -83,9 +85,25 @@ const router = createRouter({
       },
     },
     {
-      path: "/seemore",
-      name: "SeeMore",
-      component: () => import("../views/SeeMore.vue"),
+      path: "/casosinactivos",
+      name: "CasosInactivos",
+      component: () => import("../views/CasosInactivos.vue"),
+      meta: {
+        title: "Casos Inactivos",
+      },
+    },
+    {
+      path: "/vermasactivos",
+      name: "SeeMoreActive",
+      component: () => import("../views/SeeMoreActive.vue"),
+      meta: {
+        title: "Detalles del caso",
+      },
+    },
+    {
+      path: "/vermasinactivos",
+      name: "SeeMoreInactive",
+      component: () => import("../views/SeeMoreInactive.vue"),
       meta: {
         title: "Detalles del caso",
       },
@@ -99,6 +117,8 @@ const router = createRouter({
         ...caseRoutes,
         ...typeStageRoutes,
         ...stageRoutes,
+        ...fileRoutes,
+        ...personStageRoutes,
       ],
     },
   ],

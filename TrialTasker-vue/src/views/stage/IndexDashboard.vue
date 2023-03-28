@@ -21,11 +21,14 @@ const thead = [
         },
         {
             name: 'Tipo de Etapa',
-            key: 'stage_type_stage_id',
+            key: 'stage_type_stage',
+            key_2: 'type_stage_name',
         },
         {
             name: 'Caso',
-            key: 'stage_case_id',
+            key: 'stage_case',
+            key_2: 'case_name',
+            
         }
     ]
 onMounted(() => {
