@@ -8,6 +8,7 @@ use App\Http\Controllers\StageController;
 use App\Http\Controllers\TypePersonController;
 use App\Http\Controllers\TypeStageController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
 use App\Models\PersonStage;
 use App\Models\Stage;
 use Illuminate\Http\Request;
@@ -27,9 +28,20 @@ use Illuminate\Support\Facades\Route;
 // ------------------------dashboard------------------------
 
 
-Route::middleware(['auth:sanctum', 'authCookie'])->get('/user', function (Request $request) {
+Route::middleware(['auth:sanctum', 'authCookie','logUserLogin'])->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// ------------------------dashboard----------------------------//
+Route::group([
+    'prefix' => 'dashboard',
+    'controller' => DashboardController::class,
+    'middleware' => ['auth:sanctum', 'authCookie']
+], function () {
+    Route::get('/users-week', 'getUsersForWeek');
+    Route::get('/sessions', 'getSessions');
+});
+
 
 //typePerson
 Route::group([
@@ -49,7 +61,6 @@ Route::group([
 route::group([
     'prefix'=> 'users',
     'controller'=> UserController::class,
-    'middleware' => ['auth:sanctum', 'verified', 'authCookie']
 ],function(){
     Route::get('/', 'index');
     Route::get('/all','all');
