@@ -154,5 +154,6 @@ route::group([
 // ------------------------user------------------------
 
 // casos del usuario
-Route::get('/userCases',[CasoController::class, 'userCases']);
+Route::get('/casesActive',[CasoController::class, 'casesActive']);
+Route::get('/casesInactive',[CasoController::class, 'casesInactive']);
 Route::get('/infoCase/{id}',[StageController::class, 'infoCase']);

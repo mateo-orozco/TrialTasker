@@ -84,34 +84,18 @@ export const useCaseStore = defineStore('cases', {
         },
 
         // view cases user
-        async casesUser(){
-            await axios.get('/api/userCases').then((response) => {
-                console.log('----------------caseUser----------------');
+        async casesActive(){
+            await axios.get('/api/casesActive').then((response) => {
+                console.log('----------------casesActive----------------');
                 console.log(response.data);
-
-                const inactivos=[]
-                const activos=[]
-
-                console.log('inactivos')
-                for(let i=0; i<response.data.length; i++){
-                    if(response.data[i].case_status==0){
-                        inactivos.push(response.data[i])
-                    }
-                };
-                console.log(inactivos);
-
-                console.log('activos')
-                for(let i=0; i<response.data.length; i++){
-                    if(response.data[i].case_status==1){
-                        activos.push(response.data[i])
-                    }
-                };
-                console.log(activos);
-
-                
-                
-                
-
+            }).catch(error => {
+                this.errorsStore = error.response.data.errors
+            });
+        },
+        async casesInactive(){
+            await axios.get('/api/casesInactive').then((response) => {
+                console.log('----------------casesInactive----------------');
+                console.log(response.data);
             }).catch(error => {
                 this.errorsStore = error.response.data.errors
             });

@@ -44,7 +44,8 @@ import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 const cases = useCaseStore(); 
 onMounted(() => {
-    cases.casesUser();
+    cases.casesActive();
+    cases.casesInactive();
     cases.infoCase(9);
 });
 
