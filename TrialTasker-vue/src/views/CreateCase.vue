@@ -88,7 +88,7 @@
 .title{
     display: flex;
     justify-content: space-between;
-    background-color: #664200;
+    background-color: var(--verde);
     color: white;
     border-radius: 8px;
     text-decoration: none;
@@ -140,7 +140,7 @@ select{
     border: none;
     border-radius: 5px;
     width: 50px;
-    background-color: #664200;
+    background-color: var(--verde);
     color: white; 
     cursor: pointer;
 }

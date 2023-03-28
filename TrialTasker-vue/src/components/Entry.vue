@@ -2,11 +2,13 @@
     <div class="entry">
         <div class="card__entry">
             <div class="entry__logo">
-                <Logo fill="--brown"/>
+                <Logo fill="--verde"/>
             </div>
             <slot></slot>
         </div>
+        
     </div>
+    
 </template>
 
 <script setup>
@@ -28,10 +30,11 @@ onMounted(() => {
   place-items: center;
   width: 100%;
   min-height: 100vh;
-  background-image: url("@/assets/img/bg-entry.svg");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
   padding: 40px;
 }
+
+
+
+
+
 </style>

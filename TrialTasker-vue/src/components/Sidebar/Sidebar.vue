@@ -1,4 +1,5 @@
 <template>
+
     <div class="logo">
         <Logo :fill="'--white'"/>
     </div>
@@ -16,12 +17,16 @@
         <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
 
     </div>
+    
+
+        
     <div class="user">
         <div class="user__name" v-if="auth.user">
             <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
         </div>
         <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
     </div>
+
 </template>
 
 <script setup>
@@ -40,6 +45,9 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+
+
 .logo {
     width: 100%;
     border-bottom: 2px solid var(--white);

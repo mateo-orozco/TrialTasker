@@ -24,4 +24,6 @@ const authStore = useAuthStore()
 
 </script>
 
-<style></style>
+<style>
+    
+</style>

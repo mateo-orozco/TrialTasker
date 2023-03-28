@@ -1,4 +1,4 @@
-.<template>
+<template>
     <HeaderTableVue title="Personas" to="PersonDashboardCreate"/>
     <TableDashboard :thead ="thead" :data="persons.persons.data" v-if="persons.persons.data" :delete="persons.deletePerson" edit="PersonDashboardUpdate"/>
     <Pagination :last_page="persons.persons.last_page" :current_page="persons.persons.current_page" :links="persons.persons.links" :funtion_page="persons.getPersonsPage" v-if="persons.persons.links"/>
