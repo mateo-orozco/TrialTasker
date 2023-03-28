@@ -38,28 +38,28 @@
         margin-top: 10px;
     }
     .page-link {
-        color: var(--brown);
+        color: var(--black);
         text-decoration: none;
         cursor: pointer;
         padding:  0.5rem 0.75rem;
-        border: 1px solid var(--brown);
+        border: 1px solid var(--my-hover-ligth);
         
     }
 
     .page-link:hover {
-        background-color: var(--brown);
+        background-color: #4f5d60;
         color: white;
     }
 
     .disabled {
         color: var(--brown);
         background-color: white;
-        border: 1px solid var(--brown);
+        border: 1px solid var(--my-hover-ligth);
         pointer-events: none;
     }
 
     .active {
-        background-color: var(--brown);
+        background-color: #4f5d60;
         color: white;
     }
 

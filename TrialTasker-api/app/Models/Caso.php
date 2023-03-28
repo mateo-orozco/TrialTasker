@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Caso extends Model
 {
@@ -30,12 +31,12 @@ class Caso extends Model
     }
 
 
-    public function users()
+    public function case_user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public  function persons()
+    public  function case_person()
     {
      return $this->belongsTo(Person::class);
     }

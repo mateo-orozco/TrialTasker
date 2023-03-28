@@ -26,7 +26,7 @@ defineProps({
     align-items: center;
     gap: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px solid var(--brown);
+    border-bottom: 2px solid var(--my-hover-ligth);
 }
 
 

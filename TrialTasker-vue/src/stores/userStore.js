@@ -4,25 +4,37 @@ import router from "../router";
 
 export const useUserStore = defineStore('users', {
     state: () => ({
+        usersStoreOnline: [],
+        usersStoreAll: [],
         usersStore: [],
         userStore: {},  
         errorsStore: [],
         messagesStore: [],
     }),
     getters: {
+        usersOnline: (state) => state.usersStoreOnline,
+        usersAll: (state) => state.usersStoreAll,
         users: (state) => state.usersStore,
         user: (state) => state.userStore,
         errors: (state) => state.errorsStore,
         messages: (state) => state.messagesStore,
     },
     actions: {
-        /* get all users */
+        /* get all users with paginate */
         async getUsers() {
             await axios.get('/api/users')
             .then(response => {
                 this.usersStore = response.data;
             });
         },
+        /* get all users */
+        async getUsersAll() {
+            await axios.get('/api/users/all')
+            .then(response => {
+                this.usersStoreAll = response.data;
+            });
+        },
+
         /* get users page */
         async getUsersPage(page) {
             await axios.get(page)

@@ -4,25 +4,35 @@ import router from "../router";
 
 export const usePersonStore = defineStore('persons', {
     state: () => ({
+        personsAllStore: [],
         personsStore: [],
         personStore: {},
         errorsStore: [],
         messagesStore: [],
     }),
     getters: {
+        personsAll: (state) => state.personsAllStore,
         persons: (state) => state.personsStore,
         person: (state) => state.personStore,
         errors: (state) => state.errorsStore,
         messages: (state) => state.messagesStore,
     },
     actions: {
-        /* get all persons */
+        /* get all persons with paginate */
         async getPersons() {
             await axios.get('/api/persons')
             .then(response => {
                 this.personsStore = response.data;
             });
         },
+        /* get all persons */
+        async getPersonsAll() {
+            await axios.get('/api/persons/all')
+            .then(response => {
+                this.personsAllStore = response.data;
+            });
+        },
+
         /* get persons page */
         async getPersonsPage(page) {
             await axios.get(page)

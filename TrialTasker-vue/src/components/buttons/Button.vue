@@ -28,7 +28,7 @@
     cursor: pointer;
     transition: all 0.3s ease;
     margin-bottom: 10px;
-    background-color: var(--brown);
+    background-color: #0600ff;
     color: var(--white);
 }
 </style>
