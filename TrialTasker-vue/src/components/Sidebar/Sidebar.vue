@@ -17,21 +17,10 @@
         <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
 
     </div>
-<<<<<<< HEAD
-    
-
-        
+   
     <div class="user">
         <div class="user__name" v-if="auth.user">
             <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
-=======
-   
-        <div class="user">
-            <div class="user__name" v-if="auth.user">
-                <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
-            </div>
-            <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
->>>>>>> develop
         </div>
         <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
     </div>
