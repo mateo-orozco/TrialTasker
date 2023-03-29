@@ -49,11 +49,11 @@ const props = defineProps({
 <style>
 .table {
   margin-top: 20px;
-  width: 100%;
-  overflow: auto;
 }
 
 .table__content {
+  display: block;
+  overflow-x: auto;
   width: 100%;
   border-collapse: collapse;
 }

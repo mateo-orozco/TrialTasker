@@ -14,8 +14,6 @@
                     <td>Nombre del Cliente</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
-                    <td>Nombre Persona Relacionada</td>
-                    <td>Apellido Persona Relacionada</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
@@ -24,8 +22,6 @@
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
                     <td>Activo</td>
-                    <td>{{ active["case_person"]["per_name"] }}</td>
-                    <td>{{ active["case_person"]["per_lastname"] }}</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
                             <div class="buttonSeeMore">Ver Mas</div>
@@ -134,7 +130,7 @@ thead {
 
 /* estilos del tbody */
 td {
-    width: 35vh;
+    width: 45vh;
     text-align: center;
     border-radius: 5px;
 }
