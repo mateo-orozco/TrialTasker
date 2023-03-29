@@ -36,8 +36,10 @@ main {
     width: 250px;
     height: 100%;
     position: fixed;
-    background: rgb(79,93,96);
-    background: linear-gradient(90deg, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 21%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%); 
+
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(224,175,105,1) 0%, rgba(204,47,69,1) 100%);
+
 
     color: var(--white);
     padding: 1.5rem 1.5rem 0 1.5rem;

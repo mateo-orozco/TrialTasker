@@ -12,12 +12,6 @@
         <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin">
             <IconUsers :size="20" stroke-width="2.2" />
         </ButtonLink>
-        <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin">
-            <IconUsers :size="20" stroke-width="2.2" />
-        </ButtonLink>
-        <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin">
-            <IconGavel :size="20" stroke-width="2.2" />
-        </ButtonLink>
         <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin">
             <IconClipboard :size="20" stroke-width="2.2" />
         </ButtonLink>
@@ -27,16 +21,14 @@
         <ButtonLink to="FileDashboard" text="Archivos" v-if="auth.user.is_admin">
             <IconFileText :size="20" stroke-width="2.2" />
         </ButtonLink>
-        <ButtonLink to="PersonStageDashboard" text="Personas en etapas" v-if="auth.user.is_admin">
-            <IconClipboard :size="20" stroke-width="2.2" />
-        </ButtonLink>
-        <ButtonLink to="Home" text="Inicio">
+        
+        <ButtonLink to="Home" text="Inicio" v-if="!auth.user.is_admin">
             <IconHome :size="20" stroke-width="2.2" />
         </ButtonLink>
-        <ButtonLink to="CasosActivos" text="Casos Activos">
+        <ButtonLink to="CasosActivos" text="Casos Activos" v-if="!auth.user.is_admin">
             <IconDashboard :size="20" stroke-width="2.2" />
         </ButtonLink>
-        <ButtonLink to="CasosInactivos" text="Casos Inactivos">
+        <ButtonLink to="CasosInactivos" text="Casos Inactivos" v-if="!auth.user.is_admin">
             <IconDashboard :size="20" stroke-width="2.2" />
         </ButtonLink>
     </div>
@@ -100,4 +92,5 @@ onMounted(() => {
 .user__name {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-}</style>
+}
+</style>

@@ -31,7 +31,8 @@ onMounted(() => {
 
 <style scoped>
 .main {
-  border: solid 1px;
+  box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.288);
+  border-radius: 12px;
   display: flex;
   justify-content: center;
   align-items: center;
