@@ -2,9 +2,6 @@
     <main>
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
-                <div class="createButton">Crear Caso</div>
-            </RouterLink>
         </div>
         <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
@@ -43,26 +40,6 @@ onMounted(() => {
     cases.casesInactive()
     
 });
-
-const thead = [
-    {
-        name: 'Nombre',
-        key: 'case_name',
-    },
-    {
-        name: 'Radicado',
-        key: 'case_radicate',
-    },
-    {
-        name: 'Cliente',
-        key: 'case_person_id',
-    },
-    {
-        name: 'Abogado',
-        key: 'case_user_id',
-    },
-]
-
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
@@ -153,7 +130,7 @@ thead {
 
 /* estilos del tbody */
 td {
-    width: 35vh;
+    width: 45vh;
     text-align: center;
     border-radius: 5px;
 }

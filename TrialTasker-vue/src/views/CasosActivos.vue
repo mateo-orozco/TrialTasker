@@ -164,7 +164,7 @@ thead {
 
 /* estilos del tbody */
 td {
-    width: 35vh;
+    width: 45vh;
     text-align: center;
     border-radius: 5px;
 }
