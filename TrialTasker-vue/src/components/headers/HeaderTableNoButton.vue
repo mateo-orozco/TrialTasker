@@ -1,7 +1,6 @@
 <template>
   <div class="header">
     <h2 class="header__title">{{ title }}</h2>
-    <ButtonPlus :to="to"/>
   </div>
 </template>
 
