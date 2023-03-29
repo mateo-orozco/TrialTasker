@@ -11,24 +11,20 @@
         <table>
             <thead>
                 <tr>
-                    <td>Nombre del Cliente</td>
+                    <td>Nombre del caso</td>
                     <td>Radicado</td>
-                    <td>ID</td>
-                    <td>Nombre Persona Relacionada</td>
-                    <td>Apellido Persona Relacionada</td>
+                    <td>Estatus</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.activeCases" class="caso" >
+                <tr v-for="active in cases.activeCases" class="caso">
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
-                    <td>{{active["id"]}}</td>
-                    <td>{{ active["case_person"]["per_name"] }}</td>
-                    <td>{{ active["case_person"]["per_lastname"] }}</td>
+                    <td>Activos</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
-                            <div class="buttonSeeMore">Ver Mas </div>
+                            <div class="buttonSeeMore">Ver Mas</div>
                         </RouterLink>
                     </td>
                 </tr>
@@ -46,7 +42,24 @@ onMounted(() => {
     cases.casesActive();
 });
 
-
+const thead = [
+    {
+        name: 'Nombre',
+        key: 'case_name',
+    },
+    {
+        name: 'Radicado',
+        key: 'case_radicate',
+    },
+    {
+        name: 'Cliente',
+        key: 'case_person_id',
+    },
+    {
+        name: 'Abogado',
+        key: 'case_user_id',
+    },
+]
 
 
 
