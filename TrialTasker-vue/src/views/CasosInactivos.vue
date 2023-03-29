@@ -2,28 +2,25 @@
     <main>
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
-                <div class="createButton">Crear Caso</div>
-            </RouterLink>
         </div>
         <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
         <table>
             <thead>
                 <tr>
-                    <td>Nombre del Cliente</td>
+                    <td>Nombre del caso</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.activeCases" class="caso">
+                <tr v-for="active in cases.inactiveCases">
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
-                    <td>Activo</td>
+                    <td>Inactivo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
+                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
                             <div class="buttonSeeMore">Ver Mas</div>
                         </RouterLink>
                     </td>
@@ -36,11 +33,13 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
+import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
-    cases.casesActive();
+    cases.casesInactive()
 });
+
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
         document.querySelectorAll(".caso").forEach(caso => {
