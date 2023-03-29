@@ -18,13 +18,13 @@
 
     </div>
    
-        <div class="user">
-            <div class="user__name" v-if="auth.user">
-                <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
-            </div>
-            <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
+    <div class="user">
+        <div class="user__name" v-if="auth.user">
+            <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
         </div>
-    
+        <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
+    </div>
+
 </template>
 
 <script setup>
