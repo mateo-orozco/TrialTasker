@@ -91,6 +91,7 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.activeCases = response.data;
           console.log(this.activeCases);
+
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;

@@ -13,22 +13,22 @@
                 <tr>
                     <td>Nombre del Cliente</td>
                     <td>Radicado</td>
-                    <td>Estatus</td>
+                    <td>ID</td>
                     <td>Nombre Persona Relacionada</td>
                     <td>Apellido Persona Relacionada</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.activeCases" class="caso">
+                <tr v-for="active in cases.activeCases" class="caso" >
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
-                    <td>Activo</td>
+                    <td>{{active["id"]}}</td>
                     <td>{{ active["case_person"]["per_name"] }}</td>
                     <td>{{ active["case_person"]["per_lastname"] }}</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
-                            <div class="buttonSeeMore">Ver Mas</div>
+                            <div class="buttonSeeMore">Ver Mas </div>
                         </RouterLink>
                     </td>
                 </tr>
@@ -45,6 +45,17 @@ const cases = useCaseStore();
 onMounted(() => {
     cases.casesActive();
 });
+
+
+
+
+
+
+
+
+
+
+
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
         document.querySelectorAll(".caso").forEach(caso => {
@@ -54,6 +65,7 @@ document.addEventListener("keyup", e => {
         })
     }
 })
+
 
 
 

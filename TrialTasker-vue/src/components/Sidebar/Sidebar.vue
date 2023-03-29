@@ -1,5 +1,5 @@
 <template>
-    <div class="logo">
+        <div class="logo">
         <Logo :fill="'--white'" />
     </div>
     <div class="links" v-if="auth.user">
@@ -40,25 +40,14 @@
             <IconDashboard :size="20" stroke-width="2.2" />
         </ButtonLink>
     </div>
-<<<<<<< HEAD
-   
-=======
-
->>>>>>> JuanDiego
     <div class="user">
         <div class="user__name" v-if="auth.user">
             <span>{{ auth.user.name }} {{ auth.user.lastname }}</span>
         </div>
-<<<<<<< HEAD
-        <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()"> <IconLogout :size="20" stroke-width="2.2" /> </ButtonLink>
-    </div>
-
-=======
         <ButtonLink to="Login" text="Salir" @click="auth.handleLogout()">
             <IconLogout :size="20" stroke-width="2.2" />
         </ButtonLink>
     </div>
->>>>>>> JuanDiego
 </template>
 
 <script setup>
