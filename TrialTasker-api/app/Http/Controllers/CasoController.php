@@ -137,5 +137,6 @@ class CasoController extends Controller
         $cases->load('case_user','case_person');
         return response()->json($cases, 200);
     }
+    
 
 }

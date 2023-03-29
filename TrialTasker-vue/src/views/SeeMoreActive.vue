@@ -5,41 +5,41 @@
             <button class='atras'>Atras</button>
         </RouterLink>
         <div class="contenido">
-            <div class="cliente" v-for="active in cases.activeCases">
+            <div class="cliente" >
                 <h2 class="seccion">CLIENTE:</h2>
                 <h2 class="titulos">Name:</h2>
-                <p class="informacion">{{ active["case_name"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_name }}</p>
                 <h2 class="titulos">Radicado:</h2>
-                <p class="informacion">{{ active["case_radicate"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_radicate }}</p>
             </div>
             <div class="personas" v-for="active in cases.activeCases">
                 <h2 class="seccion">PERSONA RELACIONADA:</h2>
                 <h2 class="titulos">Name:</h2>
-                <p class="informacion">{{ active["case_person"]["per_name"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_name }}</p>
                 <h2 class="titulos">Last Name:</h2>
-                <p class="informacion">{{ active["case_person"]["per_lastname"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_lastname }}</p>
                 <h2 class="titulos">Phone:</h2>
-                <p class="informacion">{{ active["case_person"]["per_phone"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_phone }}</p>
                 <h2 class="titulos">Address:</h2>
-                <p class="informacion">{{ active["case_person"]["per_address"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_address }}</p>
                 <h2 class="titulos">Email:</h2>
-                <p class="informacion">{{ active["case_person"]["per_email"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_email }}</p>
                 <h2 class="titulos">CC:</h2>
-                <p class="informacion">{{ active["case_person"]["per_nit"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_nit }}</p>
                 <h2 class="titulos">Issue:</h2>
-                <p class="informacion">{{ active["case_person"]["per_issue_nit"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_issue_nit }}</p>
                 <h2 class="titulos">Number Ministry:</h2>
-                <p class="informacion">{{ active["case_person"]["per_num_ministry"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_num_ministry }}</p>
                 <h2 class="titulos">Number Dispaych:</h2>
-                <p class="informacion">{{ active["case_person"]["per_num_dispaych"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_num_dispaych }}</p>
                 <h2 class="titulos">Radicate:</h2>
-                <p class="informacion">{{ active["case_person"]["per_radicated"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_radicated }}</p>
                 <h2 class="titulos">Authority:</h2>
-                <p class="informacion">{{ active["case_person"]["per_authority"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_authority }}</p>
                 <h2 class="titulos">Number:</h2>
-                <p class="informacion">{{ active["case_person"]["per_number"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_number }}</p>
                 <h2 class="titulos">Type Person:</h2>
-                <p class="informacion">{{ active["case_person"]["per_type_person_id"] }}</p>
+                <p class="informacion">{{ cases.caseStore.case_person.per_authority }}</p>
             </div>
         </div>
     </div>
@@ -50,9 +50,7 @@ import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 
 const cases = useCaseStore();
-onMounted(() => {
-    cases.casesActive();
-});
+
 </script>
 
 <style scoped>

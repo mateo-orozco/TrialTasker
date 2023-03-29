@@ -15,7 +15,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.inactiveCases">
+                <tr v-for="active in cases.inactiveCases" class="caso">
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
@@ -38,6 +38,7 @@ import TableUser from '@/components/Tables/TableUsers.vue';
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
+    
 });
 
 document.addEventListener("keyup", e => {

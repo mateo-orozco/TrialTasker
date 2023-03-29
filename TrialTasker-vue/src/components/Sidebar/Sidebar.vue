@@ -1,5 +1,5 @@
 <template>
-    <div class="logo">
+        <div class="logo">
         <Logo :fill="'--white'" />
     </div>
     <div class="links" v-if="auth.user">
