@@ -1,14 +1,14 @@
 <template>
     <main>
+        <!-- <HeaderTableVue title="Casos Activos" to="CaseDashboardCreate" /> -->
+
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
+            <!-- <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
-            </RouterLink>
+            </RouterLink> -->
         </div>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate"/>
-    
-        <table>
+        <!-- <table>
             <thead>
                 <td>Nombre del caso</td>
                 <td>Radicado del caso</td>
@@ -35,19 +35,47 @@
                     <td>Ver mas</td>
                 </tr>
             </tbody>
-        </table>
+        </table> -->
+       
+        <!-- <TableDashboard :thead ="thead" :data="cases.casesActive" v-if="cases.casesActive" :delete="cases.deleteCase" edit="CaseDashboardUpdate"/> -->
+        
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-const cases = useCaseStore(); 
+// import HeaderTableVue from '@/components/headers/HeaderTable.vue';
+// import TableDashboard from '@/components/Tables/TableDashboard.vue';
+
+const cases = useCaseStore();
+
 onMounted(() => {
-    cases.casesActive();
-    cases.casesInactive();
-    cases.infoCase(9);
+    // cases.getCases();
+
+    // cases.casesActive();
+    // cases.casesInactive();
+    // cases.infoCase(9);
 });
+
+const thead = [
+    {
+        name: 'Nombre del caso',
+        key: 'case_name',
+    },
+    {
+        name: 'Radicado',
+        key: 'case_radicate',
+    },
+    {
+        name: 'Cliente',
+        key: 'case_person_id',
+    },
+    {
+        name: 'Abogado',
+        key: 'case_user_id',
+    },
+]
 
 
 
