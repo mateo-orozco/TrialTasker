@@ -41,6 +41,7 @@ import TableUser from '@/components/Tables/TableUsers.vue';
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
+    
 });
 
 const thead = [

@@ -36,7 +36,12 @@ export const useCaseStore = defineStore("cases", {
     /* get case */
     async getCase(id) {
       await axios.get("/api/cases/" + id).then((response) => {
+        // console.log(response.data.id);
         this.caseStore = response.data;
+
+        
+        console.log(response.data);
+
       });
     },
     /* get cases page */

@@ -1,16 +1,18 @@
 <template>
     <main>
+        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
+
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
         </div>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
         <table>
             <thead>
                 <tr>
+                    <td>#</td>
                     <td>Nombre del caso</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
@@ -18,12 +20,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.activeCases" class="caso">
-                    <td>{{ active["case_name"] }}</td>
-                    <td>{{ active["case_radicate"] }}</td>
-                    <td>Activos</td>
+                <tr v-for="active,index in cases.activeCases" class="caso" >
+                    <td>{{ index }}</td>
+                    <td>{{ active.case_name }}</td>
+                    <td>{{ active.case_radicate }}</td>
+                    <td>{{active.id}}</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton">
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Ver Mas</div>
                         </RouterLink>
                     </td>
@@ -36,6 +39,8 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
+import HeaderTableVue from '@/components/headers/HeaderTable.vue';
+
 
 const cases = useCaseStore();
 onMounted(() => {
