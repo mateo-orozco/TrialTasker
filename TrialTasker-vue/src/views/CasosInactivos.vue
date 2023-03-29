@@ -1,66 +1,51 @@
 <template>
     <main>
-        <HeaderTableVue title="Casos Activos" to="CaseDashboardCreate" />
-
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <!-- <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
+            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
-            </RouterLink> -->
+            </RouterLink>
         </div>
-        <!-- <table>
+        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
+
+        <table>
             <thead>
-                <td>Nombre del caso</td>
-                <td>Radicado del caso</td>
-                <td>Estatus</td>
-                <td>Personas relacionadas</td>
-                <td>Usuarios relacionados</td>
-                <td>Acciones</td>
-            </thead>
-            <tbody class="listacasos">
-                <tr class="caso">
-                    <td>mmmmm aaa</td>
-                    <td>dfgds</td>
-                    <td>Activo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+                <tr>
+                    <td>Nombre del caso</td>
+                    <td>Radicado</td>
+                    <td>Estatus</td>
+                    <td>Acciones</td>
                 </tr>
-                <tr class="caso">
-                    <td>Wilton Kilback</td>
-                    <td>1111</td>
+            </thead>
+            <tbody>
+                <tr v-for="active in cases.inactiveCases">
+                    <td>{{ active["case_name"] }}</td>
+                    <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
-                    <td>Prof. Jedediah Bode I</td>
-                    <td>Austin</td>
-                    <td>Ver mas</td>
+                    <td>
+                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
+                            <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                    </td>
                 </tr>
             </tbody>
-        </table> -->
-       
-        <TableDashboard :thead ="thead" :data="cases.casesActive" v-if="cases.casesActive" :delete="cases.deleteCase" edit="CaseDashboardUpdate"/>
-        
+        </table>
     </main>
 </template>
 
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import HeaderTableVue from '@/components/headers/HeaderTable.vue';
-import TableDashboard from '@/components/Tables/TableDashboard.vue';
+import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
-
 onMounted(() => {
-    // cases.getCases();
-
-    cases.casesActive();
-    // cases.casesInactive();
-    // cases.infoCase(9);
+    cases.casesInactive()
 });
 
 const thead = [
     {
-        name: 'Nombre del caso',
+        name: 'Nombre',
         key: 'case_name',
     },
     {
@@ -76,7 +61,6 @@ const thead = [
         key: 'case_user_id',
     },
 ]
-
 
 
 document.addEventListener("keyup", e => {
@@ -105,9 +89,11 @@ document.addEventListener("keyup", e => {
     --black: #000;
 
 }
+
 .filtro {
     display: none;
 }
+
 .navbar {
     width: 100%;
     height: 50px;
@@ -115,6 +101,7 @@ document.addEventListener("keyup", e => {
     justify-content: space-around;
     align-items: center;
 }
+
 .search {
     width: 50vw;
     height: 30px;
@@ -131,6 +118,7 @@ main {
     border-radius: 12px;
     padding: 10px;
 }
+
 /* estilos boton de crear caso */
 .createButton {
     border: solid 1px;
@@ -143,14 +131,17 @@ main {
     color: var(--white);
 
 }
-.buttonCreateCase{
+
+.buttonCreateCase {
     text-decoration: none;
 
 }
+
 /* estilos de la tabla */
 table {
     margin-top: 30px;
 }
+
 /* estilos del thead */
 thead {
     width: 100%;
@@ -158,12 +149,14 @@ thead {
     background-color: var(--verde);
     color: var(--white);
 }
+
 /* estilos del tbody */
 td {
     width: 35vh;
     text-align: center;
     border-radius: 5px;
 }
+
 tr {
     margin-top: 5vh;
 }
