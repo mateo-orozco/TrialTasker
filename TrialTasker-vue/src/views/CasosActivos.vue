@@ -4,7 +4,7 @@
 
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
+            <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
         </div>

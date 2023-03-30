@@ -39,9 +39,7 @@ export const useCaseStore = defineStore("cases", {
         // console.log(response.data.id);
         this.caseStore = response.data;
 
-        
         console.log(response.data);
-
       });
     },
     /* get cases page */
@@ -57,7 +55,8 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.messagesStore = response.data;
           this.getCases();
-          router.push({ name: "CasesDashboard" });
+          console.log("caso creado con exito");
+          router.push({ name: "CasosActivos" });
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;
@@ -96,7 +95,6 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.activeCases = response.data;
           console.log(this.activeCases);
-
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;

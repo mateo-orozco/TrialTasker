@@ -69,6 +69,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/createcasePRUEBA",
+      name: "CreateCasePRUEBAS",
+      component: () => import("../views/CreateCasePRUEBAS.vue"),
+      meta: {
+        title: "Crear Caso 2",
+      },
+    },
+    {
       path: "/casosactivos",
       name: "CasosActivos",
       component: () => import("../views/CasosActivos.vue"),

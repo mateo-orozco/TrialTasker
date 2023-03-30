@@ -17,11 +17,8 @@
 </template>
 <script setup>
 import { useAuthStore } from "@/stores/authStore";
-import LOGO from "@/components/logo/Logo.vue";
-import Button from "../components/buttons/Button.vue";
 import { onMounted } from 'vue';
 
-const authStore = useAuthStore();
 const auth = useAuthStore();
 
 onMounted(() => {
