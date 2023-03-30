@@ -1,18 +1,13 @@
 <template>
     <main>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
-
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
-                <div class="createButton">Crear Caso</div>
-            </RouterLink>
         </div>
+        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
         <table>
             <thead>
                 <tr>
-                    <td>#</td>
                     <td>Nombre del caso</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
@@ -20,13 +15,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.activeCases" class="caso" >
-                    <td>{{ index }}</td>
-                    <td>{{ active.case_name }}</td>
-                    <td>{{ active.case_radicate }}</td>
-                    <td>{{active.id}}</td>
+                <tr v-for="active in cases.inactiveCases" class="caso">
+                    <td>{{ active["case_name"] }}</td>
+                    <td>{{ active["case_radicate"] }}</td>
+                    <td>Inactivo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
+                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
                             <div class="buttonSeeMore">Ver Mas</div>
                         </RouterLink>
                     </td>
@@ -39,40 +33,13 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import HeaderTableVue from '@/components/headers/HeaderTable.vue';
-
+import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
-    cases.casesActive();
+    cases.casesInactive()
+    
 });
-
-const thead = [
-    {
-        name: 'Nombre',
-        key: 'case_name',
-    },
-    {
-        name: 'Radicado',
-        key: 'case_radicate',
-    },
-    {
-        name: 'Cliente',
-        key: 'case_person_id',
-    },
-    {
-        name: 'Abogado',
-        key: 'case_user_id',
-    },
-]
-
-
-
-
-
-
-
-
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
@@ -83,7 +50,6 @@ document.addEventListener("keyup", e => {
         })
     }
 })
-
 
 
 

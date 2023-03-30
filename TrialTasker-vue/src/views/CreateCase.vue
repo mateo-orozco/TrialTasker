@@ -10,15 +10,8 @@
         </div>
         <section>
             <div class="izquierda">
-                <div>
-                    <label for="">Tipo de caso:</label>
-                    <select name="" id="">
-                        <option value="1" disable>seleccione el tipo de caso</option>
-                        <option value="2">Penal</option>
-                        <option value="2">Civil</option>
-                    </select>
-                </div>
-                <div>
+                <div class="selects">
+                    
                     <label for="">Etapa actual:</label>
                     <select name="" id="">
                         <option value="">seleccione la etapa actual</option>
@@ -30,6 +23,9 @@
                         <option value="">Apelaciones</option>
                         <option value="">Condena</option>
                     </select>
+                </div>
+                <div class="selects">
+                    
                 </div>
     
                 <h2>Datos del cliente</h2>
@@ -45,13 +41,32 @@
                 <input type="text" placeholder="Telefono">
                 <input type="text" placeholder="Direccion">
 
-                <div>
+                <div class="selects">
                     <h2>Accion</h2>
-                    <select name="" id="">
-                        <option value="">Seleccione la accion</option>
-                        <option value="">Defensor</option>
-                        <option value="">Representante de victima</option>
-                    </select>
+                    <div class="btnaccion">
+                        <button  class="defensor btna">Defensor</button>
+                        <button  class="representante btna">Representante</button>
+                    </div>
+                    
+                    <div class="infodefensor">
+                        <div class="info">
+                            <h2>Victimas</h2>
+                            <input type="text" placeholder="Nombre">
+                            <input type="number" placeholder="Cedula">
+                            <input type="email" placeholder="Correo">
+                            <input type="text" placeholder="Direccion">
+                            <input type="number" placeholder="Edad">
+                            <input type="text" placeholder="Notas">
+                        </div>
+                        <div class="info">
+                            <h2>Representante</h2>
+                            <input type="text" placeholder="Nombre">
+                            <input type="number" placeholder="Telefono">
+                            <input type="email" placeholder="Correo">
+                            <input type="text" placeholder="Direccion">
+                    </div>
+                    </div>
+                    
                 </div>
             </div>
             <div class="derecha">
@@ -73,13 +88,25 @@
                 <input type="date" placeholder="fecha" class="fecha">
             </div>
         </section>
+        <button class="enviar">
+            <RouterLink :to="{ name: 'CasosActivos' }" class="btnenviar">
+                Enviar
+            </RouterLink> 
+
+        </button>
+        
     </main>
+    
 </template>
 
 <script setup>
 
+    
+
 
 </script>
+
+
 
 <style scoped>
 
@@ -92,45 +119,63 @@
     color: white;
     border-radius: 8px;
     text-decoration: none;
+    padding: 10px;
 }
 main{
     color: #473800;
-    background-image: url(https://img.freepik.com/vector-premium/conecta-lineas-puntos-conexion-internet-sentido-abstracto-ciencia_41981-1596.jpg);
-    background-size: cover;
+    background-color: var(--my-hover-ligth);
+    height: auto;
     border-radius: 15px;
     padding: 10px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
+
+button{
+    font-size: 20px;
+}
+
 section{
     display: flex;
+    justify-content: center;
+    gap: 5%;
 }
 
 .izquierda{
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
-    width: 50%;
+    width: 45%;
 }
 .derecha{
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
 
 }
 input{
     height: 30px;
-    width: 80%;
+    width: 100%;
     border-radius: 7px;
-    border: none;
+    border: 1px var(--verde) solid;
     cursor: pointer;
     padding-left: 10px;
     
     
 }
-
+.selects{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
 select{
     border-radius: 5px;
     border: none;
@@ -144,5 +189,51 @@ select{
     color: white; 
     cursor: pointer;
 }
+.enviar{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    border: none;
+    background-color: var(--my-hover-ligth);
 
+}
+.btnenviar{
+    background-color: var(--verde);
+    border-radius: 7px;
+    height: 30px;
+    width: 200px;
+    cursor: pointer;    
+    color: white;
+    text-decoration: none;
+    padding: 5px;
+}
+.btnaccion{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+.infodefensor{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5%;
+}
+.info{
+    width: 45%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+
+}
+.btna{
+    background-color: var(--verde);
+    border: none;
+    border-radius: 7px;
+    height: 30px;
+    width: 45%;
+    cursor: pointer;
+    color: white;
+}
 </style>

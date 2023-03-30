@@ -1,21 +1,44 @@
 <template>
-
-    <div class="logo">
-        <Logo :fill="'--white'"/>
+        <div class="logo">
+        <Logo :fill="'--white'" />
     </div>
     <div class="links" v-if="auth.user">
-        <ButtonLink to="Dashboard" text="Dashboard" v-if="auth.user.is_admin"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="TypePersonDashboard" text="Tipo de personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin"> <IconUsers :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin"> <IconGavel :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="FileDashboard" text="Archivos" v-if="auth.user.is_admin"> <IconFileText :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="PersonStageDashboard" text="Personas en etapas" v-if="auth.user.is_admin"> <IconClipboard :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="Home" text="Inicio"> <IconHome :size="20" stroke-width="2.2" /> </ButtonLink>
-        <ButtonLink to="CasosActivos" text="Casos Activos"> <IconDashboard :size="20" stroke-width="2.2" /> </ButtonLink>
-
+        <ButtonLink to="Dashboard" text="Dashboard" v-if="auth.user.is_admin">
+            <IconDashboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="TypePersonDashboard" text="Tipo de personas" v-if="auth.user.is_admin">
+            <IconUsers :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="UserDashboard" text="Usuarios" v-if="auth.user.is_admin">
+            <IconUsers :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="PersonDashboard" text="Personas" v-if="auth.user.is_admin">
+            <IconUsers :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="CasesDashboard" text="Casos" v-if="auth.user.is_admin">
+            <IconGavel :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="TypeStageDashboard" text="Tipo de etapas" v-if="auth.user.is_admin">
+            <IconClipboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="StageDashboard" text="Etapas" v-if="auth.user.is_admin">
+            <IconClipboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="FileDashboard" text="Archivos" v-if="auth.user.is_admin">
+            <IconFileText :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="PersonStageDashboard" text="Personas en etapas" v-if="auth.user.is_admin">
+            <IconClipboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="Home" text="Inicio">
+            <IconHome :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="CasosActivos" text="Casos Activos">
+            <IconDashboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
+        <ButtonLink to="CasosInactivos" text="Casos Inactivos">
+            <IconDashboard :size="20" stroke-width="2.2" />
+        </ButtonLink>
     </div>
    
     <div class="user">
@@ -30,9 +53,9 @@
 <script setup>
 import Logo from '@/components/logo/Logo.vue';
 import { onMounted } from 'vue';
-import { useAuthStore} from '@/stores/authStore';
+import { useAuthStore } from '@/stores/authStore';
 import ButtonLink from '../buttons/ButtonLink.vue';
-import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard, IconGavel, IconFileText} from '@tabler/icons-vue';
+import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard, IconGavel, IconFileText } from '@tabler/icons-vue';
 
 const auth = useAuthStore();
 
@@ -43,15 +66,13 @@ onMounted(() => {
 </script>
 
 <style scoped>
-
-
-
 .logo {
     width: 100%;
     border-bottom: 2px solid var(--white);
 
 
 }
+
 .links {
     width: 100%;
     padding: 1rem 0;
@@ -62,6 +83,7 @@ onMounted(() => {
     height: 100%;
 
 }
+
 .links::-webkit-scrollbar {
     width: 0;
 }
@@ -74,13 +96,8 @@ onMounted(() => {
     padding: 1rem 0;
 
 }
+
 .user__name {
     font-size: 1rem;
     padding: 0.5rem 1rem;
-}
-
-
-
-
-
-</style>
+}</style>
