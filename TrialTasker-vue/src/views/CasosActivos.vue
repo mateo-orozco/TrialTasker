@@ -4,6 +4,9 @@
 
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
+            <RouterLink :to="{ name: 'CreatePerson' }" class="buttonCreateCase">
+                <div class="createButton">Crear Juez</div>
+            </RouterLink>
             <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="buttonCreateCase">
                 <div class="createButton">Crear Caso</div>
             </RouterLink>
@@ -28,6 +31,9 @@
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                        <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore">Actualizar</div>
                         </RouterLink>
                     </td>
                 </tr>

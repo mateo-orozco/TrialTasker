@@ -7,9 +7,9 @@
         <FormGroup label="Radicado" :error="cases.errors ? cases.errors.case_radicate : []">
             <input type="text" id="case_radicate" v-model="form.case_radicate">
         </FormGroup>
-        <FormGroup label="Cliente" :error="cases.errors ? cases.errors.case_person_id : []">
+        <FormGroup label="Persona" :error="cases.errors ? cases.errors.case_person_id : []">
             <select id="case_person_id" v-model="form.case_person_id">
-                <option value="">Seleccione un cliente</option>
+                <option value="">Juez</option>
                 <option v-for="person in persons.personsAll" :value="person.id">{{ person.per_name }} {{ person.per_lastname
                 }}</option>
             </select>

@@ -61,11 +61,11 @@ const router = createRouter({
       },
     },
     {
-      path: "/createcase",
-      name: "CreateCase",
-      component: () => import("../views/CreateCase.vue"),
+      path: "/createperson",
+      name: "CreatePerson",
+      component: () => import("../views/CreatePerson.vue"),
       meta: {
-        title: "Crear Caso",
+        title: "Crear Persona",
       },
     },
     {
