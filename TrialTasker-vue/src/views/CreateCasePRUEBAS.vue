@@ -9,16 +9,15 @@
         </FormGroup>
         <FormGroup label="Persona" :error="cases.errors ? cases.errors.case_person_id : []">
             <select id="case_person_id" v-model="form.case_person_id">
-                <option value="">Juez</option>
-                <option v-for="person in persons.personsAll" :value="person.id">{{ person.per_name }} {{ person.per_lastname
-                }}</option>
+                <option value="">Juez...</option>
+                <option v-for="person in persons.personsAll" :value="person.id">{{ person.per_name }} {{
+                    person.per_lastname }}</option>
             </select>
         </FormGroup>
         <FormGroup label="Abogado" :error="cases.errors ? cases.errors.case_user_id : []">
             <select id="case_user_id" v-model="form.case_user_id">
                 <option value="">Seleccione un abogado</option>
-                <option :value="auth.user.id">{{ auth.user.name }} {{ auth.user.lastname }} {{
-                    auth.user.id }}</option>
+                <option :value="auth.user.id">{{ auth.user.name }} {{ auth.user.lastname }}</option>
             </select>
         </FormGroup>
     </Form>
@@ -41,7 +40,7 @@ const form = ref({
     case_name: '',
     case_radicate: '',
     case_person_id: '',
-    case_user_id: '',
+    case_user_id: auth.user.id,
     case_status: true,
 });
 

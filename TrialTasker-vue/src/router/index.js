@@ -101,6 +101,14 @@ const router = createRouter({
       },
     },
     {
+      path: "/cambiarestatus",
+      name: "CambiarEstatus",
+      component: () => import("../views/CambiarEstatus.vue"),
+      meta: {
+        title: "Cambiar Estatus del Caso",
+      },
+    },
+    {
       path: "/vermasactivos",
       name: "SeeMoreActive",
       component: () => import("../views/SeeMoreActive.vue"),
