@@ -156,6 +156,7 @@ onMounted(() => {
     gap: 20px;
 }
 .info{
+    height: 50px;
     display: flex;
     align-items: center;
     gap: 10px;
@@ -181,6 +182,6 @@ onMounted(() => {
 }
 
 p{
-    color: var(--azulito);
+    color: rgba(0, 0, 0, 0.507);
 }
 </style>

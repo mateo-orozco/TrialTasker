@@ -136,25 +136,31 @@ thead {
 }
 
 /* estilos del tbody */
-td {
+
+
+td{
     text-align: center;
 }
 
 .tds {
-    width: 45vh;
+    width: 25vh;
     text-align: center;
     border-radius: 5px;
+
+}
+.tdEstatus {
+    width: 10vh;
+    border-radius: 5px;
+    text-align: center;
 }
 
 tr {
     margin-top: 5vh;
+    height: 50px;
+
 }
 
-.tdEstatus {
-    width: 15vh;
-    border-radius: 5px;
-    text-align: center;
-}
+
 a{
     text-decoration: none;
     color: #000;
