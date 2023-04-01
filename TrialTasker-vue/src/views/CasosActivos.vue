@@ -3,10 +3,7 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-<<<<<<< HEAD
             <input class="search" type="search" placeholder="Buscar por Nombre o Radicado">
-=======
-            <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
                 <div class="Button">Cambiar Estatus</div>
             </RouterLink>
@@ -16,7 +13,6 @@
             <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
                 <div class="Button">Crear Caso</div>
             </RouterLink>
->>>>>>> develop
         </div>
 
         <table>
@@ -31,14 +27,8 @@
                 </tr>
             </thead>
             <tbody>
-<<<<<<< HEAD
                 <tr v-for="active,index in cases.activeCases" class="caso" >
                     <td>{{ cases.numactivos[index] }}</td>
-=======
-                <tr v-for="active in cases.activeCases" class="caso">
-                    <td><input type="checkbox"></td>
-                    <td>{{ active.id }}</td>
->>>>>>> develop
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
                     <td>Activo</td>
@@ -167,11 +157,10 @@ tr {
     margin-top: 5vh;
 }
 
-<<<<<<< HEAD
 a{
     text-decoration: none;
     color: black;
-=======
+}
 .tdEstatus {
     width: 15vh;
     border-radius: 5px;
@@ -180,6 +169,5 @@ a{
 
 input {
     height: 15px;
->>>>>>> develop
 }
 </style>
