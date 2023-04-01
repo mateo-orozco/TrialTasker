@@ -1,7 +1,11 @@
 <template>
     <main>
+<<<<<<< HEAD
         <HeaderTableVue title="Casos Inactivos" to="CreateCase" />
 
+=======
+        <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
+>>>>>>> develop
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar por Nombre o Radicado">
         </div>
@@ -9,18 +13,30 @@
         <table>
             <thead>
                 <tr>
+<<<<<<< HEAD
                     <td>#</td>
                     <td>Nombre del caso</td>
+=======
+                    <td>Numero de caso</td>
+                    <td>Nombre del Cliente</td>
+>>>>>>> develop
                     <td>Radicado</td>
                     <td>Estatus</td>
                     <td>Acciones</td>
                 </tr>
             </thead>
             <tbody>
+<<<<<<< HEAD
                 <tr v-for="active,index in cases.inactiveCases" class="caso" >
                     <td>{{ cases.numinactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
+=======
+                <tr v-for="active in cases.inactiveCases" class="caso">
+                    <td>{{ active.id }}</td>
+                    <td>{{ active["case_name"] }}</td>
+                    <td>{{ active["case_radicate"] }}</td>
+>>>>>>> develop
                     <td>Inactivo</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
@@ -36,12 +52,21 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
+<<<<<<< HEAD
 import HeaderTableVue from '@/components/headers/HeaderTable.vue';
 
+=======
+import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
+import TableUser from '@/components/Tables/TableUsers.vue';
+>>>>>>> develop
 
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
+<<<<<<< HEAD
+=======
+
+>>>>>>> develop
 });
 
 document.addEventListener("keyup", e => {

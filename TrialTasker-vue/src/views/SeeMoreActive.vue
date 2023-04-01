@@ -1,5 +1,6 @@
 <template>
     <div class="container">
+<<<<<<< HEAD
         <div class="title">
             <RouterLink :to="{ name: 'CasosActivos' }" class="title">
                 <button class='atras'>Atras</button>
@@ -21,6 +22,16 @@
                     <h2 class="titulos">Radicado:</h2>
                     <p class="informacion">{{ cases.caseStore.case_radicate }}</p>
                 </div>
+=======
+        <HeaderAccions to="CasosActivos" />
+        <div class="contenido">
+            <div class="cliente">
+                <h2 class="seccion">CLIENTE:</h2>
+                <h2 class="titulos">Name:</h2>
+                <p class="informacion">{{ cases.caseStore.case_name }}</p>
+                <h2 class="titulos">Radicado:</h2>
+                <p class="informacion">{{ cases.caseStore.case_radicate }}</p>
+>>>>>>> develop
             </div>
 
             <h2 class="seccion">PERSONA RELACIONADA</h2>
@@ -91,6 +102,7 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
+import HeaderAccions from '@/components/headers/HeaderAccions.vue';
 
 const cases = useCaseStore();
 
