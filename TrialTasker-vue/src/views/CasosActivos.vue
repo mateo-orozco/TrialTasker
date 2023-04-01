@@ -1,12 +1,9 @@
 <template>
     <main>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
+        <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
-                <div class="createButton">Crear Caso</div>
-            </RouterLink>
+            <input class="search" type="search" placeholder="Buscar por Nombre o Radicado">
         </div>
 
         <table>
@@ -21,13 +18,13 @@
             </thead>
             <tbody>
                 <tr v-for="active,index in cases.activeCases" class="caso" >
-                    <td>{{ index }}</td>
+                    <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
-                    <td>{{active.id}}</td>
+                    <td>Activo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
-                            <div class="buttonSeeMore">Ver Mas</div>
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
+                            <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                     </td>
                 </tr>
@@ -115,7 +112,7 @@ document.addEventListener("keyup", e => {
 }
 
 .search {
-    width: 50vw;
+    width: 100%;
     height: 30px;
     border: none;
     border-radius: 10px;
@@ -171,5 +168,10 @@ td {
 
 tr {
     margin-top: 5vh;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 </style>

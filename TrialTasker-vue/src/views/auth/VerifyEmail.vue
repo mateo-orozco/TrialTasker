@@ -55,9 +55,7 @@ const authStore = useAuthStore()
     height: 100vh;
     overflow: hidden;
     z-index: -1;
-    background: rgb(79, 93, 96);
-    background: linear-gradient(90deg, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 21%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
-
+    background-color: var(--brown);
 }
 
 .circles li {
@@ -66,7 +64,7 @@ const authStore = useAuthStore()
     list-style: none;
     width: 20px;
     height: 20px;
-    background-color: white;
+    background-color: var(--azulito);
     animation: animate 25s linear infinite;
     bottom: -150px;
 }

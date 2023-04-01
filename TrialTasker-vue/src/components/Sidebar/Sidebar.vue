@@ -60,7 +60,7 @@ onMounted(() => {
 <style scoped>
 .logo {
     width: 100%;
-    border-bottom: 2px solid var(--white);
+    border-bottom: 2px solid var(--my-hover-ligth);
 
 
 }
@@ -73,7 +73,6 @@ onMounted(() => {
     gap: 0.5rem;
     overflow: auto;
     height: 100%;
-
 }
 
 .links::-webkit-scrollbar {

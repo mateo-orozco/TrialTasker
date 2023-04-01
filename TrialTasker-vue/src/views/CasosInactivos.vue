@@ -1,13 +1,15 @@
 <template>
     <main>
+        <HeaderTableVue title="Casos Inactivos" to="CreateCase" />
+
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar">
+            <input class="search" type="search" placeholder="Buscar por Nombre o Radicado">
         </div>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
         <table>
             <thead>
                 <tr>
+                    <td>#</td>
                     <td>Nombre del caso</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
@@ -15,12 +17,13 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.inactiveCases" class="caso">
-                    <td>{{ active["case_name"] }}</td>
-                    <td>{{ active["case_radicate"] }}</td>
+                <tr v-for="active,index in cases.inactiveCases" class="caso" >
+                    <td>{{ cases.numinactivos[index] }}</td>
+                    <td>{{ active.case_name }}</td>
+                    <td>{{ active.case_radicate }}</td>
                     <td>Inactivo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Ver Mas</div>
                         </RouterLink>
                     </td>
@@ -33,12 +36,12 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import TableUser from '@/components/Tables/TableUsers.vue';
+import HeaderTableVue from '@/components/headers/HeaderTable.vue';
+
 
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
-    
 });
 
 document.addEventListener("keyup", e => {
@@ -57,16 +60,7 @@ document.addEventListener("keyup", e => {
 
 <style scoped>
 /* variables */
-:root {
-    --background: #edecec;
-    --brown: #664200;
-    --beige: #fff2bf;
-    --my-hover-dark: #473800;
-    --my-hover-ligth: #e8e8e8;
-    --white: #fff;
-    --black: #000;
 
-}
 
 .filtro {
     display: none;
@@ -81,7 +75,7 @@ document.addEventListener("keyup", e => {
 }
 
 .search {
-    width: 50vw;
+    width: 100%;
     height: 30px;
     border: none;
     border-radius: 10px;
@@ -137,5 +131,10 @@ td {
 
 tr {
     margin-top: 5vh;
+}
+
+a{
+    text-decoration: none;
+    color: black;
 }
 </style>

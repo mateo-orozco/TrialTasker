@@ -8,6 +8,10 @@ export const useCaseStore = defineStore("cases", {
     casesStore: [],
     activeCases: [],
     inactiveCases: [],
+    activos: [],
+    numactivos: [],
+    numinactivos: [],
+    inactivos: [],
     caseStore: {},
     errorsStore: [],
     messagesStore: [],
@@ -40,7 +44,7 @@ export const useCaseStore = defineStore("cases", {
         this.caseStore = response.data;
 
         
-        console.log(response.data);
+        console.log(this.caseStore);
 
       });
     },
@@ -96,6 +100,13 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.activeCases = response.data;
           console.log(this.activeCases);
+          var cont=0;
+          for (const i in this.activeCases) {
+            cont++
+            this.numactivos[i]=cont;
+
+          }
+          this.activos=cont;
 
         })
         .catch((error) => {
@@ -108,6 +119,14 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.inactiveCases = response.data;
           console.log(this.inactiveCases);
+
+          var cont=0;
+          for (const i in this.inactiveCases) {
+            cont++
+            this.numinactivos[i]=cont;
+          }
+          this.inactivos=cont;
+
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;
@@ -125,5 +144,6 @@ export const useCaseStore = defineStore("cases", {
           this.errorsStore = error.response.data.errors;
         });
     },
-  },
+
+  }
 });
