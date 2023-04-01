@@ -10,7 +10,6 @@
     </div>
   </div>
 </template>
-<<<<<<< HEAD
 
 <script setup>
 // import { useAuthStore } from "@/stores/authStore";
@@ -20,13 +19,6 @@ import { useCaseStore } from '@/stores/caseStore';
 // const authStore = useAuthStore();
 // const auth = useAuthStore();
 const cases = useCaseStore();
-=======
-<script setup>
-import { useAuthStore } from "@/stores/authStore";
-import { onMounted } from 'vue';
-
-const auth = useAuthStore();
->>>>>>> develop
 
 onMounted(() => {
   cases.casesActive();
