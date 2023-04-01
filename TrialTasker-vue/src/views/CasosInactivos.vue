@@ -1,14 +1,15 @@
 <template>
     <main>
+        <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
         </div>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
 
         <table>
             <thead>
                 <tr>
-                    <td>Nombre del caso</td>
+                    <td>Numero de caso</td>
+                    <td>Nombre del Cliente</td>
                     <td>Radicado</td>
                     <td>Estatus</td>
                     <td>Acciones</td>
@@ -16,6 +17,7 @@
             </thead>
             <tbody>
                 <tr v-for="active in cases.inactiveCases" class="caso">
+                    <td>{{ active.id }}</td>
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
@@ -33,12 +35,13 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
+import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
-    
+
 });
 
 document.addEventListener("keyup", e => {
