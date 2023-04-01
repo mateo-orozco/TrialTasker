@@ -17,7 +17,7 @@
             </thead>
             <tbody>
                 <tr v-for="active,index in cases.inactiveCases" class="caso">
-                    <td>{{ cases.numinactivos[index] }}</td>
+                    <td>{{ cases.numinactives[index] }}</td>
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
