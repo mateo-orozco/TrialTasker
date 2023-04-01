@@ -4,30 +4,41 @@
 
         <div class="navbar">
             <input class="search" type="search" placeholder="Buscar">
-            <RouterLink :to="{ name: 'CreateCase' }" class="buttonCreateCase">
-                <div class="createButton">Crear Caso</div>
+            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
+                <div class="Button">Cambiar Estatus</div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'CreatePerson' }" class="button">
+                <div class="Button">Crear Juez</div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
+                <div class="Button">Crear Caso</div>
             </RouterLink>
         </div>
 
         <table>
             <thead>
                 <tr>
-                    <td>#</td>
-                    <td>Nombre del caso</td>
-                    <td>Radicado</td>
-                    <td>Estatus</td>
-                    <td>Acciones</td>
+                    <td class="tdEstatus">Cambiar Estatus</td>
+                    <td class="tds">Numero de caso</td>
+                    <td class="tds">Nombre del Cliente</td>
+                    <td class="tds">Radicado</td>
+                    <td class="tds">Estatus</td>
+                    <td class="tds">Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.activeCases" class="caso" >
-                    <td>{{ index }}</td>
+                <tr v-for="active in cases.activeCases" class="caso">
+                    <td><input type="checkbox"></td>
+                    <td>{{ active.id }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
-                    <td>{{active.id}}</td>
+                    <td>Activo</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                        <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore">Actualizar</div>
                         </RouterLink>
                     </td>
                 </tr>
@@ -39,40 +50,13 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import HeaderTableVue from '@/components/headers/HeaderTable.vue';
+import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
 
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesActive();
 });
-
-const thead = [
-    {
-        name: 'Nombre',
-        key: 'case_name',
-    },
-    {
-        name: 'Radicado',
-        key: 'case_radicate',
-    },
-    {
-        name: 'Cliente',
-        key: 'case_person_id',
-    },
-    {
-        name: 'Abogado',
-        key: 'case_user_id',
-    },
-]
-
-
-
-
-
-
-
-
 
 document.addEventListener("keyup", e => {
     if (e.target.matches(".search")) {
@@ -83,9 +67,6 @@ document.addEventListener("keyup", e => {
         })
     }
 })
-
-
-
 
 </script>
 
@@ -132,7 +113,7 @@ main {
 }
 
 /* estilos boton de crear caso */
-.createButton {
+.Button {
     border: solid 1px;
     width: 20vh;
     padding: 5px;
@@ -144,7 +125,7 @@ main {
 
 }
 
-.buttonCreateCase {
+.button {
     text-decoration: none;
 
 }
@@ -164,6 +145,10 @@ thead {
 
 /* estilos del tbody */
 td {
+    text-align: center;
+}
+
+.tds {
     width: 45vh;
     text-align: center;
     border-radius: 5px;
@@ -171,5 +156,15 @@ td {
 
 tr {
     margin-top: 5vh;
+}
+
+.tdEstatus {
+    width: 15vh;
+    border-radius: 5px;
+    text-align: center;
+}
+
+input {
+    height: 15px;
 }
 </style>
