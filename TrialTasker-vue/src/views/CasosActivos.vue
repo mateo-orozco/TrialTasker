@@ -3,7 +3,7 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar por Nombre o Radicado">
+            <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
                 <div class="Button">Cambiar Estatus</div>
             </RouterLink>
@@ -27,7 +27,8 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.activeCases" class="caso" >
+                <tr v-for="active,index in cases.activeCases" class="caso">
+                    <td><input type="checkbox"></td>
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
@@ -71,16 +72,8 @@ document.addEventListener("keyup", e => {
 
 <style scoped>
 /* variables */
-:root {
-    --background: #edecec;
-    --brown: #664200;
-    --beige: #fff2bf;
-    --my-hover-dark: #473800;
-    --my-hover-ligth: #e8e8e8;
-    --white: #fff;
-    --black: #000;
 
-}
+
 
 .filtro {
     display: none;
@@ -157,16 +150,15 @@ tr {
     margin-top: 5vh;
 }
 
-a{
-    text-decoration: none;
-    color: black;
-}
 .tdEstatus {
     width: 15vh;
     border-radius: 5px;
     text-align: center;
 }
-
+a{
+    text-decoration: none;
+    color: #000;
+}
 input {
     height: 15px;
 }
