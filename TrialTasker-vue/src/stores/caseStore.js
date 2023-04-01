@@ -44,13 +44,9 @@ export const useCaseStore = defineStore("cases", {
         // console.log(response.data.id);
         this.caseStore = response.data;
 
-<<<<<<< HEAD
         
         console.log(this.caseStore);
 
-=======
-        console.log(response.data);
->>>>>>> develop
       });
     },
     /* get cases page */
@@ -106,7 +102,6 @@ export const useCaseStore = defineStore("cases", {
         .then((response) => {
           this.activeCases = response.data;
           console.log(this.activeCases);
-<<<<<<< HEAD
           var cont=0;
           for (const i in this.activeCases) {
             cont++
@@ -115,8 +110,6 @@ export const useCaseStore = defineStore("cases", {
           }
           this.activos=cont;
 
-=======
->>>>>>> develop
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;
