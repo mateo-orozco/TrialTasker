@@ -92,7 +92,7 @@ const form = ref({
 <style scoped>
 .entryregister {
     opacity: 0.9999999;
-    height: auto;
+    height: 100vh;
 }
 
 .botonAtras {

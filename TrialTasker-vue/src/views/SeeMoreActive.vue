@@ -96,7 +96,6 @@ import HeaderAccions from '@/components/headers/HeaderAccions.vue';
 const cases = useCaseStore();
 
 onMounted(() => {
-    cases.getCase(id);
 })
 
 </script>
@@ -107,6 +106,7 @@ onMounted(() => {
 
 
 .container{
+    width: 100%;
     border-radius: 12px;
     padding: 20px;
     box-shadow: 0px 0px 10px 0.1px rgba(0, 0, 0, 0.288);
@@ -118,6 +118,7 @@ onMounted(() => {
     gap: 10px;
 }
 .atras {
+    left: 29vw;
     border: none;
     border-radius: 5px;
     width: 50px;

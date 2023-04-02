@@ -3,17 +3,17 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
                 <div class="Button">Cambiar Estatus</div>
             </RouterLink>
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
-                <div class="Button">Crear Juez</div>
+                <div class="Button">Crear Persona</div>
             </RouterLink>
             <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
                 <div class="Button">Crear Caso</div>
             </RouterLink>
         </div>
+        <input class="search" type="search" placeholder="Buscar">
 
         <table>
             <thead>
@@ -107,7 +107,7 @@ main {
 /* estilos boton de crear caso */
 .Button {
     border: solid 1px;
-    width: 20vh;
+    width: 20vw;
     padding: 5px;
     height: 30px;
     text-align: center;
@@ -143,7 +143,7 @@ td{
 }
 
 .tds {
-    width: 25vh;
+    width: 20vw;
     text-align: center;
     border-radius: 5px;
 
@@ -152,6 +152,8 @@ td{
     width: 10vh;
     border-radius: 5px;
     text-align: center;
+    padding: 5px;
+
 }
 
 tr {
