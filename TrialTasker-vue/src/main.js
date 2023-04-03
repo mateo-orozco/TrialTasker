@@ -31,4 +31,4 @@ app.mount('#app')
     <title>Bienvenido</title>
     <script type="module" crossorigin="" src="/assets/index-00611a45.js"></script>
     <link rel="stylesheet" href="/assets/index-b9d134ab.css">
-  <link rel="modulepreload" as="script" crossorigin="" href="/assets/LandingPage-b197096f.js"><link rel="stylesheet" href="/assets/LandingPage-4185aefb.css"></head> */}
+  <link rel="modulepreload" as="script" crossorigin="" href="/assets/LandingPage-b197096f.js"><link rel="stylesheet" href="/assets/LandingPage-4185aefb.css"></head> */
