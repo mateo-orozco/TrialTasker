@@ -140,7 +140,7 @@ export const useAuthStore = defineStore("auth", {
     },
     /* Verify email */
     handleSendVerifyEmail() {
-      axios.post("/email/verification-notification").then((response) => {
+      axios.post("/api/email/verification-notification").then((response) => {
         this.message =
           "Se ha enviado un correo de verificación a su cuenta de correo.";
       });
