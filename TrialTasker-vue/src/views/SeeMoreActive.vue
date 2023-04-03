@@ -5,7 +5,6 @@
                 <button class='atras'>Atras</button>
             </RouterLink>
             <h1>Detalles del caso</h1>
-            <div></div>
         </div>
         
         
@@ -94,10 +93,6 @@ import { useCaseStore } from '@/stores/caseStore';
 import HeaderAccions from '@/components/headers/HeaderAccions.vue';
 
 const cases = useCaseStore();
-
-onMounted(() => {
-})
-
 </script>
 
 <style scoped>
