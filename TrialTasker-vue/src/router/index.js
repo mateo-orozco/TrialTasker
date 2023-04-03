@@ -61,11 +61,19 @@ const router = createRouter({
       },
     },
     {
-      path: "/createcase",
-      name: "CreateCase",
-      component: () => import("../views/CreateCase.vue"),
+      path: "/createperson",
+      name: "CreatePerson",
+      component: () => import("../views/CreatePerson.vue"),
       meta: {
-        title: "Crear Caso",
+        title: "Crear Persona",
+      },
+    },
+    {
+      path: "/createcasePRUEBA",
+      name: "CreateCasePRUEBAS",
+      component: () => import("../views/CreateCasePRUEBAS.vue"),
+      meta: {
+        title: "Crear Caso 2",
       },
     },
     {
@@ -90,6 +98,14 @@ const router = createRouter({
       component: () => import("../views/CasosInactivos.vue"),
       meta: {
         title: "Casos Inactivos",
+      },
+    },
+    {
+      path: "/cambiarestatus",
+      name: "CambiarEstatus",
+      component: () => import("../views/CambiarEstatus.vue"),
+      meta: {
+        title: "Cambiar Estatus del Caso",
       },
     },
     {

@@ -25,6 +25,7 @@ export const useUserStore = defineStore('users', {
             await axios.get('/api/users')
             .then(response => {
                 this.usersStore = response.data;
+                console.log(response.data)
             });
         },
         /* get all users */

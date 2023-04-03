@@ -47,7 +47,9 @@ const form = ref({
     opacity: 0.9999999;
 }
 
-
+#password {
+    margin-top: 10px;
+}
 
 
 
