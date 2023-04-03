@@ -34,7 +34,7 @@ export const useAuthStore = defineStore("auth", {
       this.authMessage = null;
       this.getToken();
       await axios
-        .post("/login", {
+        .post("/api/login", {
           email: credentials.email,
           password: credentials.password,
         })
@@ -61,7 +61,7 @@ export const useAuthStore = defineStore("auth", {
       this.authMessage = null;
 
       await axios
-        .post("/register", {
+        .post("/api/register", {
           name: credentials.name,
           email: credentials.email,
           password: credentials.password,
@@ -83,7 +83,7 @@ export const useAuthStore = defineStore("auth", {
     /* Logout */
     handleLogout() {
       axios
-        .post("/logout")
+        .post("/api/logout")
         .then((response) => {
           this.authUser = null;
           router.push({ name: "Login" });
@@ -97,7 +97,7 @@ export const useAuthStore = defineStore("auth", {
       this.authErrors = [];
       this.getToken();
       axios
-        .post("/forgot-password", {
+        .post("/api/forgot-password", {
           email: credentials.email,
         })
         .then((response) => {
@@ -119,7 +119,7 @@ export const useAuthStore = defineStore("auth", {
       this.authErrors = [];
       this.getToken();
       axios
-        .post("/reset-password", {
+        .post("/api/reset-password", {
           email: credentials.email,
           password: credentials.password,
           password_confirmation: credentials.password_confirmation,
