@@ -6,6 +6,7 @@ export const useCaseStore = defineStore("cases", {
   state: () => ({
     casesAllStore: [],
     casesStore: [],
+    caso: [],
     activeCases: [],
     inactiveCases: [],
     activos: [],
@@ -43,12 +44,28 @@ export const useCaseStore = defineStore("cases", {
       await axios.get("/api/cases/" + id).then((response) => {
         // console.log(response.data.id);
         this.caseStore = response.data;
-
-        
+        this.caso=response.data;
+        console.log(this.caso);
         console.log(this.caseStore);
 
       });
     },
+
+    //caso
+    async infocaso() {
+      await axios
+        .get("/api/cases")
+        .then((response) => {
+          this.caso=this.caseStore
+          console.log('ok');
+          console.log(this.caso);
+          console.log('ok');
+        })
+        .catch((error) => {
+          this.errorsStore = error.response.data.errors;
+        });
+    },
+
     /* get cases page */
     async getCasesPage(page) {
       await axios.get(page).then((response) => {
@@ -106,7 +123,6 @@ export const useCaseStore = defineStore("cases", {
           for (const i in this.activeCases) {
             cont++
             this.numactivos[i]=cont;
-
           }
           this.activos=cont;
 
