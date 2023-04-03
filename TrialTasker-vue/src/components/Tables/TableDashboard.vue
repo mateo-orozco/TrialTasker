@@ -59,8 +59,8 @@ const props = defineProps({
 }
 
 .table__content thead {
-  background-color: #4f5d60;
-  color: white;
+  background-color: #cc2f45;
+  color: var(--azulito);
   text-align: center;
 }
 
@@ -83,7 +83,7 @@ const props = defineProps({
 }
 
 .table__content__data button {
-  background-color: #4f5d60;
+  background-color: #cc2f45;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
@@ -94,7 +94,7 @@ const props = defineProps({
 
 .table__content__data a {
   text-decoration: none;
-  background-color: #4f5d60;
+  background-color: #cc2f45;
   color: white;
   border: none;
   padding: 0.5rem 1rem;
