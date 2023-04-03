@@ -1,29 +1,44 @@
 <template>
     <main>
         <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
+        
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar">
+            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
+                <div class="Button">Cambiar Estatus</div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'CreatePerson' }" class="button">
+                <div class="Button">Crear Persona</div>
+            </RouterLink>
+            <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
+                <div class="Button">Crear Caso</div>
+            </RouterLink>
         </div>
+        <input class="search" type="search" placeholder="Buscar">
 
         <table>
             <thead>
                 <tr>
-                    <td>Numero de caso</td>
-                    <td>Nombre del Cliente</td>
-                    <td>Radicado</td>
-                    <td>Estatus</td>
-                    <td>Acciones</td>
+                    <td class="tdEstatus">Cambiar Estatus</td>
+                    <td class="tds">Numero de caso</td>
+                    <td class="tds">Nombre del Cliente</td>
+                    <td class="tds">Radicado</td>
+                    <td class="tds">Estatus</td>
+                    <td class="tds">Acciones</td>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.inactiveCases" class="caso">
-                    <td>{{ active.id }}</td>
+                <tr v-for="active,index in cases.inactiveCases" class="caso">
+                    <td><input type="checkbox"></td>
+                    <td>{{ cases.numinactivos[index] }}</td>
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
                     <td>Inactivo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreInactive' }" class="navButton">
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Ver Mas</div>
+                        </RouterLink>
+                        <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore">Actualizar</div>
                         </RouterLink>
                     </td>
                 </tr>
@@ -41,7 +56,6 @@ import TableUser from '@/components/Tables/TableUsers.vue';
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()
-
 });
 
 document.addEventListener("keyup", e => {
@@ -60,16 +74,7 @@ document.addEventListener("keyup", e => {
 
 <style scoped>
 /* variables */
-:root {
-    --background: #edecec;
-    --brown: #664200;
-    --beige: #fff2bf;
-    --my-hover-dark: #473800;
-    --my-hover-ligth: #e8e8e8;
-    --white: #fff;
-    --black: #000;
 
-}
 
 .filtro {
     display: none;
@@ -84,7 +89,7 @@ document.addEventListener("keyup", e => {
 }
 
 .search {
-    width: 50vw;
+    width: 100%;
     height: 30px;
     border: none;
     border-radius: 10px;
@@ -132,13 +137,47 @@ thead {
 }
 
 /* estilos del tbody */
-td {
-    width: 45vh;
+
+td{
+    text-align: center;
+}
+
+.tds {
+    width: 25vh;
     text-align: center;
     border-radius: 5px;
+
+}
+.tdEstatus {
+    width: 10vh;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
 }
 
 tr {
     margin-top: 5vh;
+    height: 50px;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+input {
+    height: 15px;
+}
+
+.Button {
+    border: solid 1px;
+    width: 20vw;
+    padding: 5px;
+    height: 30px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: var(--verde);
+    color: var(--white);
+
 }
 </style>

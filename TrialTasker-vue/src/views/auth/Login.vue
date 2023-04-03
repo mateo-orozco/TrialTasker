@@ -1,11 +1,11 @@
 <template>
     <Entry class="entrylogin">
         <form @submit.prevent="authStore.handleLogin(form)" class="form-entry login">
-            <div class="form-group-entry">
-                <input type="email" id="email" v-model="form.email" placeholder="Correo Electronico">
+            <div >
+                <input class="inp" type="email" id="email" v-model="form.email" placeholder="Correo Electronico">
             </div>
-            <div class="form-group-entry">
-                <input type="password" id="password" v-model="form.password" placeholder="Contraseña">
+            <div>
+                <input class="inp" type="password" id="password" v-model="form.password" placeholder="Contraseña">
             </div>
             <div v-if="authStore.message">
                 <p class="error">{{ authStore.message }}</p>
@@ -42,16 +42,26 @@ const form = ref({
 });
 
 </script>
-<style>
+
+<style scoped>
 .entrylogin {
     opacity: 0.9999999;
 }
 
-#password {
-    margin-top: 10px;
+.form-entry{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 }
 
-
+input{
+    border-radius: 12px;
+    height: 40px;
+    width: 100%;
+    border: none;
+    padding-left: 10px;
+    background-color: #e8e8e8;
+}
 
 .circles {
 
@@ -62,9 +72,7 @@ const form = ref({
     height: 100vh;
     overflow: hidden;
     z-index: -1;
-    background: rgb(79, 93, 96);
-    background: linear-gradient(90deg, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 0%, rgba(79, 93, 96, 1) 21%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%, rgba(0, 0, 0, 1) 100%);
-
+    background-color: var(--brown);
 }
 
 .circles li {
@@ -73,7 +81,7 @@ const form = ref({
     list-style: none;
     width: 20px;
     height: 20px;
-    background-color: white;
+    background-color: var(--azulito);
     animation: animate 25s linear infinite;
     bottom: -150px;
 }

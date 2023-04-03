@@ -1,19 +1,19 @@
 <template>
     <main>
-        <HeaderTableVue title="Casos Activos" to="PersonDashboardCreate" />
+        <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <input class="search" type="search" placeholder="Buscar">
             <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
                 <div class="Button">Cambiar Estatus</div>
             </RouterLink>
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
-                <div class="Button">Crear Juez</div>
+                <div class="Button">Crear Persona</div>
             </RouterLink>
             <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
                 <div class="Button">Crear Caso</div>
             </RouterLink>
         </div>
+        <input class="search" type="search" placeholder="Buscar">
 
         <table>
             <thead>
@@ -27,15 +27,15 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active in cases.activeCases" class="caso">
+                <tr v-for="active,index in cases.activeCases" class="caso">
                     <td><input type="checkbox"></td>
-                    <td>{{ active.id }}</td>
+                    <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
                     <td>Activo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
-                            <div class="buttonSeeMore">Ver Mas</div>
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
+                            <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                         <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Actualizar</div>
@@ -72,16 +72,8 @@ document.addEventListener("keyup", e => {
 
 <style scoped>
 /* variables */
-:root {
-    --background: #edecec;
-    --brown: #664200;
-    --beige: #fff2bf;
-    --my-hover-dark: #473800;
-    --my-hover-ligth: #e8e8e8;
-    --white: #fff;
-    --black: #000;
 
-}
+
 
 .filtro {
     display: none;
@@ -96,7 +88,7 @@ document.addEventListener("keyup", e => {
 }
 
 .search {
-    width: 50vw;
+    width: 100%;
     height: 30px;
     border: none;
     border-radius: 10px;
@@ -115,7 +107,7 @@ main {
 /* estilos boton de crear caso */
 .Button {
     border: solid 1px;
-    width: 20vh;
+    width: 20vw;
     padding: 5px;
     height: 30px;
     text-align: center;
@@ -144,26 +136,37 @@ thead {
 }
 
 /* estilos del tbody */
-td {
+
+
+td{
     text-align: center;
 }
 
 .tds {
-    width: 45vh;
+    width: 20vw;
     text-align: center;
     border-radius: 5px;
+
+}
+.tdEstatus {
+    width: 10vh;
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+
 }
 
 tr {
     margin-top: 5vh;
+    height: 50px;
+
 }
 
-.tdEstatus {
-    width: 15vh;
-    border-radius: 5px;
-    text-align: center;
-}
 
+a{
+    text-decoration: none;
+    color: #000;
+}
 input {
     height: 15px;
 }

@@ -78,7 +78,9 @@
                 </div>
                 <div class="informacion">
                     <h4>Informacion</h4>
-                    <p>dfhgsdfhhhhhhhhhhdsfgdf</p>
+                    <p>dfhgsdfhhhhhhgdf</p>
+                    <p>dfhgsdfhhhhhdsfgdf</p>
+
                 </div>
             </div>
 
@@ -257,8 +259,9 @@ footer {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
-    background: rgb(79,93,96);
-    background: linear-gradient(90deg, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 0%, rgba(79,93,96,1) 21%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%, rgba(0,0,0,1) 100%); 
+    background-color: var(--brown);
+
+
 }
 
 .logo {

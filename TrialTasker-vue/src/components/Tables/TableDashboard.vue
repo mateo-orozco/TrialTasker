@@ -60,7 +60,7 @@ const props = defineProps({
 
 .table__content thead {
   background-color: #cc2f45;
-  color: white;
+  color: var(--azulito);
   text-align: center;
 }
 
