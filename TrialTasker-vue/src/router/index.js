@@ -159,6 +159,7 @@ router.beforeEach((to, from, next) => {
       to.name === "LandingPage"
     ) {
       if (user.is_admin) {
+        console.log("Es admin");
         next({ name: "Dashboard" });
       } else {
         next({ name: "Home" });
@@ -189,6 +190,7 @@ router.beforeEach((to, from, next) => {
     ) {
       next();
     } else {
+      console.log("No hay token");
       next({ name: "Login" });
     }
   }
