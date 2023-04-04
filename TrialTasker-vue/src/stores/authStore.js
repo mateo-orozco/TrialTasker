@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
 import  router  from "../router";
+import Cookies from "js-cookie";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
@@ -18,7 +19,10 @@ export const useAuthStore = defineStore("auth", {
   actions: {
     /* get token */
     async getToken() {
-      await axios.get("/sanctum/csrf-cookie");
+      await axios.get("/sanctum/csrf-cookie").then((response) => {
+        console.log(response);
+        Cookies.set("auth_token", response.data);
+      });
     },
     /* get user */
     async getUser() {
@@ -32,7 +36,6 @@ export const useAuthStore = defineStore("auth", {
       this.authStatus = null;
       this.authErrors = [];
       this.authMessage = null;
-      this.getToken();
       await axios
         .post("/api/login", {
           email: credentials.email,
@@ -40,7 +43,14 @@ export const useAuthStore = defineStore("auth", {
         })
         .then((response) => {
           this.authUser = response.data.user;
-          
+          this.getToken();
+          if(this.authUser.is_admin){
+            console.log("Es admin");
+            router.push({ name: "Dashboard" });
+          } else {
+            console.log("No es admin");
+          router.push({ name: "Home" });
+          }
         })
         .catch((error) => {
           if (error.response.status === 422) {
