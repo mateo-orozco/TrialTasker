@@ -41,8 +41,10 @@ export const useAuthStore = defineStore("auth", {
         .then((response) => {
           this.authUser = response.data.user;
           if (this.authUser.is_admin) {
+            console.log("entro rico asi es")
             router.push({ name: "Dashboard" });
           } else {
+            console.log("entro a home")
             router.push({ name: "Home" });
           }
         })
