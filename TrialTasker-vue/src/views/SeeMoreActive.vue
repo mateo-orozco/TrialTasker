@@ -96,6 +96,7 @@ import HeaderAccions from '@/components/headers/HeaderAccions.vue';
 const cases = useCaseStore();
 
 onMounted(() => {
+    cases.getCase(id);
 })
 
 </script>

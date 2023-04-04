@@ -35,7 +35,7 @@ const form = ref({
 });
 
 onMounted(async () => {
-    cases.casesActive(route.params.id);
+    await cases.casesActive(route.params.id);
     form.value = {
         id: route.params.id,
         case_name: cases.case.case_name,

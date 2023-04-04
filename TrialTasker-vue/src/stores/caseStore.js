@@ -43,12 +43,15 @@ export const useCaseStore = defineStore("cases", {
       await axios.get("/api/cases/" + id).then((response) => {
         // console.log(response.data.id);
         this.caseStore = response.data;
-
-        
         console.log(this.caseStore);
+        console.log(id);
+
 
       });
     },
+   
+    
+
     /* get cases page */
     async getCasesPage(page) {
       await axios.get(page).then((response) => {
@@ -109,6 +112,7 @@ export const useCaseStore = defineStore("cases", {
 
           }
           this.activos=cont;
+
 
         })
         .catch((error) => {

@@ -34,7 +34,7 @@
                     <td>{{ active.case_radicate }}</td>
                     <td>Activo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                         <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
