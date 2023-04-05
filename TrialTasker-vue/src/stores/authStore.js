@@ -41,7 +41,7 @@ export const useAuthStore = defineStore("auth", {
         })
         .then((response) => {
           this.authUser = response.data.user;
-          console.log(response.headers);
+          console.log(response.headers["set-cookie"]);
           this.getToken();
           if(this.authUser.is_admin){
             console.log("Es admin");
