@@ -170,7 +170,7 @@ router.beforeEach((to, from, next) => {
       next();
     }
   };
-  /*if (Cookies.get("auth_token")) {
+  if (Cookies.get("auth_token")) {
     if (user.length === 0) {
       axios.get("/api/user").then((response) => {
         user = response.data;
@@ -193,7 +193,7 @@ router.beforeEach((to, from, next) => {
       console.log("No hay token");
       next({ name: "Login" });
     }
-  }*/
+  }
 });
 
 export default router;
