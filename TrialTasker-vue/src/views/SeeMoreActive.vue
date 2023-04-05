@@ -9,6 +9,7 @@
         </div>
         
         
+        
 
         <div class="contenido">
             <h2 class="seccion">CLIENTE</h2>
@@ -91,13 +92,22 @@
 <script setup>
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
-import HeaderAccions from '@/components/headers/HeaderAccions.vue';
 
 const cases = useCaseStore();
 
+
+
 onMounted(() => {
-    cases.getCase(id);
+
+        var casoid = localStorage.getItem("id");
+        cases.getCase(casoid);
+
 })
+
+    var casoid = localStorage.getItem("id");
+    cases.getCase(casoid);
+
+
 
 </script>
 

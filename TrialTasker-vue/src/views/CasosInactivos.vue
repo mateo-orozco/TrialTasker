@@ -51,7 +51,9 @@
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
-import TableUser from '@/components/Tables/TableUsers.vue';
+
+localStorage.removeItem("id");
+
 
 const cases = useCaseStore();
 onMounted(() => {

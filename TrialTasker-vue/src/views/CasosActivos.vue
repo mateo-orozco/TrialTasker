@@ -35,7 +35,7 @@
                     <td>Activo</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
-                            <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
+                            <div class="buttonSeeMore"  @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                         <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Actualizar</div>
@@ -52,10 +52,13 @@ import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
+localStorage.removeItem("id");
 
 const cases = useCaseStore();
+
 onMounted(() => {
     cases.casesActive();
+    
 });
 
 document.addEventListener("keyup", e => {
