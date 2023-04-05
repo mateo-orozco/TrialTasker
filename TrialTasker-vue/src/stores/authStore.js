@@ -35,11 +35,13 @@ export const useAuthStore = defineStore("auth", {
       this.authMessage = null;
       await axios
         .post("/api/login", {
+
           email: credentials.email,
           password: credentials.password,
         })
         .then((response) => {
           this.authUser = response.data.user;
+          console.log(response.headers);
           this.getToken();
           if(this.authUser.is_admin){
             console.log("Es admin");
