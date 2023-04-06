@@ -113,6 +113,7 @@ export const useAuthStore = defineStore("auth", {
       axios.request(config)
       .then((response) => {
         console.log(JSON.stringify(response.data));
+        router.push({ name: "VerifyEmail" });
       })
       .catch((error) => {
         console.log(error);
