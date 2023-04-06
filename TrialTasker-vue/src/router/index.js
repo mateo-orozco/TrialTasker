@@ -186,7 +186,7 @@ router.beforeEach( (to, from, next)  => {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: "http://127.0.0.1:8000/api/user-profile",
+        url: "https://trialtasker.up.railway.app/api/user-profile",
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
