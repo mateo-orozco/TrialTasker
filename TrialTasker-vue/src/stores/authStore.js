@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 import axios from "axios";
-import  router  from "../router";
-import Cookies from "js-cookie";
+import router from "../router";
+// import Cookies from "js-cookie";
 
 export const useAuthStore = defineStore("auth", {
   state: () => ({
@@ -18,44 +18,78 @@ export const useAuthStore = defineStore("auth", {
   },
   actions: {
     /* get token */
-    async getToken() {
-      await axios.get("/sanctum/csrf-cookie")
-    },
+    // async getToken() {
+    //   await axios.get("/sanctum/csrf-cookie");
+    // },
     /* get user */
     async getUser() {
-      await axios.get("/api/user").then((response) => {
+      await axios.post("/api/user-profile").then((response) => {
         this.authUser = response.data;
         console.log(response.data);
       });
     },
     /* Login */
     async handleLogin(credentials) {
-      this.authStatus = null;
-      this.authErrors = [];
-      this.authMessage = null;
-      await axios
-        .post("/api/login", {
+      // this.authStatus = null;
+      // this.authErrors = [];
+      // this.authMessage = null;
+      // await axios
+      //   .post("/api/login", {
 
-          email: credentials.email,
-          password: credentials.password,
-        })
+      //     email: credentials.email,
+      //     password: credentials.password,
+      //   })
+      //   .then((response) => {
+      //     this.authUser = response.data.user;
+      //     console.log(response.headers["set-cookie"]);
+      //     this.getToken();
+      //     if(this.authUser.is_admin){
+      //       console.log("Es admin");
+      //       router.push({ name: "Dashboard" });
+      //     } else {
+      //       console.log("No es admin");
+      //     router.push({ name: "Home" });
+      //     }
+      //   })
+      //   .catch((error) => {
+      //     if (error.response.status === 422) {
+      //       this.authErrors = error.response.data.errors;
+      //       this.authMessage = error.response.data.message;
+      //     }
+      //   });
+
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "http://127.0.0.1:8000/api/login",
+        headers: {
+          Accept: "aplication/json",
+          "Content-Type": "application/json",
+        },
+        data: credentials,
+      };
+
+      axios
+        .request(config)
         .then((response) => {
-          this.authUser = response.data.user;
-          console.log(response.headers["set-cookie"]);
-          this.getToken();
-          if(this.authUser.is_admin){
+          console.log(JSON.stringify(response.data));
+          let token = response.data.token;
+          let admin = response.data.is_admin;
+          console.log('-----------token-----------');
+          console.log(token);
+          console.log('-----------admin-----------');
+          console.log(admin);
+          localStorage.setItem('token', token);
+          if (admin == 1) {
             console.log("Es admin");
             router.push({ name: "Dashboard" });
           } else {
             console.log("No es admin");
-          router.push({ name: "Home" });
+            router.push({ name: "Home" });
           }
         })
         .catch((error) => {
-          if (error.response.status === 422) {
-            this.authErrors = error.response.data.errors;
-            this.authMessage = error.response.data.message;
-          }
+          console.log(error);
         });
     },
     /* Register */

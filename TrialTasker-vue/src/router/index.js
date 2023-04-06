@@ -141,8 +141,7 @@ const router = createRouter({
 });
 
 let user = [];
-
-router.beforeEach((to, from, next) => {
+router.beforeEach( (to, from, next)  => {
   if (to.meta.title) {
     document.title = to.meta.title;
   }
@@ -170,17 +169,52 @@ router.beforeEach((to, from, next) => {
       next();
     }
   };
-  if (Cookies.get("auth_token")) {
+
+  const token =  localStorage.getItem("token");
+
+  if (token != undefined || token != null) {
+    console.log(user.length);
     if (user.length === 0) {
-      axios.get("/api/user").then((response) => {
-        user = response.data;
-        redirect();
-      });
+      // axios.get("/api/user-profile").then((response) => {
+      //   user = response.data;
+      //   redirect();
+      // });
+
+      console.log('-----------headers-----------');
+      console.log(token);
+
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: "http://127.0.0.1:8000/api/user-profile",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
+      console.log('-----------redirec-----------');
+
+      axios
+        .request(config)
+        .then((response) => {
+          console.log('-----------redirec-----------');
+          console.log(JSON.stringify(response.data));
+          user = response.data;
+          redirect();
+        })
+        .catch((error) => {
+          console.log('-----------error-----------');
+          console.log(error);
+          redirect();
+
+        });
     } else {
       redirect();
     }
   } else {
     user = [];
+   const token =  localStorage.getItem("token");
     if (
       to.name === "Login" ||
       to.name === "Register" ||
@@ -190,6 +224,8 @@ router.beforeEach((to, from, next) => {
     ) {
       next();
     } else {
+      console.log("-----------token en local-----------");
+      console.log(token);
       console.log("No hay token");
       next({ name: "Login" });
     }
