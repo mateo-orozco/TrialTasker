@@ -98,47 +98,50 @@ export const useAuthStore = defineStore("auth", {
       // this.authErrors = [];
       // this.authStatus = null;
       // this.authMessage = null;
+      //     await axios
+      // .post("/api/register", {
+      //   name: credentials.name,
+      //   email: credentials.email,
+      //   password: credentials.password,
+      //   password_confirmation: credentials.password_confirmation,
+      //   lastname: credentials.lastname,
+      //   phone: credentials.phone,
+      //   address: credentials.address,
+      // })
+      // .then((response) => {
+      //   console.log("fsdfdfds");
+      //   router.push({ name: "VerifyEmail" });
+      // })
+      // .catch((error) => {
+      //   if (error.response.status === 422) {
+      //     this.authErrors = error.response.data.errors;
+      //   }
+      // });
+
+      console.log("-----------register-----------");
+      console.log("-----------credentils-----------");
+      console.log(credentials);
       let config = {
-        method: 'post',
+        method: "post",
         maxBodyLength: Infinity,
-        // url: 'http://127.0.0.1:8000/api/register',
         url: `${axios.defaults.baseURL}api/register`,
-        headers: { 
-          'Accept': 'application/json', 
-          'Content-Type': 'application/json'
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
         },
-        data : credentials
+        data: credentials,
       };
-      
-      axios.request(config)
-      .then((response) => {
-        console.log(JSON.stringify(response.data));
-        router.push({ name: "VerifyEmail" });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
 
-
-      /* await axios
-        .post("/api/register", {
-          name: credentials.name,
-          email: credentials.email,
-          password: credentials.password,
-          password_confirmation: credentials.password_confirmation,
-          lastname: credentials.lastname,
-          phone: credentials.phone,
-          address: credentials.address,
-        })
+      axios
+        .request(config)
         .then((response) => {
-          console.log("fsdfdfds");
+        console.log("-----------register response-----------");
+          console.log(JSON.stringify(response.data));
           router.push({ name: "VerifyEmail" });
         })
         .catch((error) => {
-          if (error.response.status === 422) {
-            this.authErrors = error.response.data.errors;
-          }
-        }); */
+          console.log(error);
+        });
     },
     /* Logout */
     handleLogout() {
@@ -153,7 +156,7 @@ export const useAuthStore = defineStore("auth", {
       //   });
 
       console.log("-----------logout-----------");
-      
+
       const token = localStorage.getItem("token");
       console.log("-----------token-----------");
       console.log(token);
@@ -182,7 +185,6 @@ export const useAuthStore = defineStore("auth", {
         .catch((error) => {
           console.log(error);
         });
-
     },
     /* Forgot password */
     handleForgotPassword(credentials) {
