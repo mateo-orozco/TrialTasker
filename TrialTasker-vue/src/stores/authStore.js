@@ -94,12 +94,32 @@ export const useAuthStore = defineStore("auth", {
     },
     /* Register */
     async handleRegister(credentials) {
-      this.getToken();
-      this.authErrors = [];
-      this.authStatus = null;
-      this.authMessage = null;
+      // this.getToken();
+      // this.authErrors = [];
+      // this.authStatus = null;
+      // this.authMessage = null;
+      let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        // url: 'http://127.0.0.1:8000/api/register',
+        url: `${axios.defaults.baseURL}api/register`,
+        headers: { 
+          'Accept': 'application/json', 
+          'Content-Type': 'application/json'
+        },
+        data : credentials
+      };
+      
+      axios.request(config)
+      .then((response) => {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
 
-      await axios
+
+      /* await axios
         .post("/api/register", {
           name: credentials.name,
           email: credentials.email,
@@ -117,7 +137,7 @@ export const useAuthStore = defineStore("auth", {
           if (error.response.status === 422) {
             this.authErrors = error.response.data.errors;
           }
-        });
+        }); */
     },
     /* Logout */
     handleLogout() {
