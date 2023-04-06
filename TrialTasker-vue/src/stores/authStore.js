@@ -61,7 +61,7 @@ export const useAuthStore = defineStore("auth", {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: "https://trialtasker.up.railway.app/api/login",
+        url: `${axios.defaults.baseURL}api/login`,
         headers: {
           Accept: "aplication/json",
           "Content-Type": "application/json",
@@ -75,11 +75,11 @@ export const useAuthStore = defineStore("auth", {
           console.log(JSON.stringify(response.data));
           let token = response.data.token;
           let admin = response.data.is_admin;
-          console.log('-----------token-----------');
+          console.log("-----------token-----------");
           console.log(token);
-          console.log('-----------admin-----------');
+          console.log("-----------admin-----------");
           console.log(admin);
-          localStorage.setItem('token', token);
+          localStorage.setItem("token", token);
           if (admin == 1) {
             console.log("Es admin");
             router.push({ name: "Dashboard" });
@@ -121,15 +121,47 @@ export const useAuthStore = defineStore("auth", {
     },
     /* Logout */
     handleLogout() {
+      // axios
+      //   .post("/api/logout")
+      //   .then((response) => {
+      //     this.authUser = null;
+      //     router.push({ name: "Login" });
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+
+      console.log("-----------logout-----------");
+      
+      const token = localStorage.getItem("token");
+      console.log("-----------token-----------");
+      console.log(token);
+
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/logout`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      };
+
       axios
-        .post("/api/logout")
+        .request(config)
         .then((response) => {
-          this.authUser = null;
+          console.log("-----------response-----------");
+          console.log(JSON.stringify(response.data));
+          console.log("-----------revisar token eliminado-----------");
+          localStorage.removeItem("token");
+          const token = localStorage.getItem("token");
+          console.log(token);
           router.push({ name: "Login" });
         })
         .catch((error) => {
           console.log(error);
         });
+
     },
     /* Forgot password */
     handleForgotPassword(credentials) {

@@ -186,7 +186,7 @@ router.beforeEach( (to, from, next)  => {
       let config = {
         method: "post",
         maxBodyLength: Infinity,
-        url: "https://trialtasker.up.railway.app/api/user-profile",
+        url: `${axios.defaults.baseURL}api/user-profile`,
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,
