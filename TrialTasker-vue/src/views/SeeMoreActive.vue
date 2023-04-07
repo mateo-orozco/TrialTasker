@@ -19,7 +19,7 @@
                 </div>
                 <div class="info">
                     <h2 class="titulos">Radicado:</h2>
-                    <p class="informacion">{{ cases.caso.case_radicate }}</p>
+                    <p class="informacion">{{ cases.caseStore.case_radicate }}</p>
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
                     </div>
                     <div class="info">
                         <h3 class="titulos">Email:</h3>
-                        <p class="informacion">{{ cases.caso.case_person.per_email }}</p>
+                        <p class="informacion">{{ cases.caseStore.case_person.per_email }}</p>
                     </div>
                     <div class="info">
                         <h3 class="titulos">CC/NIT:</h3>
