@@ -97,11 +97,22 @@ export const useCaseStore = defineStore("cases", {
 
     // view cases user
     async casesActive() {
-      await axios
-        .get("/api/casesActive")
+      const token = localStorage.getItem("token");
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/casesActive`,
+        headers: { 
+          'Accept': 'aplication/json', 
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json', 
+        },
+      };
+      await axios.request(config)
         .then((response) => {
+          // console.log(response.data);
           this.activeCases = response.data;
-          console.log(this.activeCases);
+          // console.log(this.activeCases);
           var cont=0;
           for (const i in this.activeCases) {
             cont++
@@ -116,11 +127,21 @@ export const useCaseStore = defineStore("cases", {
         });
     },
     async casesInactive() {
-      await axios
-        .get("/api/casesInactive")
+      const token = localStorage.getItem("token");
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/casesInactive`,
+        headers: { 
+          'Accept': 'aplication/json', 
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json', 
+        },
+      };
+      await axios.request(config)
         .then((response) => {
           this.inactiveCases = response.data;
-          console.log(this.inactiveCases);
+          // console.log(this.inactiveCases);
 
           var cont=0;
           for (const i in this.inactiveCases) {

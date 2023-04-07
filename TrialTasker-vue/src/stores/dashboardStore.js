@@ -17,7 +17,18 @@ export const useDashboardStore = defineStore('dashboard', {
     actions: {
         /* get users for week */
         async getUsersForWeek() {
-            await axios.get('/api/dashboard/users-week')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/dashboard/users-week`,
+                headers: { 
+                'Accept': 'aplication/json', 
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json', 
+                },
+            };
+            await axios.request(config)
                 .then(response => {
                     this.usersForWeekStore = response.data;
                 })
@@ -27,7 +38,18 @@ export const useDashboardStore = defineStore('dashboard', {
         },
         /* get users sessions */
         async getUsersSessions() {
-            await axios.get('/api/dashboard/sessions')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/dashboard/sessions`,
+                headers: { 
+                'Accept': 'aplication/json', 
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json', 
+                },
+            };
+            await axios.request(config)
                 .then(response => {
                     this.usersSessionsStore = response.data;
                 })
