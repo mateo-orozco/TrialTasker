@@ -81,14 +81,14 @@ import { useCaseStore } from '@/stores/caseStore';
 
 const cases = useCaseStore();
 
-onMounted(() => {
+// onMounted(() => {
 
-    if(localStorage.hasOwnProperty("id")){
-        var casoid = localStorage.getItem("id");
-        cases.getCase(casoid);
-    }   
+//     if(localStorage.hasOwnProperty("id")){
+//         var casoid = localStorage.getItem("id");
+//         cases.getCase(casoid);
+//     }   
 
-})
+// })
 
 var casoid = localStorage.getItem("id");
 cases.getCase(casoid);
