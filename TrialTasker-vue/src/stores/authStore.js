@@ -20,13 +20,37 @@ export const useAuthStore = defineStore("auth", {
     /* get token */
     // async getToken() {
     //   await axios.get("/sanctum/csrf-cookie");
+    //   this.authUser = response.data;
     // },
     /* get user */
+
     async getUser() {
-      await axios.post("/api/user-profile").then((response) => {
-        this.authUser = response.data;
-        console.log(response.data);
+      const token = localStorage.getItem("token");
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/user-profile`,
+        headers: { 
+          'Accept': 'aplication/json', 
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json', 
+        },
+      };
+      
+      axios.request(config)
+      .then((response) => {
+        this.authUser = response.data.userData;
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
       });
+      // await axios.get("/api/user-profile").then((response) => {
+      //   this.authUser = response.data;
+      //   console.log(response.data);
+
+      // });
+
     },
     /* Login */
     async handleLogin(credentials) {
@@ -182,6 +206,7 @@ export const useAuthStore = defineStore("auth", {
         .request(config)
         .then((response) => {
           console.log("-----------response-----------");
+          this.authUser = null;
           console.log(JSON.stringify(response.data));
           console.log("-----------revisar token eliminado-----------");
           localStorage.removeItem("token");
@@ -261,6 +286,8 @@ export const useAuthStore = defineStore("auth", {
       axios.request(config)
       .then((response) => {
         console.log("-----------enviando correo-----------");
+        this.message =
+          "Se ha enviado un correo de verificación a su cuenta de correo.";
         console.log(JSON.stringify(response.data));
       })
       .catch((error) => {

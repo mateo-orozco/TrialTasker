@@ -52,7 +52,9 @@ import { IconHome, IconDashboard, IconLogout, IconUsers, IconClipboard, IconGave
 const auth = useAuthStore();
 
 onMounted(() => {
+    console.log("------sidebar------");
     auth.getUser();
+
 })
 
 </script>

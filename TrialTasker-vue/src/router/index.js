@@ -193,14 +193,14 @@ router.beforeEach((to, from, next) => {
 
       console.log("-----------headers-----------");
       console.log(token);
-
       let config = {
-        method: "post",
+        method: 'get',
         maxBodyLength: Infinity,
         url: `${axios.defaults.baseURL}api/user-profile`,
-        headers: {
-          Accept: "application/json",
-          Authorization: `Bearer ${token}`,
+        headers: { 
+          'Accept': 'aplication/json', 
+          'Authorization': `Bearer ${token}`, 
+          'Content-Type': 'application/json', 
         },
       };
 
