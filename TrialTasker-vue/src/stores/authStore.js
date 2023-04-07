@@ -133,7 +133,7 @@ export const useAuthStore = defineStore("auth", {
         data: credentials,
       };
 
-      axios
+      await axios
         .request(config)
         .then((response) => {
           console.log("-----------router push VerifyEmail -----------");
