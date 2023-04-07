@@ -20,6 +20,7 @@ export const usePersonStore = defineStore('persons', {
     actions: {
         /* get all persons with paginate */
         async getPersons() {
+
             await axios.get('/api/persons')
             .then(response => {
                 console.log(this.personsStore = response.data);
@@ -27,7 +28,18 @@ export const usePersonStore = defineStore('persons', {
         },
         /* get all persons */
         async getPersonsAll() {
-            await axios.get('/api/persons/all')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/persons/all`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            };
+            await axios.request(config)
             .then(response => {
                 this.personsAllStore = response.data;
             });

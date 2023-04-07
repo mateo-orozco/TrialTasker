@@ -20,7 +20,18 @@ export const useTypePersonStore = defineStore('typePersons', {
     actions: {
         /* get all typePersons paginate  */
         async getTypePersons() {
-            await axios.get('/api/type-persons')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/type-persons`,
+                headers: { 
+                'Accept': 'aplication/json', 
+                'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json', 
+                },
+            };
+            await axios.request(config)
             .then(response => {
                 this.typePersonsStore = response.data;
                 this.errorsStore = [];
@@ -29,7 +40,18 @@ export const useTypePersonStore = defineStore('typePersons', {
 
         /* get all typePersons */
         async getTypePersonsAll() {
-            await axios.get('/api/type-persons/all')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/type-persons/all`,
+                headers: {
+                    "Accept": "application/json",
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            };
+            await axios.request(config)
             .then(response => {
                 this.typePersonsAllStore = response.data;
                 this.errorsStore = [];
