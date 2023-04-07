@@ -41,6 +41,8 @@ import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 localStorage.removeItem("id");
 
 
+localStorage.removeItem("id");
+
 const cases = useCaseStore();
 onMounted(() => {
     cases.casesInactive()

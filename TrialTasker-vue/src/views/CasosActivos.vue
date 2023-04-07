@@ -62,8 +62,11 @@ import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
 localStorage.removeItem("id");
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> develop
 
 const cases = useCaseStore();
 
