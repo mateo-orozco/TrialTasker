@@ -27,8 +27,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.activeCases" class="caso">
-                    <td><input type="checkbox"></td>
+                <tr v-for="active, index in cases.activeCases" class="caso">
+                    <td>
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore" @click="cases.id = cases.active.id">Cambiar</div>
+                        </RouterLink>
+                    </td>
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
@@ -146,7 +150,7 @@ thead {
 /* estilos del tbody */
 
 
-td{
+td {
     text-align: center;
 }
 
@@ -156,6 +160,7 @@ td{
     border-radius: 5px;
 
 }
+
 .tdEstatus {
     width: 10vh;
     border-radius: 5px;
@@ -171,11 +176,12 @@ tr {
 }
 
 
-a{
+a {
     text-decoration: none;
     color: #000;
 }
+
 input {
     height: 15px;
 }
-</style>
+</style> 

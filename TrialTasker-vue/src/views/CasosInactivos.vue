@@ -1,24 +1,11 @@
 <template>
     <main>
         <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
-        
-        <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
-                <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
-            <RouterLink :to="{ name: 'CreatePerson' }" class="button">
-                <div class="Button">Crear Persona</div>
-            </RouterLink>
-            <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
-                <div class="Button">Crear Caso</div>
-            </RouterLink>
-        </div>
         <input class="search" type="search" placeholder="Buscar">
 
         <table>
             <thead>
                 <tr>
-                    <td class="tdEstatus">Cambiar Estatus</td>
                     <td class="tds">Numero de caso</td>
                     <td class="tds">Nombre del Cliente</td>
                     <td class="tds">Radicado</td>
@@ -27,8 +14,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.inactiveCases" class="caso">
-                    <td><input type="checkbox"></td>
+                <tr v-for="active, index in cases.inactiveCases" class="caso">
                     <td>{{ cases.numinactivos[index] }}</td>
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
@@ -140,21 +126,9 @@ thead {
 
 /* estilos del tbody */
 
-td{
+td {
     text-align: center;
-}
-
-.tds {
-    width: 25vh;
-    text-align: center;
-    border-radius: 5px;
-
-}
-.tdEstatus {
-    width: 10vh;
-    border-radius: 5px;
-    text-align: center;
-    padding: 5px;
+    width: 40vh;
 }
 
 tr {
@@ -162,7 +136,7 @@ tr {
     height: 50px;
 }
 
-a{
+a {
     text-decoration: none;
     color: black;
 }

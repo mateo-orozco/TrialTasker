@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="CasosActivos" >
+    <div class="CasosActivos">
       <h2>Casos Activos</h2>
       <h2>{{ cases.activos }}</h2>
     </div>
@@ -67,8 +67,4 @@ onMounted(() => {
   box-shadow: 0px 5px 10px 1px rgba(0, 0, 0, 0.404);
 
 }
-
-
-
-
 </style>
