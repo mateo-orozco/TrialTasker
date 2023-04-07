@@ -1,18 +1,6 @@
 <template>
     <main>
         <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
-
-        <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
-                <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
-            <RouterLink :to="{ name: 'CreatePerson' }" class="button">
-                <div class="Button">Crear Persona</div>
-            </RouterLink>
-            <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
-                <div class="Button">Crear Caso</div>
-            </RouterLink>
-        </div>
         <input class="search" type="search" placeholder="Buscar">
 
         <table>
