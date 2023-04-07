@@ -10,6 +10,9 @@
                     <p class="error">{{ authStore.errors.email[0] }}</p>
             </div>
             <button type="submit" class="btn">Enviar</button>
+            <div class="botonAtras">
+                <RouterLink :to="{ name: 'Login' }" class="atras">Atras</RouterLink>
+            </div>
         </form>
         <div class="circles">
                     <li></li>
@@ -46,7 +49,11 @@ const form = ref({
 }
 
     
-
+.botonAtras {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
 
 
 .circles{

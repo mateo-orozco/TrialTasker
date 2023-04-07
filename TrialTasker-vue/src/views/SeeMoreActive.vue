@@ -14,12 +14,12 @@
             <h2 class="seccion">CLIENTE</h2>
             <div class="cliente">
                 <div class="info">
-                    <h2 class="titulos">Nombre:</h2>
-                    <p class="informacion">{{ cases.caseStore.case_name }}</p>
+                    <h2 class="titulos">Name:</h2>
+                    <p class="informacion">{{ cases.caso.case_name }}</p>
                 </div>
                 <div class="info">
                     <h2 class="titulos">Radicado:</h2>
-                    <p class="informacion">{{ cases.caseStore.case_radicate }}</p>
+                    <p class="informacion">{{ cases.caso.case_radicate }}</p>
                 </div>
             </div>
 
@@ -28,58 +28,58 @@
             <div class="personas">
                 <div class="izquierda">
                     <div class="info">
-                        <h3 class="titulos">Nombre:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_name }}</p>
+                        <h3 class="titulos">Name:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_name }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Apellido:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_lastname }}</p>
+                        <h3 class="titulos">Last Name:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_lastname }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Telefono:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_phone }}</p>
+                        <h3 class="titulos">Phone:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_phone }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Direccion:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_address }}</p>
+                        <h3 class="titulos">Address:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_address }}</p>
                     </div>
                     <div class="info">
                         <h3 class="titulos">Email:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_email }}</p>
+                        <p class="informacion">{{ cases.caso.case_person.per_email }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">CC/NIT:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_nit }}</p>
+                        <h3 class="titulos">CC:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_nit }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Fecha de Publicacion:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_issue_nit }}</p>
+                        <h3 class="titulos">Issue:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_issue_nit }}</p>
                     </div>
                 </div>
                 <div class="derecha">
                     <div class="info">
-                        <h3 class="titulos">Numero de Ministerio:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_num_ministry }}</p>
+                        <h3 class="titulos">Number Ministry:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_num_ministry }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Numero de Despacho:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_num_dispaych }}</p>
+                        <h3 class="titulos">Number Dispaych:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_num_dispaych }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Radicado:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_radicated }}</p>
+                        <h3 class="titulos">Radicate:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_radicated }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Autoridad:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_authority }}</p>
+                        <h3 class="titulos">Authority:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_authority }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Telefono:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_number }}</p>
+                        <h3 class="titulos">Number:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_number }}</p>
                     </div>
                     <div class="info">
-                        <h3 class="titulos">Tipo de persona:</h3>
-                        <p class="informacion">{{ cases.caseStore.case_person.per_authority }}</p>
+                        <h3 class="titulos">Type Person:</h3>
+                        <p class="informacion">{{ cases.caso.case_person.per_authority }} </p>
                     </div>
                 </div>
 
