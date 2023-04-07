@@ -77,6 +77,8 @@ import Entry from '@/components/Entry.vue'
 
 const authStore = useAuthStore();
 
+let code = (Math.random() + 1).toString(36).substring(25);
+
 const form = ref({
     name: '',
     email: '',
@@ -85,6 +87,7 @@ const form = ref({
     lastname: '',
     address: '',
     phone: '',
+    confirmation_code: (Math.random() + 1).toString(36).substring(25),
 });
 
 </script>
