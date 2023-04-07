@@ -3,9 +3,9 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
+            <!-- <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="getCase(cases.activeCase.id)">
                 <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
+            </RouterLink> -->
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
                 <div class="Button">Crear Persona</div>
             </RouterLink>
@@ -36,10 +36,15 @@
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
-                    <td>Activo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
-                            <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
+                        Activo
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id)">
+                            <div class="Button">Cambiar Estatus{{ active.id }}</div>
+                        </RouterLink>
+                    </td>
+                    <td>
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore"  @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                         <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Actualizar</div>
@@ -55,6 +60,9 @@
 import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
+
+localStorage.removeItem("id");
+
 
 
 const cases = useCaseStore();
