@@ -43,8 +43,8 @@ export const useCaseStore = defineStore("cases", {
       await axios.get("/api/cases/" + id).then((response) => {
         // console.log(response.data.id);
         this.caseStore = response.data;
-
-        
+        localStorage.removeItem("id");
+        localStorage.setItem("id", id);
         console.log(this.caseStore);
 
       });
