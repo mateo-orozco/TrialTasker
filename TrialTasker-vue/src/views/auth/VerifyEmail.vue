@@ -31,9 +31,15 @@
 import { useAuthStore } from '@/stores/authStore'
 import Entry from '@/components/Entry.vue'
 import Button from '../../components/buttons/Button.vue';
+import { onMounted } from 'vue';
 
 const authStore = useAuthStore();
-authStore.handleSendVerifyEmail();
+
+onMounted(() => {
+    authStore.handleSendVerifyEmail();
+});
+
+
 
 </script>
 
