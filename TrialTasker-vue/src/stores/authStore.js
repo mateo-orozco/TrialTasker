@@ -92,6 +92,7 @@ export const useAuthStore = defineStore("auth", {
           console.log(error);
         });
     },
+
     /* Register */
     async handleRegister(credentials) {
       // this.getToken();
@@ -135,14 +136,16 @@ export const useAuthStore = defineStore("auth", {
       axios
         .request(config)
         .then((response) => {
-        console.log("-----------register response-----------");
-          console.log(JSON.stringify(response.data));
+          console.log("-----------router push VerifyEmail -----------");
           router.push({ name: "VerifyEmail" });
+          console.log("-----------register response-----------");
+          console.log(JSON.stringify(response.data));
         })
         .catch((error) => {
           console.log(error);
         });
     },
+
     /* Logout */
     handleLogout() {
       // axios
@@ -234,10 +237,32 @@ export const useAuthStore = defineStore("auth", {
     },
     /* Verify email */
     handleSendVerifyEmail() {
-      axios.post("/api/email/verification-notification").then((response) => {
-        this.message =
-          "Se ha enviado un correo de verificación a su cuenta de correo.";
+      // axios.post("/api/verify-email").then((response) => {
+      //   this.message =
+      //     "Se ha enviado un correo de verificación a su cuenta de correo.";
+      // });
+      console.log("-----------handleSendVerifyEmail()-----------");
+
+      const token = localStorage.getItem("token");
+      let config = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/verify-email`,
+        headers: { 
+          'Accept': 'application/json', 
+          Authorization: `Bearer ${token}`,
+        }
+      };
+      
+      axios.request(config)
+      .then((response) => {
+        console.log("-----------enviando correo-----------");
+        console.log(JSON.stringify(response.data));
+      })
+      .catch((error) => {
+        console.log(error);
       });
+      
     },
   },
 });

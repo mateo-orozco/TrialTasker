@@ -32,8 +32,8 @@ import { useAuthStore } from '@/stores/authStore'
 import Entry from '@/components/Entry.vue'
 import Button from '../../components/buttons/Button.vue';
 
-const authStore = useAuthStore()
-
+const authStore = useAuthStore();
+authStore.handleSendVerifyEmail();
 
 </script>
 

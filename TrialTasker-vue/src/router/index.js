@@ -141,14 +141,23 @@ const router = createRouter({
 });
 
 let user = [];
-router.beforeEach( (to, from, next)  => {
+router.beforeEach((to, from, next) => {
+  console.log("-----------beforeEach-----------");
+
   if (to.meta.title) {
     document.title = to.meta.title;
+    console.log("-----------titile-----------");
+    console.log(to.meta.title);
   }
+
   const redirect = () => {
     if (from.name === "Register" && to.name === "VerifyEmail") {
+      console.log("-----------de registro a verifyemail-----------");
       next();
-    } else if (user.email_verified_at === null && to.name !== "VerifyEmail") {
+    } else if (user.userData.email_verified_at === null && to.name !== "VerifyEmail") {
+      console.log(
+        "-----------verifyemail null y nombre !== verifyemail-----------"
+      );
       next({ name: "VerifyEmail" });
     } else if (
       to.name === "Login" ||
@@ -157,20 +166,22 @@ router.beforeEach( (to, from, next)  => {
       to.name === "ResetPassword" ||
       to.name === "LandingPage"
     ) {
-      if (user.is_admin) {
+      if (user.userData.is_admin) {
         console.log("Es admin");
         next({ name: "Dashboard" });
       } else {
         next({ name: "Home" });
       }
-    } else if (to.path.includes("/dashboard") && !user.is_admin) {
+    } else if (to.path.includes("/dashboard") && !user.userData.is_admin) {
       next({ name: "Home" });
     } else {
       next();
     }
   };
 
-  const token =  localStorage.getItem("token");
+  const token = localStorage.getItem("token");
+
+  console.log("-----------validate token-----------");
 
   if (token != undefined || token != null) {
     console.log(user.length);
@@ -180,7 +191,7 @@ router.beforeEach( (to, from, next)  => {
       //   redirect();
       // });
 
-      console.log('-----------headers-----------');
+      console.log("-----------headers-----------");
       console.log(token);
 
       let config = {
@@ -193,28 +204,29 @@ router.beforeEach( (to, from, next)  => {
         },
       };
 
-      console.log('-----------redirec-----------');
+      console.log("-----------redirec-----------");
 
       axios
         .request(config)
         .then((response) => {
-          console.log('-----------redirec-----------');
+          console.log("-----------redirec-----------");
           console.log(JSON.stringify(response.data));
           user = response.data;
+          console.log("-----------user verify at-----------");
+          console.log(user.userData.email_verified_at);
           redirect();
         })
         .catch((error) => {
-          console.log('-----------error-----------');
+          console.log("-----------error-----------");
           console.log(error);
           redirect();
-
         });
     } else {
       redirect();
     }
   } else {
     user = [];
-   const token =  localStorage.getItem("token");
+    const token = localStorage.getItem("token");
     if (
       to.name === "Login" ||
       to.name === "Register" ||
