@@ -97,7 +97,8 @@ const cases = useCaseStore();
 
 onMounted(() => {
 })
-
+    var casoid = localStorage.getItem("id");
+    cases.getCase(casoid);
 </script>
 
 <style scoped>

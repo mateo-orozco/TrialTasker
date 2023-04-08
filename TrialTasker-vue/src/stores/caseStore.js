@@ -52,11 +52,23 @@ export const useCaseStore = defineStore("cases", {
     },
     /* get case */
     async getCase(id) {
-      await axios.get("/api/cases/" + id).then((response) => {
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/cases/${id}`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      await axios.request(config).then((response) => {
         // console.log(response.data.id);
         this.caseStore = response.data;
 
-        
+        localStorage.removeItem("id");
+        localStorage.setItem("id", id);
         console.log(this.caseStore);
 
       });
@@ -94,8 +106,19 @@ export const useCaseStore = defineStore("cases", {
     },
     /* update case */
     async updateCase(req) {
-      await axios
-        .put("/api/cases/" + req.id, req)
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "put",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/cases/${req.id}`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        data: req,
+      };  
+      await axios.request(config)
         .then((response) => {
           this.messagesStore = response.data;
           this.getCases();
@@ -107,8 +130,18 @@ export const useCaseStore = defineStore("cases", {
     },
     /* delete case */
     async deleteCase(id) {
-      await axios
-        .delete("/api/cases/" + id)
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "delete",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/cases/${id}`,  
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      await axios.request(config)
         .then((response) => {
           this.messagesStore = response.data;
           this.getCases();
@@ -180,8 +213,18 @@ export const useCaseStore = defineStore("cases", {
     },
 
     async infoCase(id) {
-      await axios
-        .get("/api/infoCase/" + id)
+      const token = localStorage.getItem("token");
+      let config = {
+        method: 'get',
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/infoCase/${id}`,
+        headers: {
+          'Accept': 'aplication/json',
+          'Authorization': `Bearer ${token}`,
+          'Content-Type': 'application/json',
+        },
+      };
+      await axios.request(config)
         .then((response) => {
           console.log("----------------infoCase----------------");
           console.log(response.data);

@@ -52,10 +52,11 @@ import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
-
+localStorage.removeItem("id");
 const cases = useCaseStore();
-onMounted(() => {
-    cases.casesActive();
+ onMounted(async () => {
+    await cases.casesActive();
+    console.log(cases.activeCases);
 });
 
 document.addEventListener("keyup", e => {
