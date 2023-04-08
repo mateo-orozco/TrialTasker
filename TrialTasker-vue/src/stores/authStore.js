@@ -27,30 +27,30 @@ export const useAuthStore = defineStore("auth", {
     async getUser() {
       const token = localStorage.getItem("token");
       let config = {
-        method: 'get',
+        method: "get",
         maxBodyLength: Infinity,
         url: `${axios.defaults.baseURL}api/user-profile`,
-        headers: { 
-          'Accept': 'aplication/json', 
-          'Authorization': `Bearer ${token}`, 
-          'Content-Type': 'application/json', 
+        headers: {
+          Accept: "aplication/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
         },
       };
-      
-      axios.request(config)
-      .then((response) => {
-        this.authUser = response.data.userData;
-        console.log(JSON.stringify(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+
+      await axios
+        .request(config)
+        .then((response) => {
+          this.authUser = response.data.userData;
+          console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
       // await axios.get("/api/user-profile").then((response) => {
       //   this.authUser = response.data;
       //   console.log(response.data);
 
       // });
-
     },
     /* Login */
     async handleLogin(credentials) {
@@ -93,7 +93,7 @@ export const useAuthStore = defineStore("auth", {
         data: credentials,
       };
 
-      axios
+      await axios
         .request(config)
         .then((response) => {
           console.log(JSON.stringify(response.data));
@@ -114,6 +114,8 @@ export const useAuthStore = defineStore("auth", {
         })
         .catch((error) => {
           console.log(error);
+          this.authErrors = error.response.data.errors;
+          this.authMessage = error.response.data.message;
         });
     },
 
@@ -160,7 +162,7 @@ export const useAuthStore = defineStore("auth", {
       await axios
         .request(config)
         .then((response) => {
-          let res =JSON.stringify(response.data)
+          let res = JSON.stringify(response.data);
           console.log("-----------router push VerifyEmail -----------");
           router.push({ name: "VerifyEmail" });
           console.log("-----------register response lock-----------");
@@ -170,7 +172,7 @@ export const useAuthStore = defineStore("auth", {
           console.log("-----------no hizo login-----------");
         })
         .catch((error) => {
-          console.log(error);
+          this.authErrors = error.response.data.errors;
         });
     },
 
@@ -274,26 +276,26 @@ export const useAuthStore = defineStore("auth", {
 
       const token = localStorage.getItem("token");
       let config = {
-        method: 'post',
+        method: "post",
         maxBodyLength: Infinity,
         url: `${axios.defaults.baseURL}api/verify-email`,
-        headers: { 
-          'Accept': 'application/json', 
+        headers: {
+          Accept: "application/json",
           Authorization: `Bearer ${token}`,
-        }
+        },
       };
-      
-      axios.request(config)
-      .then((response) => {
-        console.log("-----------enviando correo-----------");
-        this.message =
-          "Se ha enviado un correo de verificación a su cuenta de correo.";
-        console.log(JSON.stringify(response.data));
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-      
+
+      axios
+        .request(config)
+        .then((response) => {
+          console.log("-----------enviando correo-----------");
+          this.message =
+            "Se ha enviado un correo de verificación a su cuenta de correo.";
+          console.log(JSON.stringify(response.data));
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     },
   },
 });
