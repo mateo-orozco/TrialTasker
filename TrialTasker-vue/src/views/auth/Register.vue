@@ -51,7 +51,7 @@
             </div>
             <button class="btn" type="submit">Registrar</button>
             <div class="botonAtras">
-                <RouterLink :to="{ name: 'LandingPage' }" class="atras">Atras</RouterLink>
+                <RouterLink :to="{ name: 'Login' }" class="atras">Atras</RouterLink>
             </div>
         </form>
 
@@ -114,7 +114,7 @@ input {
     top: 0;
     left: 0;
     width: 100%;
-    height: 145vh;
+    height: 125vh;
     overflow: hidden;
     z-index: -1;
     background-color: var(--brown);

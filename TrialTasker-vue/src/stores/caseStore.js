@@ -85,6 +85,7 @@ export const useCaseStore = defineStore("cases", {
 
 
       });
+      console.log(this.caseStore);
     },
 
 
@@ -208,11 +209,11 @@ export const useCaseStore = defineStore("cases", {
           // console.log(this.activeCases);
           var cont=0;
           for (const i in this.activeCases) {
-            cont++
-            this.numactivos[i]=cont;
-
+            cont++;
+            this.numactivos[i] = cont;
           }
           this.activos=cont;
+
 
         })
         .catch((error) => {
@@ -236,13 +237,12 @@ export const useCaseStore = defineStore("cases", {
           this.inactiveCases = response.data;
           // console.log(this.inactiveCases);
 
-          var cont=0;
+          var cont = 0;
           for (const i in this.inactiveCases) {
-            cont++
-            this.numinactivos[i]=cont;
+            cont++;
+            this.numinactivos[i] = cont;
           }
-          this.inactivos=cont;
-
+          this.inactivos = cont;
         })
         .catch((error) => {
           this.errorsStore = error.response.data.errors;
@@ -270,6 +270,5 @@ export const useCaseStore = defineStore("cases", {
           this.errorsStore = error.response.data.errors;
         });
     },
-
-  }
+  },
 });
