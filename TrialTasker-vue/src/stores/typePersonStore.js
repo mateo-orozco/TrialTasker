@@ -64,9 +64,30 @@ export const useTypePersonStore = defineStore("typePersons", {
     },
     /* get typePerson */
     async getTypePerson(id) {
-      await axios.get("/api/type-persons/" + id).then((response) => {
-        this.typePersonStore = response.data;
-      });
+      // await axios.get("/api/type-persons/" + id).then((response) => {
+      //   this.typePersonStore = response.data;
+      // });
+
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/type-persons/${id}`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          this.typePersonStore = response.data;
+        })
+        .catch((error) => {
+          this.errorsStore = error.response.data.errors;
+        });
     },
 
     /* create typePerson */
@@ -131,7 +152,7 @@ export const useTypePersonStore = defineStore("typePersons", {
       //   this.messagesStore = response.data;
       //   this.getTypePersons();
       // });
-      
+
       const token = localStorage.getItem("token");
       let config = {
         method: "delete",
