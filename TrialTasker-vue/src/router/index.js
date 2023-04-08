@@ -154,12 +154,12 @@ router.beforeEach((to, from, next) => {
     if (from.name === "Register" && to.name === "VerifyEmail") {
       console.log("-----------de registro a verifyemail-----------");
       next();
-    // } 
-    // else if (user.userData.email_verified_at === null && to.name !== "VerifyEmail") {
-    //   console.log(
-    //     "-----------verifyemail null y nombre !== verifyemail-----------"
-    //   );
-    //   next({ name: "VerifyEmail" });
+    } 
+    else if (user.userData.email_verified_at === null && to.name !== "VerifyEmail") {
+      console.log(
+        "-----------verifyemail null y nombre !== verifyemail-----------"
+      );
+      next({ name: "VerifyEmail" });
     } else if (
       to.name === "Login" ||
       to.name === "Register" ||
