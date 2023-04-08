@@ -142,23 +142,23 @@ const router = createRouter({
 
 let user = [];
 router.beforeEach((to, from, next) => {
-  console.log("-----------beforeEach-----------");
+  // console.log("-----------beforeEach-----------");
 
   if (to.meta.title) {
     document.title = to.meta.title;
-    console.log("-----------titile-----------");
-    console.log(to.meta.title);
+    // console.log("-----------titile-----------");
+    // console.log(to.meta.title);
   }
 
   const redirect = () => {
     if (from.name === "Register" && to.name === "VerifyEmail") {
-      console.log("-----------de registro a verifyemail-----------");
+      // console.log("-----------de registro a verifyemail-----------");
       next();
     } 
     else if (user.userData.email_verified_at === null && to.name !== "VerifyEmail") {
-      console.log(
-        "-----------verifyemail null y nombre !== verifyemail-----------"
-      );
+      // console.log(
+      //   "-----------verifyemail null y nombre !== verifyemail-----------"
+      // );
       next({ name: "VerifyEmail" });
     } else if (
       to.name === "Login" ||
@@ -168,7 +168,7 @@ router.beforeEach((to, from, next) => {
       to.name === "LandingPage"
     ) {
       if (user.userData.is_admin) {
-        console.log("Es admin");
+        // console.log("Es admin");
         next({ name: "Dashboard" });
       } else {
         next({ name: "Home" });
@@ -182,18 +182,18 @@ router.beforeEach((to, from, next) => {
 
   const token = localStorage.getItem("token");
 
-  console.log("-----------validate token-----------");
+  // console.log("-----------validate token-----------");
 
   if (token != undefined || token != null) {
-    console.log(user.length);
+    // console.log(user.length);
     if (user.length === 0) {
       // axios.get("/api/user-profile").then((response) => {
       //   user = response.data;
       //   redirect();
       // });
 
-      console.log("-----------headers-----------");
-      console.log(token);
+      // console.log("-----------headers-----------");
+      // console.log(token);
       let config = {
         method: 'get',
         maxBodyLength: Infinity,
@@ -205,21 +205,21 @@ router.beforeEach((to, from, next) => {
         },
       };
 
-      console.log("-----------redirec-----------");
+      // console.log("-----------redirec-----------");
 
       axios
         .request(config)
         .then((response) => {
-          console.log("-----------redirec-----------");
-          console.log(JSON.stringify(response.data));
+          // console.log("-----------redirec-----------");
+          // console.log(JSON.stringify(response.data));
           user = response.data;
-          console.log("-----------user verify at-----------");
-          console.log(user.userData.email_verified_at);
+          // console.log("-----------user verify at-----------");
+          // console.log(user.userData.email_verified_at);
           redirect();
         })
         .catch((error) => {
-          console.log("-----------error-----------");
-          console.log(error);
+          // console.log("-----------error-----------");
+          // console.log(error);
           redirect();
         });
     } else {
@@ -237,9 +237,9 @@ router.beforeEach((to, from, next) => {
     ) {
       next();
     } else {
-      console.log("-----------token en local-----------");
-      console.log(token);
-      console.log("No hay token");
+      // console.log("-----------token en local-----------");
+      // console.log(token);
+      // console.log("No hay token");
       next({ name: "Login" });
     }
   }

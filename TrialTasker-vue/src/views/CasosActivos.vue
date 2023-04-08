@@ -27,21 +27,26 @@
             <tbody>
                 <tr v-for="active,index in cases.activeCases" class="caso">
                     <td>
-                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id)">
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id),cases.reiniciar(active.id)">
                             Cambiar Estatus
                         </RouterLink>
                     </td>
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
-                    <td>Activo</td>
+                    <td>{{ active.case_status }}</td>
                     <td>
                         <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
                             <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
-                        <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
+                        <!-- <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Actualizar</div>
+                        </RouterLink> -->
+                        <td>
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id)">
+                            Actualizar
                         </RouterLink>
+                    </td>
                     </td>
                 </tr>
             </tbody>
@@ -55,6 +60,13 @@ import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
 localStorage.removeItem("id");
+localStorage.removeItem("personid");
+localStorage.removeItem("userid");
+localStorage.removeItem("radicate");
+localStorage.removeItem("name");
+
+
+
 const cases = useCaseStore();
  onMounted(async () => {
     await cases.casesActive();

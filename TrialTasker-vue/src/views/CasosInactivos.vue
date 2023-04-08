@@ -2,17 +2,15 @@
     <main>
         <HeaderTableVue title="Casos Inactivos" to="PersonDashboardCreate" />
         
-        <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
-                <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
+        <!-- <div class="navbar">
+            
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
                 <div class="Button">Crear Persona</div>
             </RouterLink>
             <RouterLink :to="{ name: 'CreateCasePRUEBAS' }" class="button">
                 <div class="Button">Crear Caso</div>
             </RouterLink>
-        </div>
+        </div> -->
         <input class="search" type="search" placeholder="Buscar">
 
         <table>
@@ -28,7 +26,9 @@
             </thead>
             <tbody>
                 <tr v-for="active,index in cases.inactiveCases" class="caso">
-                    <td><input type="checkbox"></td>
+                    <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id),cases.reiniciar(active.id)">
+                        Cambiar Estatus
+                    </RouterLink>
                     <td>{{ cases.numinactivos[index] }}</td>
                     <td>{{ active["case_name"] }}</td>
                     <td>{{ active["case_radicate"] }}</td>
@@ -54,6 +54,13 @@ import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 import TableUser from '@/components/Tables/TableUsers.vue';
 
 const cases = useCaseStore();
+
+localStorage.removeItem("id");
+localStorage.removeItem("personid");
+localStorage.removeItem("userid");
+localStorage.removeItem("radicate");
+localStorage.removeItem("name");
+
 onMounted(() => {
     cases.casesInactive()
 });
