@@ -105,12 +105,12 @@ export const useCaseStore = defineStore("cases", {
         });
     },
     /* update case */
-    async updateCase(req) {
+    async updateCase(id) {
       const token = localStorage.getItem("token");
       let config = {
         method: "put",
         maxBodyLength: Infinity,
-        url: `${axios.defaults.baseURL}api/cases/${req.id}`,
+        url: `${axios.defaults.baseURL}api/cases/${id}`,
         headers: {
           Accept: "application/json",
           Authorization: `Bearer ${token}`,

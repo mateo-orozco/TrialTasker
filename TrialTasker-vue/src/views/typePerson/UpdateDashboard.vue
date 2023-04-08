@@ -22,9 +22,9 @@ const form = ref({
     type_person_name: '',
 });
 onMounted(async() => {
-    await typePersons.getTypePerson(route.params.id);
+    await typePersons.getTypePerson(1);
     form.value ={
-        id: typePersons.typePerson.id,
+        id: 1,
         type_person_name: typePersons.typePerson.type_person_name,
     }
 });

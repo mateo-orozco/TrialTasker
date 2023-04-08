@@ -3,9 +3,7 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
-                <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
+            
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
                 <div class="Button">Crear Persona</div>
             </RouterLink>
@@ -28,7 +26,11 @@
             </thead>
             <tbody>
                 <tr v-for="active,index in cases.activeCases" class="caso">
-                    <td><input type="checkbox"></td>
+                    <td>
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id)">
+                            Cambiar Estatus
+                        </RouterLink>
+                    </td>
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
