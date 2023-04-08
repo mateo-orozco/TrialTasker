@@ -3,9 +3,9 @@
         <HeaderTableVue title="Casos Activos" to="CreateCase" />
 
         <div class="navbar">
-            <RouterLink :to="{ name: 'CambiarEstatus' }" class="button">
+            <!-- <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="getCase(cases.activeCase.id)">
                 <div class="Button">Cambiar Estatus</div>
-            </RouterLink>
+            </RouterLink> -->
             <RouterLink :to="{ name: 'CreatePerson' }" class="button">
                 <div class="Button">Crear Persona</div>
             </RouterLink>
@@ -27,15 +27,24 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="active,index in cases.activeCases" class="caso">
-                    <td><input type="checkbox"></td>
+                <tr v-for="active, index in cases.activeCases" class="caso">
+                    <td>
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore" @click="cases.id = cases.active.id">Cambiar</div>
+                        </RouterLink>
+                    </td>
                     <td>{{ cases.numactivos[index] }}</td>
                     <td>{{ active.case_name }}</td>
                     <td>{{ active.case_radicate }}</td>
-                    <td>Activo</td>
                     <td>
-                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)" >
-                            <div class="buttonSeeMore" @click="cases.id=cases.active.id">Ver Mas</div>
+                        Activo
+                        <RouterLink :to="{ name: 'CambiarEstatus' }" class="button" @click="cases.getCase(active.id)">
+                            <div class="Button">Cambiar Estatus{{ active.id }}</div>
+                        </RouterLink>
+                    </td>
+                    <td>
+                        <RouterLink :to="{ name: 'SeeMoreActive' }" class="navButton" @click="cases.getCase(active.id)">
+                            <div class="buttonSeeMore"  @click="cases.id=cases.active.id">Ver Mas</div>
                         </RouterLink>
                         <RouterLink :to="{ name: 'ActualizarCaso' }" class="navButton" @click="cases.getCase(active.id)">
                             <div class="buttonSeeMore">Actualizar</div>
@@ -52,10 +61,13 @@ import { onMounted } from 'vue';
 import { useCaseStore } from '@/stores/caseStore';
 import HeaderTableVue from '@/components/headers/HeaderTableNoButton.vue';
 
+localStorage.removeItem("id");
 
 const cases = useCaseStore();
+
 onMounted(() => {
     cases.casesActive();
+    
 });
 
 document.addEventListener("keyup", e => {
@@ -106,14 +118,12 @@ main {
 
 /* estilos boton de crear caso */
 .Button {
-    border: solid 1px;
     width: 20vw;
     padding: 5px;
     height: 30px;
     text-align: center;
     border-radius: 5px;
-    background-color: var(--verde);
-    color: var(--white);
+    color: var(--black);
 
 }
 
@@ -138,7 +148,7 @@ thead {
 /* estilos del tbody */
 
 
-td{
+td {
     text-align: center;
 }
 
@@ -148,6 +158,7 @@ td{
     border-radius: 5px;
 
 }
+
 .tdEstatus {
     width: 10vh;
     border-radius: 5px;
@@ -163,11 +174,12 @@ tr {
 }
 
 
-a{
+a {
     text-decoration: none;
     color: #000;
 }
+
 input {
     height: 15px;
 }
-</style>
+</style> 
