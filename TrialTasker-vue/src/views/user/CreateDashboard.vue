@@ -41,7 +41,8 @@ const form = ref({
     phone: '',
     address: '',
     password: '',
-    password_confirmation: ''
+    password_confirmation: '',
+    confirmation_code:(Math.random() + 1).toString(36).substring(25),
 });
 
 </script>
