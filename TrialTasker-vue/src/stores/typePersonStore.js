@@ -68,7 +68,7 @@ export const useTypePersonStore = defineStore("typePersons", {
         this.typePersonStore = response.data;
       });
     },
-    
+
     /* create typePerson */
     async createTypePerson(typePerson) {
       // this.errorsStore = [];
@@ -125,12 +125,35 @@ export const useTypePersonStore = defineStore("typePersons", {
     },
     /* delete typePerson */
     async deleteTypePerson(id) {
-      this.errorsStore = [];
-      this.messagesStore = [];
-      await axios.delete("/api/type-persons/" + id).then((response) => {
-        this.messagesStore = response.data;
-        this.getTypePersons();
-      });
+      // this.errorsStore = [];
+      // this.messagesStore = [];
+      // await axios.delete("/api/type-persons/" + id).then((response) => {
+      //   this.messagesStore = response.data;
+      //   this.getTypePersons();
+      // });
+      
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "delete",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/type-persons/${id}`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+
+      axios
+        .request(config)
+        .then((response) => {
+          this.messagesStore = response.data;
+          this.getTypePersons();
+        })
+        .catch((error) => {
+          console.log(error);
+          this.errorsStore = error.response.data.errors;
+        });
     },
   },
 });
