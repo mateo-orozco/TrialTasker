@@ -20,8 +20,19 @@ export const usePersonStore = defineStore('persons', {
     actions: {
         /* get all persons with paginate */
         async getPersons() {
-
-            await axios.get('/api/persons')
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/persons`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            };
+            
+            await axios.request(config)
             .then(response => {
                 console.log(this.personsStore = response.data);
             });
@@ -54,14 +65,37 @@ export const usePersonStore = defineStore('persons', {
         },
         /* get person */
         async getPerson(id) {
-            await axios.get('/api/persons/' + id)
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'get',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/persons/${id}`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            };
+            await axios.request(config)
             .then(response => {
                 this.personStore = response.data;
             });
         },
         /* create person */
         async createPerson(person) {
-            await axios.post('/api/persons', person)
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'post',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/persons`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`, 
+                'Content-Type': 'application/json', 
+                },
+                data: person
+            };
+            await axios.request(config)
             .then(response => {
                 this.messagesStore = response.data;
                 this.getPersons();
@@ -85,7 +119,19 @@ export const usePersonStore = defineStore('persons', {
         },
         /* delete person */
         async deletePerson(id) {
-            await axios.delete('/api/persons/' + id)
+            const token = localStorage.getItem("token");
+            let config = {
+                method: 'delete',
+                maxBodyLength: Infinity,
+                url: `${axios.defaults.baseURL}api/persons/${id}`,
+                headers: {
+                    'Accept': 'application/json',
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json',
+                },
+            };
+
+            await axios.request(config)
             .then(response => {
                 this.messagesStore = response.data;
                 this.getPersons();
