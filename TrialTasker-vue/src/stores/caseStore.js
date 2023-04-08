@@ -26,7 +26,19 @@ export const useCaseStore = defineStore("cases", {
   actions: {
     /* get all cases with paginate */
     async getCases() {
-      await axios.get("/api/cases").then((response) => {
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "get",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/cases`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      };
+      
+      await axios.request(config).then((response) => {
         this.casesStore = response.data;
         console.log(response.data);
       });
@@ -57,8 +69,19 @@ export const useCaseStore = defineStore("cases", {
     },
     /* create case */
     async createCase(req) {
-      await axios
-        .post("/api/cases", req)
+      const token = localStorage.getItem("token");
+      let config = {
+        method: "post",
+        maxBodyLength: Infinity,
+        url: `${axios.defaults.baseURL}api/cases`,
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        data: req,
+      };
+      await axios.request(config)
         .then((response) => {
           this.messagesStore = response.data;
           this.getCases();
